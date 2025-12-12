@@ -1,0 +1,2279 @@
+"You are optimizing a computational task on a supercomputer known for its high energy consumption. Which of the 
+following strategies would most effectively reduce the energy usage of your computation?
+A. Increasing the clock speed of the processors.
+B. Reducing the precision of calculations (e.g., from double to single precision).
+C. Running the computation in a single thread.
+D. Disabling all power-saving features of the hardware.
+E. Rewriting the code in a more energy-efficient programming language","Reducing the precision of calculations (e.g., from double to single precision)",TRUE,91
+"A genomics data analysis algorithm scales poorly as the number of processors increases on an HPC
+system. What is the most likely cause of this scalability issue?
+A. The algorithm's time complexity is too low.
+B. The algorithm has excessive inter-processor communication.
+C. The input data is too small to benefit from parallelism.
+D. The algorithm uses too much memory.
+E. The code is written in a high-level programming language.",The algorithm has excessive inter-processor communication,FALSE,
+"Given a basic matrix multiplication algorithm, which optimization technique would most effectively reduce
+cache misses on a modern HPC system?
+A. Loop unrolling
+B. Loop tiling (blocking)
+C. Vectorization
+D. Dynamic scheduling
+E. Speculative execution",Loop tiling (blocking),FALSE, 
+"In an HPC environment, you are tasked with optimizing a matrix multiplication operation for a large-scale scientific simulation. Which
+combination of the following techniques would likely yield the best performance improvement?
+A. Using a naive triple-nested loop
+B. Applying loop unrolling and loop tiling (blocking)
+C. Leveraging parallelism with OpenMP and using vectorization with SIMD instructions
+D. Relying solely on compiler optimizations without code modifications
+E. Switching to a different programming language",Leveraging parallelism with OpenMP and using vectorization with SIMD instructions,TRUE,
+"Why is code optimization particularly crucial in HPC environments?
+A. To reduce the code size.
+B. To ensure compatibility with different compilers.
+C. To maximize performance by effectively utilizing hardware resources.
+D. To make the code easier to read.
+E. To minimize the number of programming errors",To maximize performance by effectively utilizing hardware resources.,TRUE,
+"Which profiling technique is most suitable for identifying performance bottlenecks in parallel applications?
+A. Sampling 
+B. Instrumentation
+C. Tracing 
+D. Call graph profiling 
+E. Memory profiling",. Tracing ,TRUE,
+"When choosing a parallel algorithm for HPC, why is scalability a critical consideration?
+A. It ensures that the code is more readable.
+B. It guarantees the lowest possible execution time on a single processor.
+C. It allows the algorithm to utilize increasing numbers of processors effectively.
+D. It simplifies the debugging process.
+E. It makes the algorithm compatible with multiple programming languages.",It allows the algorithm to utilize increasing numbers of processors effectively.,TRUE,
+"In the context of HPC, why might arrays be preferred over linked lists for data processing?
+A. Arrays are more flexible in memory allocation.
+B. Arrays support better data locality, which is crucial for cache performance.
+C. Linked lists allow for faster access to random elements.
+D. Linked lists are easier to parallelize.
+E. Arrays require less synchronization in multi-threaded environments.","Arrays support better data locality, which is crucial for cache performance.",TRUE,
+"Consider the following code for adding elements of two arrays:
+for (int i = 0; i < n; i++) {
+C[i] = A[i] + B[i];
+}
+Which of the following is the correct unrolled version of the loop, and what is the primary benefit of loop unrolling in this context?
+Which of the following is the correct unrolled version of the loop, assuming that n is guaranteed to be a multiple of 4 and no out-of-bounds access should occur?
+A.
+for (int i = 0; i < n; i++) {
+C[i] = A[i] + B[i];
+C[i+1] = A[i+1] + B[i+1];
+}
+B.
+for (int i = 0; i < n; i += 4) {
+C[i] = A[i] + B[i];
+C[i+1] = A[i+1] + B[i+1];
+C[i+2] = A[i+2] + B[i+2];
+C[i+3] = A[i+3] + B[i+3];
+}
+C.
+for (int i = 0; i < n; i += 2) {
+C[i] = A[i] + B[i];
+C[i+1] = A[i+1] + B[i+1];
+}
+D.
+for (int i = 0; i < n; i += 8) {
+C[i] = A[i] + B[i];
+C[i+1] = A[i+1] + B[i+1];
+C[i+2] = A[i+2] + B[i+2];
+C[i+3] = A[i+3] + B[i+3];
+C[i+4] = A[i+4] + B[i+4];
+C[i+5] = A[i+5] + B[i+5];
+C[i+6] = A[i+6] + B[i+6];
+C[i+7] = A[i+7] + B[i+7];
+}
+E.
+for (int i = 0; i < n; i++) {
+C[i] = A[i] + B[i];
+}","for (int i = 0; i < n; i += 4) {
+C[i] = A[i] + B[i];
+C[i+1] = A[i+1] + B[i+1];
+C[i+2] = A[i+2] + B[i+2];
+C[i+3] = A[i+3] + B[i+3];
+}",TRUE,
+"Analyse the following matrix multiplication code and identify which optimization
+technique would most effectively improve cache performance:
+for (int i = 0; i < n; i++) {
+for (int j = 0; j < n; j++) {
+for (int k = 0; k < n; k++) {
+C[i][j] += A[i][k] * B[k][j];
+}
+}
+}
+A. Loop unrolling 
+B. Loop fusion 
+C. Loop tiling (blocking)
+D. Vectorization 
+E. Speculative execution", Loop tiling (blocking),TRUE,
+"The following code uses a linked list to sum its elements. What is a major drawback of using a linked list in this context, particularly in an HPC environment? 
+struct Node { int data; struct Node* next; }; 
+int sum_linked_list(struct Node* head) { 
+int sum = 0; 
+struct Node* current = head; 
+while (current != NULL) { 
+sum += current->data; current = current->next; 
+} return sum; 
+} 
+A. Linked lists use more memory than arrays. 
+B. Linked lists have poor data locality, leading to inefficient cache usage. 
+C. Linked lists are more complex to implement. 
+D. Linked lists are harder to parallelize. 
+E. Linked lists require dynamic memory allocation","Linked lists have poor data locality, leading to inefficient cache usage.",TRUE,
+"Consider the following code for vector addition using scalar operations. Which SIMD intrinsic-based code correctly
+optimizes this for vectorization on a CPU with AVX instructions? Original Code:
+void add_vectors(float* x, float* y, float* z, int n) {
+for (int i = 0; i < n; i++) {
+z[i] = x[i] + y[i];
+}
+}
+A.
+#include <immintrin.h>
+void add_vectors(float* x, float* y, float* z, int n) {
+for (int i = 0; i < n; i += 8) {
+__m256 vx = _mm256_load_ps(&x[i]);
+__m256 vy = _mm256_load_ps(&y[i]);
+__m256 vz = _mm256_add_ps(vx, vy);
+_mm256_store_ps(&z[i], vz);
+}
+}
+B.
+#include <emmintrin.h>
+void add_vectors(float* x, float* y, float* z, int n) {
+for (int i = 0; i < n; i += 4) {
+__m128 vx = _mm_load_ps(&x[i]);
+__m128 vy = _mm_load_ps(&y[i]);
+__m128 vz = _mm_add_ps(vx, vy);
+_mm_store_ps(&z[i], vz);
+}
+}
+C.
+#include <xmmintrin.h>
+void add_vectors(float* x, float* y, float* z, int n) {
+for (int i = 0; i < n; i += 2) {
+__m64 vx = _mm_load_si64((__m64*)&x[i]);
+__m64 vy = _mm_load_si64((__m64*)&y[i]);
+__m64 vz = _mm_add_pi32(vx, vy);
+_mm_store_si64((__m64*)&z[i], vz);
+}
+}
+D.
+void add_vectors(float* x, float* y, float* z, int n) {
+for (int i = 0; i < n; i++) {
+z[i] = x[i] + y[i];
+}
+}
+E. None of the above","#include <immintrin.h>
+void add_vectors(float* x, float* y, float* z, int n) {
+for (int i = 0; i < n; i += 8) {
+__m256 vx = _mm256_load_ps(&x[i]);
+__m256 vy = _mm256_load_ps(&y[i]);
+__m256 vz = _mm256_add_ps(vx, vy);
+_mm256_store_ps(&z[i], vz);
+}
+}",TRUE,
+"Given the following loop intended for parallel execution using OpenMP, identify the issue with the parallelization strategy:
+void scale_array(float* array, int n, float scalar) {
+#pragma omp parallel for
+for (int i = 0; i < n; i++) {
+array[i] *= scalar;
+}
+}
+A. The code will result in a race condition. 
+B. The loop cannot be parallelized because the array elements depend on each other.
+C. There is no issue; the loop is correctly parallelized. 
+D. The use of scalar in the loop might cause incorrect results due to data races.
+E. The array should be split into chunks manually for parallel processing.",There is no issue; the loop is correctly parallelized. ,TRUE,
+"You are optimizing a computational fluid dynamics (CFD) code running on an HPC system. The code frequently accesses large 
+3D arrays representing fluid properties. What is the most effective way to optimize memory access patterns to improve cache utilization?
+A. Randomize the memory access patterns to reduce cache conflicts. 
+B. Implement loop tiling to process small blocks of the 3D arrays that fit into the cache.
+C. Use linked lists to store the data instead of arrays. 
+D. Increase the size of the cache through hardware upgrades.
+E. Disable cache usage to avoid cache misses.",. Implement loop tiling to process small blocks of the 3D arrays that fit into the cache.,TRUE,
+"In a molecular dynamics simulation, pairwise force calculations between particles are a performance bottleneck. How
+would you optimize this calculation to improve throughput on a modern HPC system?
+A. Convert the code to a scripting language for better readability.
+B. Use SIMD vectorization to compute forces between multiple pairs of particles simultaneously.
+C. Replace all floating-point calculations with integer arithmetic.
+D. Increase the number of conditional checks to avoid unnecessary calculations.
+E. Use single-threaded execution to avoid race conditions.",Use SIMD vectorization to compute forces between multiple pairs of particles simultaneously.,TRUE,
+"Weather forecasting models on HPC systems often involve large-scale matrix operations.
+What data structure choice would most efficiently utilize the system's memory hierarchy?
+A. Using linked lists to store matrix data.
+B. Using arrays with contiguous memory allocation.
+C. Using hash tables for matrix storage.
+D. Using dynamic memory allocation for each matrix element.
+E. Storing data on disk and accessing it as needed.",Using arrays with contiguous memory allocation.,FALSE,
+"In a large-scale simulation running on an HPC cluster, the time spent on I/O operations (reading/writing
+data) is significant. Which optimization strategy would help reduce I/O bottlenecks?
+A. Use a single thread to handle all I/O operations.
+B. Implement parallel I/O using MPI-IO.
+C. Store data in a global variable to minimize I/O operations.
+D. Increase the size of I/O buffers on the master node.
+E. Write data to disk after every iteration to prevent data loss.",Implement parallel I/O using MPI-IO.,TRUE,
+"In an image processing application running on an HPC system, the memory bandwidth is the primary bottleneck. 
+Which technique would most likely improve performance?
+A. Increasing the size of the images being processed.
+B. Storing images as linked lists for faster access.
+C. Using loop tiling and prefetching to optimize data access patterns.
+D. Using higher precision for image pixel values.
+E. Converting the images to grayscale before processing.",Using loop tiling and prefetching to optimize data access patterns.,FALSE,
+"In a parallel computational chemistry application, certain processes take significantly longer to complete than others, 
+leading to idle times on some processors. What strategy would best address this issue?
+A. Use a static load balancing approach where each process handles an equal portion of the data.
+B. Implement dynamic load balancing to redistribute work among processors during runtime.
+C. Increase the clock speed of the slower processors.
+D. Use a single-threaded approach to avoid imbalances.
+E. Allocate more memory to the slower processes.", Implement dynamic load balancing to redistribute work among processors during runtime.,TRUE,
+"When optimizing a deep learning model on an HPC system, which of the following would most effectively leverage the 
+system's vector processing capabilities?
+A. Converting all matrix operations to scalar operations.
+B. Implementing manual vectorization using SIMD intrinsics for key operations.
+C. Using a single CPU core to perform all computations.
+D. Relying on the operating system to optimize vector operations.
+E. Disabling vector instructions to simplify debugging.",. Implementing manual vectorization using SIMD intrinsics for key operations.,TRUE,
+"The BlueFrost supercomputer, known for its robust SMP architecture, uses a tool called HPCToolkit, an open-source suite for 
+measuring and analyzing program performance on computers ranging from multicore desktop systems to the largest supercomputers. 
+Using this tool, engineers detected performance bottlenecks in their applications.
+Question: What is a primary advantage of using HPCToolkit on an SMP-based supercomputer like BlueFrost?
+A.  It can help in increasing the storage capacity of the supercomputer. 
+B. It assists in distributing tasks evenly across processors to avoid bottlenecks. 
+C. The tool can reduce power
+consumption of the system. 
+D. It helps in recompiling programs to run on single-core systems.
+E. The tool assists in redesigning the physical architecture of the machine.",B. It assists in distributing tasks evenly across processors to avoid bottlenecks. ,FALSE,
+"GenoTech Corp. runs DNA simulations on its HPC cluster, ThunderPeak. While the cluster is not purely SMP, it has nodes with 
+SMP architecture. GenoTech uses MPI (Message Passing Interface), a standardized and portable message-passing system designed 
+to function on a wide variety of parallel computers. Question: How can GenoTech best optimize DNA simulations on its SMP nodes 
+within the ThunderPeak cluster using MPI?
+A. By passing messages only between nodes and not within SMP processors. 
+B. By using MPI to facilitate fine-grained communication within SMP nodes. 
+C. Avoiding MPI and using only
+single-threaded operations within SMP nodes. 
+D. Restricting MPI operations to only data storage tasks. 
+E. Utilizing MPI to ensure cache coherence within SMP nodes.",B. By using MPI to facilitate fine-grained communication within SMP nodes. ,FALSE,
+"UrbanPlanner Inc. utilizes an SMP-based HPC system, CityStream, to run real-time traffic simulations. The company recently integrated 
+a tool called OpenMP, a parallel programming model for shared-memory parallel computers. Question: What benefit does OpenMP 
+offer in enhancing real-time traffic simulations on CityStream?
+A. OpenMP helps in rendering high-definition graphics for the simulations. 
+B. It ensures that data is stored securely on the system. 
+C. OpenMP assists in distributing simulation tasks across the SMP processors efficiently. 
+D. The tool assists in network connectivity between different HPC systems. 
+E. It ensures the SMP system remains cool during intensive operations.",C. OpenMP assists in distributing simulation tasks across the SMP processors efficiently. ,FALSE,
+"WeatherX Corp. runs a complex weather forecasting application on its StormBlitz HPC system, which is based on SMP architecture. 
+They recently started employing CUDA, a parallel computing platform and API model created by NVIDIA, to leverage the power of GPU
+along with SMP cores. Question: How does integrating CUDA in StormBlitz enhance the performance of WeatherX's forecasting application?
+A. It optimizes storage systems for faster data retrieval. 
+B. CUDA ensures the consistent performance of all SMP cores. 
+C. It offloads certain parallelizable tasks from SMP cores to the GPU for faster processing. 
+D. CUDA improves the resolution of weather graphics. 
+E. It focuses on enhancing the network connectivity of the HPC system.",C. It offloads certain parallelizable tasks from SMP cores to the GPU for faster processing. ,FALSE,
+"AeroDynamics Inc. is running simulations on its SkyHigh SMP-based HPC system. They incorporated PETSc, a suite of data structures and 
+routines for scalable parallel solutions of scientific applications modeled by partial differential equations. Question: Why might AeroDynamics 
+prefer to use PETSc on their SMP-based system for their simulations?
+A. PETSc specializes in rendering high-quality aerospace graphics. 
+B. It ensures better internet connectivity for the HPC system. 
+C. PETSc helps in maintaining the hardware health of the SMP system. 
+D. The suite provides scalable parallel solutions optimal for SMP architecture. 
+E. It focuses on improving the sound quality of simulation outputs.",D. The suite provides scalable parallel solutions optimal for SMP architecture. ,FALSE,
+"You are working on a high-performance application that uses both CPU and GPU resources. Profiling reveals that the GPU is
+underutilized during certain operations. Which tool would be most appropriate for diagnosing and optimizing this issue, and
+what specific metrics should you focus on?
+1. Perf
+2. Gperftools
+3. NVIDIA Nsight
+4. Intel VTune Amplifier
+5. Massif",NVIDIA Nsight.,TRUE,
+"While analysing performance data using Intel VTune Amplifier, you identify that a certain function has high L3
+cache misses. What might be causing this, and how could you optimize the function to improve cache performance?
+1. Excessive branching in the function; optimize branch prediction.
+2. Large data structures not fitting into the cache; implement data blocking or partitioning.
+3. Insufficient parallelism; increase the number of threads.
+4. Frequent I/O operations within the function; reduce I/O frequency.
+5. The function is too small; consider inlining it.",Large data structures not fitting into the cache; implement data blocking or partitioning.,TRUE,
+"You are tasked with optimizing the performance of an HPC application that processes large datasets. You need to choose between
+instrumentation and sampling for profiling, as well as decide whether to use static or dynamic profiling methods. Which of the following
+options would be most effective for gathering performance data and optimizing application behavior? Select the most appropriate option(s):
+1. Use instrumentation to gather detailed function-level performance data during the application's execution, allowing for precise
+identification of bottlenecks.
+2. Use sampling to periodically capture the state of the application with minimal overhead, focusing on identifying hotspots without
+modifying the code.
+3. Apply static profiling to analyze the application's code structure before execution, identifying potential inefficiencies early in the
+development process.
+4. Apply dynamic profiling to gather real-time data on the application's behavior during execution, providing insights into how it interacts
+with the system architecture.
+5. Combine sampling with static profiling to minimize overhead and get a high-level overview of potential issues without needing to run the
+application.","Use instrumentation to gather detailed function-level performance data during the application's execution, allowing for precise
+identification of bottlenecks.
+Use sampling to periodically capture the state of the application with minimal overhead, focusing on identifying hotspots without
+modifying the code.
+Apply dynamic profiling to gather real-time data on the application's behavior during execution, providing insights into how it interacts
+with the system architecture.",FALSE,
+"You are working on optimizing an HPC application for simulating molecular dynamics. Initial profiling using Gperftools reveals that the force 
+calculation loop is the main performance bottleneck, with significant CPU usage and poor cache performance. Which of the following 
+strategies would you choose to optimize the application? Select the most appropriate option(s):
+1.Use Intel VTune Amplifier to perform a hotspot analysis and identify inefficiencies in the loop, then apply vectorization to improve performance.
+2.Apply loop unrolling manually without further profiling to reduce the number of iterations.
+3.Use TAU to analyze parallel execution and identify load imbalances, optimizing the distribution of work across CPU cores.
+4.Increase the CPU clock speed to improve performance without changing the code.
+5.Use PAPI to measure cache misses, then optimize data structures to improve cache utilization.","Use Intel VTune Amplifier to perform a hotspot analysis and identify inefficiencies in the loop, then apply vectorization to improve performance.
+Use TAU to analyze parallel execution and identify load imbalances, optimizing the distribution of work across CPU cores.
+Use PAPI to measure cache misses, then optimize data structures to improve cache utilization.",FALSE,
+"You are profiling an HPC application using Perf and notice that a significant amount of time is spent in system calls. What could this
+indicate about your application, and what might be a possible optimization strategy?
+1. Indicates poor CPU utilization; consider increasing thread count.
+2. Indicates frequent memory allocation; optimize memory usage or batch operations.
+3. Indicates inefficient disk I/O; optimize file access patterns.
+4. Indicates excessive network communication; reduce communication overhead.
+5. Indicates insufficient parallelism; refactor code to use more cores.","Indicates inefficient disk I/O;
+optimize file access patterns.",TRUE,
+"What are possinle ways of debugging an MPI program using GNU debugger (GDB)?
+A. Launching xterm/gdb for each process
+B. Adding PID for each process in the code to allow GSB to attach the process
+C. Compiling the program with --debug_MPI
+D. Launching xterm/gcc --MPI for each process
+E. None of the above","Launching xterm/gdb for each process
+Adding PID for each process in the code to allow GSB to attach the process
+",FALSE,
+"_________ checkpointing performs the checkpoint and restart procedures via a full memory dump. This
+type of checkpointing _______require any changes to the application to enable its use.
+A. System-level, does not
+B. Application-level, does
+C. System-level, does
+D. Application-level, does not","System-level, does not",FALSE,
+"You have integrated Scalable Checkpoint/Restart (SCR) into an MPI-based simulation. How can SCR help in reducing the checkpoint overhead, 
+and what additional strategies can you implement to further minimize the impact of checkpointing on the application's performance?
+1. SCR uses compression to reduce checkpoint file size; increase checkpoint frequency.
+2. SCR allows node-local storage; combine this with incremental checkpointing.
+3. SCR uses selective state saving; reduce checkpoint frequency to minimize overhead.
+4. SCR manages parallel I/O efficiently; increase the number of I/O nodes.
+5. SCR performs asynchronous checkpointing; use coordinated checkpointing instead.",SCR allows node-local storage; combine this with incremental checkpointing.,TRUE,
+"In a hybrid approach to checkpointing, you decide to use application-level checkpointing along with a system-level
+mechanism provided by the HPC environment. What is a possible benefit of this hybrid checkpointing approach?
+a) It simplifies the process by eliminating the need for application- level checkpointing.
+b) It enhances the recovery process with the system-level checkpointing acting as a backup to application-level checkpoints.
+c) It completely replaces the application-level checkpointing with system-level checkpointing.
+d) It minimizes the frequency of checkpoints needed, as system- level checkpointing is considered more reliable.
+e) It significantly reduces the size of each checkpoint, as system- level checkpointing is more space-efficient.",It enhances the recovery process with the system-level checkpointing acting as a backup to application-level checkpoints.,FALSE,
+"In an HPC environment, you're running a computational fluid dynamics simulation with a mean time between failures (MTBF) of 100 hours. If
+your checkpointing process takes 30 minutes to complete and you can only afford a maximum of 5% overhead due to checkpointing, how 
+frequently should you schedule your checkpoints?
+a) Every 5 hours
+b) Every 10 hours
+c) Every 20 hours
+d) Every 50 hours
+e) Every 100 hours",Every 20 hours,FALSE,
+"You have been tasked with optimizing a computational fluid dynamics (CFD) simulation running on a distributed HPC system. The
+simulation uses MPI for parallel processing and has been exhibiting performance bottlenecks due to uneven workload distribution. Which
+profiling tool would be most appropriate for identifying the root cause of this issue, and why?
+a) Intel VTune Amplifier 
+b) Scalasca
+c) Gprof 
+d) Valgrind 
+e) Perf",Scalasca,TRUE,
+"Consider a scenario where you need to profile a long-running molecular dynamics simulation for memory leaks. Which tool would you
+choose to gather detailed information about memory allocation and deallocation, and what would you be looking for in the tool's output?
+a) Gprof 
+b) Valgrind Memcheck
+c) Scalasca 
+d) PAPI 
+e) TAU",Valgrind Memcheck,TRUE,
+"You are working on a high-performance application that uses both CPU and GPU resources. Profiling
+reveals that the GPU is underutilized during certain operations. Which tool would be most appropriate for
+diagnosing and optimizing this issue, and what specific metrics should you focus on?
+a) Perf 
+b) Gperftools 
+c) NVIDIA Nsight
+d) Intel VTune Amplifier 
+e) Massif",NVIDIA Nsight,FALSE,
+"When implementing checkpointing in an HPC application, what is the primary trade-off you
+need to consider when determining the frequency of checkpoints?
+a) The trade-off between checkpoint size and recovery speed
+b) The trade-off between checkpointing overhead and the potential loss of computation time in the event of a failure
+c) The trade-off between checkpoint consistency and parallel execution efficiency
+d) The trade-off between system-level and application-level checkpointing
+e) The trade-off between fault tolerance and computational precision", The trade-off between checkpointing overhead and the potential loss of computation time in the event of a failure,TRUE,
+"You have instrumented an application with the gprof tool to collect profiling data. The output indicates that 60% of the execution time is spent in a
+specific function. What optimization strategies could you employ based on this profiling data?
+a) Increase the checkpointing frequency to reduce overhead
+b) Apply loop unrolling or vectorization to optimize the identified function
+c) Utilize application-level checkpointing to save only the relevant state of the application
+d) Replace the function with an external library call
+e) Use hardware performance counters to measure cache misses",Apply loop unrolling or vectorization to optimize the identified function,FALSE,
+"While using PAPI to profile an HPC application, you observe a high number of cache misses. What are some techniques you could employ to
+reduce these cache misses and improve performance?
+a) Increase the number of MPI processes
+b) Optimize data structures for better cache locality
+c) Increase the clock speed of the CPU
+d) Use checkpointing to save frequently used data
+e) Implement more aggressive branch prediction algorithms",Optimize data structures for better cache locality,TRUE,
+"In a parallel application, you use Scalasca to analyze MPI communication patterns. The tool reports a high percentage of time spent in
+MPI_Barrier calls. What does this suggest, and how could you optimize the application?
+a) Indicates load imbalance; improve workload distribution among processes.
+b) Indicates excessive data movement; reduce the number of MPI_Barrier calls.
+c) Indicates poor memory access patterns; optimize data layout.
+d) Indicates inefficient thread management; reduce the number of threads.
+e) Indicates excessive branching; simplify conditional statements.", Indicates load imbalance; improve workload distribution among processes.,TRUE,
+"During performance analysis with Intel VTune Amplifier, you discover that your application has poor memory
+access efficiency due to frequent cache line invalidations. What is a likely cause, and how can you mitigate this issue?
+a) Inefficient CPU scheduling; increase thread affinity.
+b) False sharing in parallel threads; align data to cache line boundaries.
+c) Insufficient CPU cores; increase core allocation.
+d) High memory fragmentation; use a custom memory allocator.
+e) Poor thread synchronization; implement fine-grained locks.",False sharing in parallel threads; align data to cache line boundaries.,TRUE,
+"You have identified a critical section in your HPC application where multiple threads are contending for a lock, causing performance degradation. 
+How can you address this bottleneck?
+a) Replace the lock with atomic operations to reduce contention.
+b) Increase the number of threads to overcome the bottleneck.
+c) Use more frequent checkpointing to reduce the time spent in the critical section.
+d) Implement MPI to distribute the workload across nodes.
+e) Use a semaphore instead of a lock to manage thread synchronization.", Replace the lock with atomic operations to reduce contention.,TRUE,
+"In a memory-bound HPC application, you observe that the majority of time is spent waiting for memory accesses. Which profiling tool would help you
+identify the specific causes of memory stalls, and what kind of optimizations could you consider?
+a) Gprof; optimize function call hierarchy.
+b) Valgrind Massif; reduce memory footprint.
+c) Intel VTune Amplifier; improve cache locality or increase memory bandwidth.
+d) Scalasca; balance workload distribution.
+e) Perf; increase the number of CPU cores.",Intel VTune Amplifier; improve cache locality or increase memory bandwidth.,TRUE,
+"A developer needs to implement checkpointing in an application that runs on a heterogeneous HPC environment (combining CPUs and GPUs). 
+Which checkpointing strategy and tool combination would be most suitable, considering performance and complexity?
+a) System-level checkpointing with BLCR; handles all components transparently.
+b) Application-level checkpointing with SCR; tailored to specific application needs.
+c) Coordinated checkpointing with DMTCP; manages CPU-GPU interactions.
+d) Incremental checkpointing with PAPI; focuses on hardware counters.
+e) Uncoordinated checkpointing with Valgrind; suitable for diverse environments.", Application-level checkpointing with SCR; tailored to specific application needs,TRUE,
+"You are tasked with reducing the frequency of checkpointing in a weather simulation running on an HPC system. What factors should
+you consider when determining the optimal checkpoint interval?
+a) The overhead of I/O operations and the likelihood of system failures.
+b) The number of MPI processes and the size of the simulation grid.
+c) The clock speed of the CPU and the total simulation time.
+d) The number of checkpoints stored and the memory usage of the application.
+e) The precision of the simulation and the complexity of the atmospheric model.", The overhead of I/O operations and the likelihood of system failures.,TRUE,
+"Which of the following techniques is most likely to reduce the checkpointing overhead in an application using Berkeley Lab 
+Checkpoint/Restart (BLCR)?
+a) Increase the checkpoint frequency.
+b) Compress checkpoint data before saving.
+c) Use application-level checkpointing instead.
+d) Store checkpoints on a network file system.
+e) Reduce the number of processes checkpointed simultaneously.",Compress checkpoint data before saving.,TRUE,
+"You are implementing checkpointing in an MPI application using the Scalable Checkpoint/Restart
+(SCR) library. Consider the following code snippet:
+#include ""scr.h""
+int main() {
+SCR_Init();
+if (SCR_Have_restart()) {
+SCR_Restart_checkpoint();
+}
+for (int i = 0; i < 1000; i++) {
+// Simulation code
+// Checkpoint every 100 iterations
+if (i % 100 == 0) {
+SCR_Start_checkpoint();
+// Save state
+SCR_Complete_checkpoint(1);
+}
+}
+SCR_Finalize();
+return 0;
+}
+a) What is the purpose of calling SCR_Have_restart() at the beginning of the program, and why is it important?
+b) To determine if a previous checkpoint exists and restart from it; ensures the simulation continues smoothly after a failure.
+c) To check if the file system supports checkpointing; prevents errors in unsupported environments.
+d) To initialize SCR with the correct configuration; ensures SCR is properly set up before use.
+e) To optimize memory usage before starting the simulation; reduces overhead.
+f) To verify that the application has sufficient resources; prevents running out of memory.",To determine if a previous checkpoint exists and restart from it; ensures the simulation continues smoothly after a failure.,TRUE,
+"You are using TAU (Tuning and Analysis Utilities) to profile a parallel application and notice that some processes are spending a significant amount of
+time in the MPI_Wait function. What does this suggest, and how might you optimize the application?
+a) The application has excessive I/O operations; reduce I/O frequency.
+b) There is a load imbalance; redistribute work among processes.
+c) The application has too many MPI barriers; reduce the number of barriers.
+d) The network bandwidth is insufficient; upgrade the network infrastructure.
+e) The processes are not properly synchronized; implement a better locking mechanism.",There is a load imbalance; redistribute work among processes..,TRUE,
+"You are integrating checkpointing into a large-scale HPC application using DMTCP (Distributed MultiThreaded CheckPointing). What are the key 
+considerations to ensure minimal performance impact while maintaining robust fault tolerance?
+a) The checkpoint interval, the size of checkpoint files, and the overhead of network communication.
+b) The number of threads used, the file system type, and the memory usage of the application.
+c) The number of nodes involved, the frequency of synchronization, and the CPU clock speed. 
+d) The precision of floating-point operations, the cache size, and the number of I/O operations.
+e) The use of hardware counters, the clock speed of the CPU, and the size of the application binaries","The checkpoint interval, the size of checkpoint files, and the overhead of network communication.",TRUE,
+"During profiling with Valgrind's Massif tool, you observe that memory consumption peaks during a specific phase of your application. Which of the 
+following strategies could help reduce this memory usage?
+A) Optimize the cache usage with loop tiling. 
+B) Reduce the number of processes running concurrently. 
+C) Refactor the code to use stack allocation instead of heap allocation.
+D) Split the workload into smaller, more manageable chunks. 
+E) Implement checkpointing to save memory state periodically",Refactor the code to use stack allocation instead of heap allocation.,TRUE,
+"While analysing performance data using Intel VTune Amplifier, you identify that a certain function has high L3 cache misses. What might be 
+causing this, and how could you optimize the function to improve cache performance?
+a) Excessive branching in the function; optimize branch prediction. 
+b) Large data structures not fitting into the cache; implement data blocking or partitioning.
+c) Insufficient parallelism; increase the number of threads. 
+d) Frequent I/O operations within the function; reduce I/O frequency.
+e) The function is too small; consider inlining it.",Large data structures not fitting into the cache; implement data blocking or partitioning.,TRUE,
+"You are implementing checkpointing using Berkeley Lab Checkpoint/Restart (BLCR) in an MPI-based application. What is a key advantage of using 
+system-level checkpointing with BLCR compared to application-level checkpointing?
+a) It reduces the need for synchronization among MPI processes. 
+b) It does not require any changes to the application code.
+c) It generates smaller checkpoint files. 
+d) It allows more frequent checkpointing without impacting performance.
+e) It provides better control over what data is saved.", It does not require any changes to the application code.,TRUE,
+"You are profiling a C++ application using gprof. After compiling and running the program with gprof instrumentation, you receive the following output:
+Flat profile:
+Each sample counts as 0.01 seconds.
+% cumulative self self total
+time seconds seconds calls ms/call ms/call name
+60.00 0.60 0.60 1000 0.60 0.60 compute
+40.00 1.00 0.40 main
+Given this output, what would be the most effective optimization strategy?
+a) Reduce the number of calls to compute.
+b) Inline the main function.
+c) Optimize the compute function for better cache performance.
+d) Use a different profiling tool with lower overhead.
+e) Increase the sampling rate in gprof.",Optimize the compute function for better cache performance.,TRUE,
+"Consider the following C program that allocates memory dynamically:
+#include <stdio.h>
+#include <stdlib.h>
+int main() {
+int *array = (int*)malloc(1000 * sizeof(int));
+for (int i = 0; i < 1000; ++i) {
+array[i] = i;
+}
+// Missing free(array);
+return 0;
+}
+If you run this program with Valgrind using the command valgrind --leak-check=full ./mem_test, what issue will Valgrind report,
+and how can you fix it?
+a) It will report an invalid memory access; fix it by using free(array).
+b) It will report a memory leak; fix it by adding free(array) before the program ends.
+c) It will report uninitialized memory usage; initialize array with zeros.
+d) It will report stack overflow; reduce the size of array.
+e) No issues will be reported; the code is correct.", It will report a memory leak; fix it by adding free(array) before the program ends.,TRUE,
+"You are profiling a parallel MPI application using TAU. After running the profiling session, you observe that a significant amount of time is spent in the 
+following code segment:
+MPI_Reduce(&local_sum, &global_sum, 1, MPI_DOUBLE, MPI_SUM, 0, MPI_COMM_WORLD);
+What optimization could reduce the time spent in this MPI function?
+a) Use MPI_Bcast instead of MPI_Reduce.
+b) Replace the reduction operation with point-to-point communication.
+c) Optimize the data structure used for local_sum.
+d) Implement non-blocking communication using MPI_Ireduce.
+e) Reduce the frequency of calling MPI_Reduce.",Implement non-blocking communication using MPI_Ireduce.,TRUE,
+"In the following C++ code, you are using Intel VTune Amplifier to identify performance bottlenecks:
+#include <iostream>
+#include <vector>
+void compute(std::vector<int>& data) {
+for (auto& x : data) {
+x *= 2;
+}
+}
+int main() {
+std::vector<int> data(1000000, 1);
+compute(data);
+std::cout << ""Data processed."" << std::endl;
+return 0;
+}
+VTune indicates that the compute function has poor memory access patterns. What could you do to improve this?
+a) Replace std::vector with a raw array.
+b) Parallelize the loop using OpenMP.
+c) Use SIMD instructions to optimize the loop.
+d) Reorganize the loop to improve cache locality.
+e) Reduce the size of data.",Reorganize the loop to improve cache locality.,FALSE,
+"What are possible ways of debugging an MPI program using GNU debugger (GDB)?
+A. Launching xterm/gdb for each process
+B. Adding PID for each process in the code to allow GSB to attach the process
+C. Compiling the program with --debug_MPI
+D. Launching xterm/gcc --MPI for each process
+E. None of the above","Launching xterm/gdb for each process
+Adding PID for each process in the code to allow GDB to attach the process",FALSE,
+"What is the true about hotspots and bottlenecks in HPC application debugging?
+A. Hotspots are parts of code the program spend most of the time executing.
+B. Bottlenecks are hotspots that have unduly adverse effects on the application's performance.
+C. Program optimization may relocate the bottleneck to another part of the code.
+D. Every bottleneck is a hotspot
+E. Some hotspot may be bottleneck","Hotspots are parts of code the program spend most of the time executing.
+Bottlenecks are hotspots that have unduly adverse effects on the application's performance.
+Program optimization may relocate the bottleneck to another part of the code.
+Every bottleneck is a hotspot
+Some hotspot may be bottleneck",FALSE,
+"One of the fundamental metrics for performance monitoring is time. Its measurement may be invoked from the command line using
+the ______ system utility or by instrumenting an application with timestamp collection functions such as clock_gettime.
+A. date
+B. time
+C. gettime
+D. now",time,FALSE,
+"The tools Intel Vtune Amplifier, CodeXL and Nvidia CUDA toolkit are:
+A. Debuggers
+B. Performance monitoring
+C. compilers
+D. APIs for GPU development",Performance monitoring,FALSE,
+"What is true about the gperftools profiler suite?
+A. Very used profiler. Originally Google Performance Tools.
+B. The statistical CPU profiler is pprof
+C. No need to add it as option to compiler to permit access
+D. CPU profiler does require changes to the source code
+E. For MPI programs, we need to add ProfilerStart(filename); following MPI_Init","A. Very used profiler. Originally Google Performance Tools.
+B. The statistical CPU profiler is pprof
+E. For MPI programs, we need to add ProfilerStart(filename); following MPI_Init",FALSE,
+"We are executing the following commands:
+> gcc -O2 mvmult_papi.c -o mvmult_papi -lcblas -lpapi.
+and later:
+> ./mvmult_papi 20000
+Size 20000; abs. sum: 10000.000000 (expected: 10000)
+PAPI counts:
+init: event1: 0 event2: 0
+mult: event1: 804193640 event2: 0
+sum: event1: 20276 event2: 0
+What are we doing?
+a) Compile and link with the PAPI library and run papi to check performance
+b) Compile and run mvmult to debug the program lpapi
+c) Run the program mvmult 20000 times for getting performance information
+d) None of the above",Compile and link with the PAPI library and run papi to check performance,FALSE,
+"Debugging an application on a high performance computer frequently requires a fairly detailed view of the supercomputer software only. The hardware
+stack is managed by the OS and it could not affect the performance of the program.
+a) True
+b)  False",FALSE,FALSE,
+"Which of the following statements best captures the difficulty associated with debugging on a supercomputer compared to a serial application?
+a) Debugging on a supercomputer is easier because it uses parallel processing. 
+b) Debugging a serial application is more difficult because it runs on a single core. 
+c) The origin of anomalies in a parallel application on a supercomputer is generally easier to track. 
+d) Tracking the origin of a parallel application execution anomaly on a supercomputer is generally much more difficult than debugging a 
+serial application. 
+e) Debugging tools for supercomputers are more efficient than for serial applications","Tracking the origin of a parallel application execution anomaly on a supercomputer is generally much more difficult than debugging a 
+serial application. ",FALSE,
+"When debugging an MPI code with open-source tools, what might be a required approach?
+a) Using a single instance of a serial debugger. 
+b) Using multiple instances of parallel debuggers. 
+c) Attaching several serial
+debuggers to a simulation. 
+d) Using only commercial debuggers as open-source tools are not effective. 
+e) Ignoring MPI and focusing only on OpenMP.",Using multiple instances of parallel debuggers. ,FALSE,
+"Which of the following tools is particularly useful for debugging applications and identifying issues like memory leaks?
+a) MPI Debugger 
+b) OpenMP Debugger 
+c) GDB Suite 
+d) Valgrind Suite 
+e) System Monitor",Valgrind Suite ,FALSE,
+"If a developer wants to examine program execution and verify if it matches their expectations, what tool might they use?
+a) GDB Suite 
+b) Valgrind Suite 
+c) Compiler flags 
+d) OpenMP Debugger 
+e) System monitors",GDB Suite ,FALSE,
+"When a developer wants to step through the code, view variables, and change their values during debugging, which tool should they use?
+a) Valgrind 
+b) MPI Debugger 
+c) GDB 
+d) Compiler flags 
+e) System monitors",GDB ,FALSE,
+"How can developers utilize compiler support to enhance their debugging process?
+a) By running the code on multiple threads. 
+b) By using specific flags to enable pointer bounds checking and other
+memory checking. 
+c) By attaching multiple instances of serial debuggers. 
+d) By relying solely on system monitors for feedback. 
+e) By ignoring any potential memory leaks.","By using specific flags to enable pointer bounds checking and other
+memory checking. ",FALSE,
+"Imagine you're working on a large-scale fluid dynamics simulation on a supercomputer. The simulation uses MPI for parallel processing.
+During a long run, you notice an unexpected behavior in one of the distributed processes, but not in all. What approach would be most effective in
+debugging this scenario?
+a) Apply a single instance of a serial debugger, hoping it captures the specific process. 
+b) Run a system monitor and check overall system health. 
+c) Attach several serial debuggers to the simulation, one for each MPI process. 
+d) Use a commercial debugger exclusively designed for OpenMP codes. 
+e) Increase the computational resources and run the simulation again.","Attach several serial debuggers to the simulation, one for each MPI process. ",FALSE,
+"You're building a multi-threaded application for a supercomputer. At some point, the application crashes, and you suspect that two threads
+might be accessing shared memory simultaneously, causing data races. Which tool, described as providing tools for debugging applications and 
+rectifying data races, would you employ?
+a) GDB Suite: Provides multiple tools for debugging a code, allowing the user to step through the code and view variables. 
+b) Valgrind Suite: Provides tools for debugging applications, including rectifying data races and memory leaks. 
+c) Compiler Flags: Offers options to enable pointer bounds checking and memory verification. 
+d) System Monitors: Independently examines program execution. 
+e) OpenMP Debugger: Focuses primarily on parallel processing codes.","Valgrind Suite: Provides tools for debugging applications, including rectifying data races and memory leaks. ",FALSE,
+"You're a part of a team developing an application with multiple threads. One of the team members reports that while debugging, they were
+unable to view the behavior of individual threads. Which debugging tool would you recommend for a more detailed view of multi-threaded code
+execution?
+a) Valgrind Suite: Mainly for memory leaks and data races. 
+b) GDB: Offers support for debugging codes with multiple threads. 
+c) MPI Debugger: Primarily for parallel processing codes. 
+d) Compiler Flags: Used for memory verification and pointer checking. 
+e) System Monitors: Gives an overview of the system's execution.",GDB: Offers support for debugging codes with multiple threads. ,FALSE,
+"While working on a complex project, a colleague reaches out and mentions that their code is having memory leak issues. They've tried
+several tools, but can't identify the source. Which debugging tool, known for identifying memory leaks, would you recommend?
+a) MPI Debugger: Focuses on parallel processing. 
+b) System Monitors: Provides an overview of execution. 
+c) Compiler Flags: Enables pointer bounds checks. 
+d) Valgrind Suite: Contains tools for rectifying data races and memory leaks. 
+e) OpenMP Debugger: Primarily for parallel processing codes.",Valgrind Suite: Contains tools for rectifying data races and memory leaks. ,FALSE,
+"After compiling an application, you receive an error message related to memory bounds. You realize you've forgotten to enable a tool during
+compilation that would assist in verifying memory issues. Which tool or option would you employ to help with this issue?
+a) GDB: Steps through the code and observes variables. 
+b) Valgrind Suite: Mainly targets memory leaks and data races. 
+c) Compiler Flags: Specific flags that help in enabling pointer bounds checking and memory verification. 
+d) System Monitors: Offers an overall view of system performance. 
+e) MPI Debugger: Focuses on debugging parallel processing codes.",Compiler Flags: Specific flags that help in enabling pointer bounds checking and memory verification. ,FALSE,
+"BLAS (Basic Linear Algebra Subprograms) provides a standard interface to vector, matrix–vector, and matrix–
+matrix routines. What is the main difference between Blas level 1 and Blas level 2 and 3?
+A. Blas 1 supports matrix and vectors operations
+B. Blas 1 does not support matrix operations
+C. Blas 1 does not support scalar and vectors operations
+D. All of the above",Blas 1 does not support matrix operations,TRUE,
+"In the context of High Performance Computing, why are Partial Differential Equations (PDEs) significant?
+a) They represent simple algebraic problems.
+b) They are used to visualize complex datasets.
+c) They help in mesh decomposition.
+d) They model many real-world problems like fluid dynamics.
+e) They are fundamental in graph algorithms.",They model many real-world problems like fluid dynamics.,TRUE,
+"Imagine you are working on a weather simulation program that requires solving a large system of linear
+equations. Which tool, known for providing routines to solve systems of linear equations, would you consider using?
+a) Basic Linear Algebra Subprograms (BLAS)
+b) Parallel Boost Graph Library
+c) VTK
+d) Linear Algebra Package (LAPACK)
+e) METIS",Linear Algebra Package (LAPACK).,TRUE,
+"Imagine you are working on a weather simulation program that requires solving a large system of linear
+equations. Which tool, known for providing routines to solve systems of linear equations, would you consider using?
+a) Basic Linear Algebra Subprograms (BLAS) - Focuses on basic vector and matrix operations.
+b) Parallel Boost Graph Library - Designed for large-scale graph operations.
+c) VTK - Used for 3D data rendering and visualization.
+d) Linear Algebra Package (LAPACK) - Provides routines for solving systems of linear equations, eigenvalue problems, and matrix inversion.
+e) METIS - Used for decomposing graphs/meshes for parallel computing.","Linear Algebra Package (LAPACK) - Provides routines for solving systems of linear equations, eigenvalue problems, and matrix inversion.",TRUE,
+"Why would a programmer developing HPC software want to use libraries?
+A. Libraries save the programmer significant time by implementing “low-level” code that is likely to be far removed from the research question the
+programmer is interested in.
+B. Libraries (especially those for HPC) have been optimized for efficiency, typically for various hardware platforms, which is a very difficult task.
+C. Since libraries have usually been widely tested, there will very likely be fewer bugs in the library functions than in one’s own code.
+D. All of the above",All of the above,TRUE,
+"Which statement about Parallel Input/Output (I/O) in HPC is TRUE?
+a) It focuses on visualizing data.
+b) It deals with the decomposition of meshes.
+c) It is used to solve linear equations.
+d) It allows simultaneous reading/writing of data across multiple processors.
+e) It is primarily used for signal processing.",It allows simultaneous reading/writing of data across multiple processors.,TRUE,
+"What is true about FFTW “fastest Fourier transform in the West” signal processing Library?
+a) Supports SMP architectures with threads
+b) Supports distributed-memory architectures with MPI
+c) It is used in the molecular dynamics toolkits NAMD and Gromacs
+d) Optimized for speed by means of a special-purpose codelet generator called “genfft,” which actually produces the C code that is used
+e) All of the above",All of the above.,TRUE,
+"You're trying to optimize a fluid dynamics simulation running on a supercomputer. You notice that certain parts of the program run significantly slower 
+than others. Which tool, designed for collecting performance metrics and visualizing data for profiling, would be most suitable to diagnose the issue?
+a) FFTW - Used for Discrete Fourier Transforms.
+b) PAPI - Gives users access to hardware counters to collect performance metrics.
+c) PETSc - Aims to solve PDEs on various grid types.
+d) HDF5 - Used for structured storage and retrieval of large datasets.
+e) Trilinos - Another tool for solving PDEs.",PAPI - Gives users access to hardware counters to collect performance metrics.,TRUE,
+"What are advantages of software libraries in HPC?
+A. Serve as repository for software reuse
+B. Reuse existing performance-tuned software
+C. Server as a knowledge base for specific computational science domains
+D. Become community standards
+E. All of the above",All of the above,FALSE,
+"What HPC software libraries will you use for partial differential equations?
+A. SuperLU, PETSc, SLEPc, ELPA, Hypre
+B. PAPI, Vampir
+C. PETSc, Trilinos
+D. Pthreads, MPI, Boost MPI
+E. METIS, ParMETIS","PETSc, Trilinos",TRUE,
+"Library BLAS Levels 2 and 3 names are of the form cblas_pmmoo, where the p indicates the ______, mm indicates the ____ type, and oo 
+indicates the _________
+A. Position, matrix, objects
+B. Precision, matrix, operation
+C. Position, malloc object, operation
+D. None of the above","Precision, matrix, operation
+",TRUE,
+"What are the main three libraries from SuperLU?
+A. Sequential SuperLU, designed for sequential execution on processors with cache-based memory hierarchies.
+B. Multithreaded SuperLU designed for SMP architectures.
+C. Distributed SuperLU is designed for distributed- memory architectures.
+D. AccSuperLU used only for architectures with Accelerators (GPUS)","A. Sequential SuperLU, designed for sequential execution on processors with cache-based memory hierarchies.
+B. Multithreaded SuperLU designed for SMP architectures.
+C. Distributed SuperLU is designed for distributed- memory architectures.",TRUE,
+"MTL4 and Blaze are examples of higher-level abstraction interfaces that application developers can use to develop distributed linear
+algebra applications using code that is very simple to read.
+A. True
+B. False",TRUE,FALSE,
+"h5dump is a tool that is part of HDF5 library. What is the main use of h5dump?
+A. analogous to the Unix ls command for HDF5 files
+B. dump to screen the data stored in the hdf5 file
+C. dump to recycle bin the data stored in the hdf5 file
+D. analogous to the Unix rm command for HDF5 files",dump to screen the data stored in the HDF5 file,TRUE,
+"What is the most important library for distributed-memory architectures?
+A. OpenMP
+B. Pthreads
+C. MPI
+D. VTK",MPI,TRUE,
+"Lapack incorporates BLAS Levels 2 and 3 to provide full problem drivers such as eigenvalue problems and linear solvers. A high
+performance version of Lapack is available: ___________.
+A. ScaLapack
+B. Laplack 2
+C. VampirTrace
+D. PAPI
+E. None of the above", ScaLapack,TRUE,
+"Match each library with the application domain
+A. Linear algebra
+B. Partial differential equations
+C. Graph algorithms
+D. input/output
+E. Parallelization
+
+1. Boost Graph Library, Parallel Boost Graph Library
+2. PETSc, Trilinos
+3. Pthreads, MPI, Boost MPI
+4. HDF5, Netcdf, Silo
+5. BLAS, Lapack, ScaLapack, GNU Scientific Library","A. Linear algebra: BLAS, Lapack, ScaLapack, GNU Scientific Library
+B. Partial differential equations:  PETSc, Trilinos
+C. Graph algorithms:  Boost Graph Library, Parallel Boost Graph Library
+D. input/output:  HDF5, Netcdf, Silo
+E. Parallelization: Pthreads, MPI, Boost MPI",TRUE,
+"Which of the following is NOT a function of Basic Linear Algebra Subprograms (BLAS)?
+a) Vector addition 
+b) Matrix-vector product 
+c) Matrix inversion 
+d) Vector scaling 
+e) Dot product",Matrix inversion ,TRUE,
+"In HPC, graph algorithms can be used to:
+a) Render 3D models 
+b) Monitor performance 
+c) Process signals
+d) Determine shortest paths in large-scale networks 
+e) Decompose matrices",Determine shortest paths in large-scale networks ,TRUE,
+"When optimizing a high-performance computing application, performance monitoring is crucial to:
+a) Visualize 3D datasets. 
+b) Solve partial differential equations. 
+c) Decompose meshes.
+d) Process signals. 
+e) Identify bottlenecks and inefficiencies in the code",Identify bottlenecks and inefficiencies in the code,TRUE,
+"A geophysicist is working with seismic data and needs a tool for 3D data rendering and visualization to interpret underground
+structures. Which tool would be best suited for this?
+a) VTK - Supports large data and offers a wide range of visualization techniques.
+b) Boost Graph Library - Used for graph operations.
+c) ParMETIS - Decomposes meshes for parallel computing.
+d) Pthreads - Standard tool for distributing tasks over multi-core systems.
+e) HDF5 - Efficiently stores and retrieves large datasets",VTK - Supports large data and offers a wide range of visualization techniques.,TRUE,
+"An aerospace engineer is working on a simulation of airflow over an aircraft wing. To ensure parallel computing efficiency, the engineer needs 
+to decompose the computational mesh around the wing. Which tool specializes in this?
+a) VTK - Used for 3D data visualization.
+b) SuperLU - Solves systems of linear equations.
+c) METIS - Efficiently decomposes graphs and meshes for parallel computing.
+d) ELPA - Performs matrix operations.
+e) Boost MPI - C++ interface for Message Passing Interface.",METIS - Efficiently decomposes graphs and meshes for parallel computing.,TRUE,
+"An astrophysicist is working on a galaxy simulation project and generates terabytes of data daily. To efficiently store and retrieve this massive 
+amount of data, which tool, known for structured storage and retrieval of large datasets in scientific formats, would they consider?
+a) ScaLapack - Used for matrix operations.
+b) Hypre - A tool to solve linear equations.
+c) HDF5 - Allows structured storage and retrieval of large datasets in scientific formats.
+d) Trilinos - Used to solve PDEs.
+e) Boost Graph Library - Handles graph operations", HDF5 - Allows structured storage and retrieval of large datasets in scientific formats.,TRUE,
+"What is true about NFS file system?
+A. It is a Parallel file system
+B. It is a Distributed file system
+C. any POSIX-compliant file system can be accessed via NFS
+D. Only GPFS files system can be “exported” to permit remote access
+E. None of the above"," It is a Distributed file system
+Any POSIX-compliant file system can be accessed via NFS",FALSE,
+"In the following MPI-IO code snippet, what is the purpose of MPI_File_write_at, and how does it benefit parallel I/O operations in HPC?
+MPI_File file;
+MPI_File_open(MPI_COMM_WORLD, ""datafile.bin"",
+MPI_MODE_CREATE | MPI_MODE_RDWR, MPI_INFO_NULL, &file);
+int data = rank;
+MPI_File_write_at(file, rank * sizeof(int), &data, 1,
+MPI_INT, &status);
+MPI_File_close(&file);
+Options:
+1. It writes data to a specific position in the file, enabling multiple processes to write concurrently without conflicts.
+2. It compresses the data before writing, reducing file size.
+3. It encrypts the data before storage, enhancing security.
+4. It reads data from a file at a specific position, enabling random access.
+5. It creates a new file for each process, preventing file contention.","It writes data to a specific position in the file, enabling multiple processes to write concurrently without conflicts.",TRUE,
+"You are running a large-scale climate modelling simulation that generates terabytes of data. However, you notice significant idle CPU time, with
+the system waiting for data to be read and written. Which of the following is the most likely cause of this issue?
+a) Insufficient CPU processing power
+b) Network latency between compute nodes
+c) Limited storage bandwidth and slow I/O operations
+d) Poor algorithm efficiency
+e) Insufficient memory capacity", Limited storage bandwidth and slow I/O operations,TRUE,
+"Which filesystem would you choose for a high-performance computing (HPC) application that requires high concurrency and large-scale 
+data processing, and why?
+a) NFS because it is simple to implement and widely supported.
+b) Ext4 because it is highly reliable for single-machine environments.
+c) HDFS because it offers redundancy and parallel data access.
+d) Lustre because it is optimized for high concurrency and massive data throughput.
+e) NTFS because it is compatible with Windows operating systems.",Lustre because it is optimized for high concurrency and massive data throughput.,TRUE,
+"Consider a parallel filesystem using data striping to improve I/O performance. How does data striping work, and what is its primary benefit?
+a) Data is compressed before storage, reducing space but not affecting performance.
+b) Data is mirrored across multiple storage devices, improving fault tolerance.
+c) Data blocks are distributed across multiple storage devices, allowing simultaneous access by multiple processes.
+d) Data is stored sequentially on a single storage device to maximize read/write speeds.
+e) Data is encrypted across all storage devices to enhance security.","Data blocks are distributed across multiple storage devices, allowing simultaneous access by multiple processes.",TRUE,
+"You are tasked with selecting a filesystem for a genomic sequencing application that will generate and process petabytes of data. Which filesystem 
+would be most appropriate, and what feature makes it particularly suitable?
+a) NTFS for its reliability on Windows systems.
+b) HDFS for its redundancy and fault tolerance.
+c) NFS for its ease of use in network environments.
+d) Lustre for its scalability and high throughput in managing massive datasets.
+e) Ext4 for its widespread use and simplicity.",Lustre for its scalability and high throughput in managing massive datasets.,TRUE,
+"In a parallel filesystem like Lustre, what role does the Metadata Server (MDS) play, and why is it crucial for performance?
+a) It stores all the data blocks across the storage devices.
+b) It manages the communication between compute nodes and storage devices.
+c) It handles metadata operations such as file attributes and directory structures, ensuring efficient data access.
+d) It encrypts data before storing it in the filesystem.
+e) It monitors and manages network traffic within the HPC cluster."," It handles metadata operations such as file attributes and directory structures, ensuring efficient data access.",FALSE,
+"Which of the following challenges is most likely to arise when scaling I/O operations in HPC systems with a large number of compute nodes?
+a) Increased CPU processing time due to more data.
+b) Excessive network bandwidth that exceeds available capacity.
+c) Contention and delays due to a single metadata server becoming a bottleneck.
+d) Decreased disk seek times leading to faster data access.
+e) Redundant data processing across multiple nodes.",Contention and delays due to a single metadata server becoming a bottleneck.,TRUE,
+"How do solid-state drives (SSDs) improve I/O performance in HPC storage systems compared to traditional spinning disks?
+a) By providing larger storage capacity at a lower cost.
+b) By reducing latency and increasing IOPS (input/output operations per second).
+c) By offering better data redundancy and fault tolerance.
+d) By simplifying the management of data across multiple nodes.
+e) By reducing the need for metadata management.",By reducing latency and increasing IOPS (input/output operations per second).,TRUE,
+"Why is HDF5 particularly well-suited for managing complex scientific datasets in HPC environments?
+a) It is a lightweight format with minimal features.
+b) It only supports small-scale, single-node applications.
+c) It provides hierarchical data structures and supports parallel I/O operations.
+d) It encrypts data by default for enhanced security.
+e) It is primarily used for big data analytics, not HPC.",It provides hierarchical data structures and supports parallel I/O operations.,TRUE,
+"What is the primary benefit of implementing load balancing in a parallel filesystem?
+a) It increases the storage capacity of the filesystem.
+b) It reduces the complexity of managing the filesystem.
+c) It ensures an even distribution of I/O workloads across all available resources.
+d) It simplifies the process of adding new storage devices to the system.
+e) It encrypts data before it is written to disk.",It ensures an even distribution of I/O workloads across all available resources.,TRUE,
+"Which of the following best describes the role of MPI-IO in parallel I/O operations within an HPC environment?
+a) MPI-IO is used to compress data before transmission to reduce network load.
+b) MPI-IO provides an interface for collective I/O operations, enabling efficient data access by multiple processes simultaneously.
+c) MPI-IO encrypts data to ensure secure storage across the filesystem.
+d) MPI-IO manages the storage devices directly, bypassing the filesystem layer.
+e) MPI-IO is a replacement for traditional I/O libraries, not compatible with parallel filesystems."," MPI-IO provides an interface for collective I/O operations, enabling efficient data access by multiple processes simultaneously.",TRUE,
+"Which data replication strategy is most effective in ensuring fault tolerance in an HPC environment?
+a) Single-point replication where data is duplicated on a single backup node.
+b) Asynchronous replication where data is periodically copied to a remote site.
+c) RAID-0, which focuses on performance rather than redundancy.
+d) Multi-node replication where data is replicated across multiple nodes in real-time.
+e) Dynamic replication based on current I/O load.", Multi-node replication where data is replicated across multiple nodes in real-time.,TRUE,
+"In the context of I/O optimization, how does caching improve data access performance in HPC systems?
+a) By storing all data in the CPU cache, eliminating the need for disk access.
+b) By preloading frequently accessed data into faster storage layers like RAM, reducing disk access times.
+c) By compressing data on the fly to save storage space.
+d) By distributing data evenly across all available nodes.
+e) By automatically encrypting data before it is cached."," By preloading frequently accessed data into faster storage layers like RAM, reducing disk access times.",TRUE,
+"Given the I/O demands of a genomic sequencing application that generates petabytes of data, which filesystem is most appropriate, and why?
+a) NTFS for its reliability in single-node environments.
+b) NFS for its ease of use in networked environments.
+c) Lustre for its scalability and ability to manage large datasets efficiently.
+d) HDFS for its redundancy and big data analytics capabilities.
+e) Ext4 for its widespread support across Linux systems.",Lustre for its scalability and ability to manage large datasets efficiently.4,TRUE,
+"Which emerging technology is expected to have the most significant impact on reducing I/O latency and improving performance in HPC systems?
+a) Increased CPU clock speeds.
+b) Enhanced network security protocols.
+c) Non-volatile memory (NVM) technologies like Intel Optane.
+d) Traditional HDDs with larger storage capacities.
+e) Improved user interfaces for I/O management software.",Non-volatile memory (NVM) technologies like Intel Optane.,TRUE,
+"In a parallel filesystem like Lustre, what is the purpose of the Lustre Distributed Lock Manager (LDLM), and how does it contribute to 
+system performance?
+a) LDLM encrypts data before it is written to the storage devices.
+b) LDLM manages the locks for accessing resources, preventing conflicts in high-concurrency environments.
+c) LDLM monitors network traffic and manages load balancing across nodes.
+d) LDLM is responsible for compressing data to save storage space.
+e) LDLM handles the backup and recovery operations for the filesystem.","LDLM manages the locks for accessing resources, preventing conflicts in high-concurrency environments.",FALSE,
+"As we approach the exascale era, what is one of the primary challenges for the scalability of parallel filesystems?
+a) Decreasing the number of compute nodes required.
+b) Simplifying the file system interface for end-users.
+c) Managing metadata efficiently as the scale of data and number of nodes increase.
+d) Reducing the cost of storage hardware.
+e) Eliminating the need for network communication between nodes.", Managing metadata efficiently as the scale of data and number of nodes increase.,TRUE,
+"Which of the following is a direct consequence of I/O bottlenecks in a high-performance computing (HPC) system?
+a) Increased CPU utilization.
+b) Reduced storage capacity.
+c) Idle CPU cycles waiting for data.
+d) Improved data redundancy.
+e) Faster data retrieval times.",Idle CPU cycles waiting for data.,TRUE,
+"How does adjusting the stripe size in a parallel filesystem like Lustre influence I/O performance, particularly for sequential data access patterns?
+a) Larger stripe sizes reduce the need for metadata management.
+b) Smaller stripe sizes decrease network traffic between nodes.
+c) Properly tuned stripe sizes can enhance read/write speeds by matching the I/O block size of the application.
+d) Stripe size adjustments only affect the redundancy of data, not performance.
+e) Larger stripe sizes increase the overall storage capacity of the filesystem.",Properly tuned stripe sizes can enhance read/write speeds by matching the I/O block size of the application.,FALSE,
+"Which role does machine learning play in optimizing I/O operations in HPC environments?
+a) Encrypting data before it is stored.
+b) Predicting future data access patterns to optimize caching and data placement.
+c) Automatically scaling storage capacity based on usage.
+d) Reducing the need for metadata management.
+e) Compressing data to save storage space."," Predicting future data access patterns to optimize caching and data placement.
+",TRUE,
+"For a large-scale simulation that requires high throughput and low latency, which filesystem would be more appropriate: NFS or Lustre, and why?
+a) NFS, because it is easier to manage in large clusters.
+b) NFS, because it supports high-concurrency applications better.
+c) Lustre, because it is designed for high throughput and handles large datasets efficiently.
+d) Lustre, because it is more cost-effective for small workloads.
+e) Both filesystems are equally suited for high-performance applications.","Lustre, because it is designed for high throughput and handles large datasets efficiently.",TRUE,
+"What technique is commonly used in parallel filesystems like GPFS to ensure data integrity and availability in the event of hardware failures?
+a) Data compression.
+b) Dynamic load balancing.
+c) Data replication and erasure coding.
+d) Increased CPU clock speeds.
+e) Manual backup of all data.",Data replication and erasure coding.,TRUE,
+"In a climate modeling simulation that generates large volumes of data, which parallel I/O strategy would be most effective to avoid I/O bottlenecks?
+a) Storing all data on a single SSD.
+b) Writing data sequentially to a single file without parallel I/O.
+c) Using MPI-IO to enable multiple processes to write to different parts of a shared file simultaneously.
+d) Compressing data after the simulation completes.
+e) Using NFS to share data across the network.",Using MPI-IO to enable multiple processes to write to different parts of a shared file simultaneously.,TRUE,
+"Why are high-speed interconnects like InfiniBand crucial for parallel filesystems in HPC environments?
+a) They reduce the cost of storage devices.
+b) They increase the storage capacity of the filesystem.
+c) They facilitate fast data transfers between compute nodes and storage systems, reducing latency.
+d) They simplify the management of metadata across nodes.
+e) They provide better data redundancy."," They facilitate fast data transfers between compute nodes and storage systems, reducing latency.",TRUE,
+"What feature of GPFS makes it particularly well-suited for data-intensive projects like the Square Kilometre Array (SKA)?
+a) Its support for single-node operations.
+b) Its ability to manage vast data volumes across global data centers.
+c) Its simple installation and configuration process.
+d) Its integration with low-speed network infrastructures.
+e) Its focus on local storage management.", Its ability to manage vast data volumes across global data centers.,TRUE,
+"How does non-volatile memory (NVM) technology like Intel Optane impact I/O performance in HPC systems?
+a) It increases latency due to slower access speeds.
+b) It reduces data redundancy in the system.
+c) It provides high-speed, persistent storage, reducing I/O latency and enhancing data availability.
+d) It simplifies the file system management process.
+e) It increases the need for frequent backups.","It provides high-speed, persistent storage, reducing I/O latency and enhancing data availability.",FALSE,
+"In which scenario would data compression and chunking be most beneficial for optimizing I/O performance in an HPC application?
+a) When managing small, randomly accessed files.
+b) When dealing with large, sequential datasets that are frequently accessed.
+c) When data security is the primary concern.
+d) When the primary goal is to reduce CPU usage.
+e) When the application only requires local storage. ","When dealing with large, sequential datasets that are frequently accessed.",TRUE,
+"Imagine you're developing a real-time data processing system that requires fast, immediate file operations with minimal
+latency. Which method would be most suitable for this requirement?
+a) Buffered I/O with fopen(), fread(), and fwrite().
+b) System calls like open(), read(), and write().
+c) Either, since both methods offer identical performance.
+d) Buffered I/O only with fread().
+e) System call only with open().","System calls like open(), read(), and write()",FALSE,
+"Given the following code snippet, identify what kind of file operation method is being used:
+FILE *fp;
+fp = fopen(""sample.txt"", ""r"");
+if (fp != NULL) {
+char buffer[100];
+fread(buffer, sizeof(char), 100, fp);
+fclose(fp);
+}
+a) POSIX System call.
+b) POSIX Buffered I/O.
+c) Neither.
+d) Combination of both System call and Buffered I/O.
+e) Cannot determine from the code.",POSIX Buffered I/O,FALSE,
+"Practical Application of HDF5. Consider you are working on a climate model that generates large datasets with multiple variables (e.g., temperature, pressure) that need to be stored efficiently. Which features of the HDF5 library make it particularly suitable for this task?
+
+A. HDF5 is limited to handling small datasets and is not optimized for parallel processing.
+
+B. HDF5 only supports serial I/O operations, making it unsuitable for large-scale data handling.
+
+C. HDF5 does not provide tools for metadata management, making it challenging to handle large datasets.
+
+D. HDF5 offers a hierarchical data model that can manage complex data relationships and allows parallel I/O operations, ensuring efficient data storage and retrieval.
+
+E. HDF5 is designed specifically for image processing and does not support multidimensional data arrays.","HDF5 offers a hierarchical data model that can manage complex data relationships and allows parallel I/O operations, ensuring efficient data storage and retrieval.",TRUE,
+"#include ""hdf5.h""
+#include <mpi.h>
+
+int main(int argc, char **argv) {
+    MPI_Init(&argc, &argv);
+
+    // Initialize MPI and HDF5 file access properties
+    MPI_Comm comm = MPI_COMM_WORLD;
+    MPI_Info info = MPI_INFO_NULL;
+    hid_t plist_id = H5Pcreate(H5P_FILE_ACCESS);
+    H5Pset_fapl_mpio(plist_id, comm, info);
+
+    // Create and open the HDF5 file for parallel I/O
+    hid_t file_id = H5Fcreate(""data.h5"", H5F_ACC_TRUNC, H5P_DEFAULT, plist_id);
+
+    // Write data (assume data buffer exists)
+    hid_t dspace_id = H5Screate_simple(1, dims, NULL); // Dataset dimensions
+    hid_t dset_id = H5Dcreate(file_id, ""Dataset"", H5T_NATIVE_DOUBLE,
+                              dspace_id, H5P_DEFAULT, H5P_DEFAULT, H5P_DEFAULT);
+    H5Dwrite(dset_id, H5T_NATIVE_DOUBLE, H5S_ALL, H5S_ALL, H5P_DEFAULT, data);
+
+    // Close resources
+    H5Dclose(dset_id);
+    H5Sclose(dspace_id);
+    H5Fclose(file_id);
+    H5Pclose(plist_id);
+
+    MPI_Finalize();
+    return 0;
+}
+Options:
+
+A. The file should be created with H5P_DEFAULT as the file access property list for parallel I/O.
+
+B. The dataset creation and writing must be done with individual file access property lists for each process.
+
+C. The code correctly initializes the HDF5 file for parallel I/O.
+
+D. The H5Pset_fapl_mpio call is unnecessary in parallel I/O.
+
+E. The code should use H5F_ACC_RDWR instead of H5F_ACC_TRUNC to open the file for parallel I/O.",The code correctly initializes the HDF5 file for parallel I/O.,FALSE,
+"What is the correct output of the following C program that computes the Fast Fourier Transform (FFT) of a 1D array using the FFTW library?
+
+#include <fftw3.h>
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int N = 4; // Size of the array
+    fftw_complex in[N], out[N];
+    fftw_plan plan;
+
+    // Initialize input array with a simple pattern
+    for (int i = 0; i < N; i++) {
+        in[i][0] = i;   // Real part
+        in[i][1] = 0.0; // Imaginary part
+    }
+
+    // Create a plan for FFT
+    plan = fftw_plan_dft_1d(N, in, out, FFTW_FORWARD, FFTW_ESTIMATE);
+
+    // Execute the FFT
+    fftw_execute(plan);
+
+    // Print the output
+    printf(""FFT output:\n"");
+    for (int i = 0; i < N; i++) {
+        printf(""(%.2f, %.2f)\n"", out[i][0], out[i][1]);
+    }
+
+    // Clean up
+    fftw_destroy_plan(plan);
+
+    return 0;
+}
+
+
+Options:
+
+A.
+(10.00, 0.00)
+(-2.00, 2.00)
+(-2.00, 0.00)
+(-2.00, -2.00)
+
+B.
+(0.00, 0.00)
+(-4.00, 4.00)
+(-4.00, 0.00)
+(-4.00, -4.00)
+
+C.
+(-4.00, -4.00)
+(6.00, 0.00)
+(-4.00, 0.00)
+(4.00, -4.00)
+
+D.
+(6.00, 0.00)
+(-4.00, 4.00)
+(0.00, 0.00)
+(-4.00, -4.00)
+
+E.
+(6.00, 0.00)
+(-2.00, 2.00)
+(-2.00, 0.00)
+(-2.00, -2.00)","(6.00, 0.00)
+
+(-2.00, 2.00)
+
+(-2.00, 0.00)
+
+(-2.00, -2.00)",TRUE,
+"In a distributed-memory environment using ScaLAPACK, you want to solve a system of linear equations Ax=b (A·x=b) where A is a large, dense matrix distributed across multiple processors. Which ScaLAPACK function would you use, and how would you initialize the required descriptors for the matrix distribution? (Assume MPI environment is already initialized.)
+
+#include <mpi.h>
+#include <scalapack.h>
+
+int main(int argc, char *argv[]) {
+    MPI_Init(&argc, &argv);
+
+    int n = 1000; // Matrix size
+    int nb = 100; // Block size
+    int nprow = 2, npcol = 2; // Processor grid size
+
+    // Initialize process grid
+    int ictxt, myrow, mycol, info;
+    Cblacs_get(0, 0, &ictxt);
+    Cblacs_gridinit(&ictxt, ""Row"", nprow, npcol);
+    Cblacs_gridinfo(ictxt, &nprow, &npcol, &myrow, &mycol);
+
+    // Initialize matrix descriptors (Assume arrays A, B, and result X are allocated and filled)
+    int descA[9], descB[9], descX[9];
+    int lda = nb, ldb = nb, ldx = nb;
+    int rsrc = 0;
+
+    // Initialize matrix descriptors
+    descinit(descA, &n, &n, &nb, &nb, &rsrc, &rsrc, &ictxt, &lda, &info);
+    descinit(descB, &n, &n, &nb, &nb, &rsrc, &rsrc, &ictxt, &ldb, &info);
+    descinit(descX, &n, &n, &nb, &nb, &rsrc, &rsrc, &ictxt, &ldx, &info);
+
+    // Call to ScaLAPACK routine to solve the system
+    int ipiv[n];
+    pdgesv_(&n, &n, A, &1, &1, descA, ipiv, B, &1, &1, descB, &info);
+
+    MPI_Finalize();
+    return 0;
+}
+
+
+Options:
+
+A. The Cblacs_gridinit should use ""Col"" instead of ""Row"" for the correct process grid orientation.
+
+B. Descriptors are incorrectly initialized; the block size nb should not be included in descinit.
+
+C. The function pdgesv_ is correct, and descriptors are correctly initialized.
+
+D. The processor grid size should match the matrix dimensions, so nprow and npcol are incorrect.
+
+E. The function pdgesv_ is incorrect for solving linear equations; use pdgetrf_ instead.","The function pdgesv_ is correct, and descriptors are correctly initialized.",TRUE,
+"PETSc for PDEs. In the context of solving partial differential equations (PDEs) with PETSc, what is a significant advantage of using this library?
+
+A. PETSc is limited to solving algebraic equations and cannot handle PDEs.
+
+B. PETSc provides a range of solvers and preconditioners optimized for large-scale, parallel computations.
+
+C. PETSc is designed to work exclusively with serial computations.
+
+D. PETSc offers limited scalability across distributed-memory systems.
+
+E. PETSc does not support the integration with other HPC libraries.","PETSc provides a range of solvers and preconditioners optimized for large-scale, parallel computations.",FALSE,
+"Using the Boost Graph Library (BGL), you want to calculate the shortest path in an undirected graph. Given the following C++ code, what is the correct output for the distances from vertex 0 to all other vertices?
+
+#include <iostream>
+#include <vector>
+#include <boost/graph/adjacency_list.hpp>
+#include <boost/graph/dijkstra_shortest_paths.hpp>
+
+int main() {
+    using namespace boost;
+    typedef adjacency_list<vecS, vecS, undirectedS, no_property,
+        property<edge_weight_t, int>> Graph;
+    typedef graph_traits<Graph>::vertex_descriptor Vertex;
+
+    // Create a graph with 5 vertices
+    Graph g(5);
+
+    // Add weighted edges
+    add_edge(0, 1, 10, g);
+    add_edge(0, 2, 5, g);
+    add_edge(1, 3, 1, g);
+    add_edge(2, 1, 3, g);
+    add_edge(2, 4, 2, g);
+    add_edge(4, 3, 9, g);
+
+    // Prepare for Dijkstra’s algorithm
+    std::vector<Vertex> predecessors(num_vertices(g)); // To store parents
+    std::vector<int> distances(num_vertices(g));        // To store distances
+
+    Vertex start = vertex(0, g);
+
+    // Compute shortest paths from the start vertex
+    dijkstra_shortest_paths(g, start,
+        predecessor_map(&predecessors[0]).distance_map(&distances[0]));
+
+    // Print the shortest path from start to each vertex
+    std::cout << ""Distances from start vertex:"" << std::endl;
+    for (std::size_t i = 0; i < distances.size(); ++i) {
+        std::cout << ""Distance to vertex "" << i << "": "" << distances[i] << std::endl;
+    }
+
+    return 0;
+}
+
+
+Options:
+
+A
+Distance to vertex 0: 0
+Distance to vertex 1: 5
+Distance to vertex 2: 7
+Distance to vertex 3: 8
+Distance to vertex 4: 3
+
+B
+Distance to vertex 0: 0
+Distance to vertex 1: 3
+Distance to vertex 2: 2
+Distance to vertex 3: 12
+Distance to vertex 4: 4
+
+C
+Distance to vertex 0: 0
+Distance to vertex 1: 10
+Distance to vertex 2: 5
+Distance to vertex 3: 11
+Distance to vertex 4: 7
+
+D
+Distance to vertex 0: 0
+Distance to vertex 1: 7
+Distance to vertex 2: 4
+Distance to vertex 3: 10
+Distance to vertex 4: 6
+
+E
+Distance to vertex 0: 0
+Distance to vertex 1: 8
+Distance to vertex 2: 5
+Distance to vertex 3: 9
+Distance to vertex 4: 7","Distance to vertex 0: 0
+Distance to vertex 1: 8
+Distance to vertex 2: 5
+Distance to vertex 3: 9
+Distance to vertex 4: 7",TRUE,
+"Given the following C code using the BLAS library, what is the correct output for the resulting matrix C?
+
+#include <stdio.h>
+#include <cblas.h>
+
+int main() {
+    int m = 2, n = 3, k = 2;
+    double A[6] = {1, 2, 3, 4, 5, 6}; // 2x3 matrix
+    double B[6] = {7, 8, 9, 10, 11, 12}; // 3x2 matrix
+    double C[4] = {0}; // 2x2 result matrix
+
+    // Perform C = A * B using DGEMM
+    cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,
+                m, k, n, 1.0, A, n, B, k, 0.0, C, k);
+
+    printf(""Result matrix C:\n"");
+    for (int i = 0; i < 4; i++) {
+        printf(""%6.2f "", C[i]);
+        if ((i + 1) % k == 0) printf(""\n"");
+    }
+    return 0;
+}
+
+
+Options:
+
+A.
+37.00 42.00
+85.00 96.00
+
+B.
+58.00 64.00
+139.00 154.00
+
+C.
+67.00 76.00
+150.00 165.00
+
+D.
+34.00 42.00
+85.00 100.00
+
+E.
+19.00 22.00
+43.00 50.00","58.00 64.00
+139.00 154.00",TRUE,
+"An astrophysicist is dealing with vast datasets from cosmic simulations. The data needs to be read and written efficiently in a parallel manner across multiple nodes of a supercomputer. Which tool is designed for this specific task?
+
+A. METIS – Decomposes meshes for parallel computing.
+
+B. SuperLU – Solves systems of linear equations.
+
+C. Trilinos – Aims at solving PDEs.
+
+D. HDF5 – Enables efficient storage and retrieval of vast datasets in parallel.
+
+E. PAPI – Provides performance metrics from hardware counters.",HDF5 – Enables efficient storage and retrieval of vast datasets in parallel.,TRUE,
+"FFTW Library Performance. Why is the FFTW library particularly well-suited for high-performance computing applications involving Fourier transforms?
+
+FFTW uses a multi-threading model that cannot scale across multiple processors.
+
+FFTW is written in assembly language, which is inherently faster than other programming languages.
+
+FFTW uses a ""planner"" to automatically choose the fastest algorithm for the given problem size and architecture.
+
+FFTW only supports small-sized datasets, making it ideal for limited memory environments.
+
+FFTW only works on GPUs, ensuring high speed.","FFTW uses a ""planner"" to automatically choose the fastest algorithm for the given problem size and architecture.",TRUE,
+"Given the following code snippet using OpenMP to parallelize a matrix-vector multiplication, what will be the expected output for the resulting vector y?
+
+#include <omp.h>
+#include <stdio.h>
+ 
+int main() {
+   int n = 3;
+   double A[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+   double x[3] = {1, 2, 3};
+   double y[3] = {0};
+ 
+   #pragma omp parallel for
+   for (int i = 0; i < n; i++) {
+       for (int j = 0; j < n; j++) {
+           y[i] += A[i][j] * x[j];
+       }
+   }
+ 
+   printf(""Resulting vector y:\n"");
+   for (int i = 0; i < n; ++i) {
+       printf(""%f "", y[i]);
+   }
+   printf(""\n"");
+ 
+   return 0;
+}
+30.00 36.00 42.00
+
+14.00 28.00 42.00
+
+12.00 30.00 48.00
+
+14.00 32.00 50.00
+
+6.00 15.00 24.00",14.00 32.00 50.00,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,

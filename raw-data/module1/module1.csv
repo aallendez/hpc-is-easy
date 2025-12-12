@@ -1,0 +1,1519 @@
+"What are the four reasons for performance degradation according to the acronym SLOW?
+A. Slow access, latency, overconsumption and waiting
+B. Starvation, latency, overhead and waiting
+C. Slow access, limited accessibility, overconsumption and waiting
+D. Security threats, latency, overconsumption and waiting
+","Starvation, Latency, Overhead and Waiting",TRUE,52
+"What is true about Sustained performance? (Multiple selection)
+A. Maximum rate at which operations can be accomplished theoretically by the hardware resources of a supercomputer
+B. Actual or real performance achieved by a supercomputer system in the performance of an application program
+C. Sustained performance is considered a better indicator of the true value of a supercomputer than its specified peak performance
+D. Peak performance is considered a better indicator of the true value of a supercomputer than its specified sustained performance
+E. While sustained performance cannot exceed peak performance, it can be much less and often is.","Actual or real performance achieved by a supercomputer system in the performance of an application program
+Sustained performance is considered a better indicator of the true value of a supercomputer than its specified peak performance
+While sustained performance cannot exceed peak performance, it can be much less and often is.",TRUE,
+"What is true about strong scalability?
+A. Both the number of processors and the problem size are increased
+B. Number of processors is increased while the problem size remains constant
+C. Results in a reduced workload per processor
+D. Results in a constant workload per processor
+E. Mostly used for long-running CPU-bound
+F. Mostly used for large memory-bound applications where the required memory cannot be satisfied by a single node","Number of processors is increased while the problem size remains constant
+Results in a reduced workload per processor
+Mostly used for long-running CPU-bound
+
+",TRUE,
+"What type of problem representatives are used for machine learning, fraud detection and security services?
+A. Liner Algebra
+B. Stochastic systems
+C. Graph problems
+D. Solution of partial-differential equations
+E. Large systems with pair-wise force interactions",Graph problems,TRUE,
+"What is the element that incorporates all the functional elements required for computation, and is highly replicated to achieve large scale in a supercomputer?
+A. Core
+B. Chip
+C. Blade
+D. Node
+E. Rack",Node,TRUE,
+"What type of problem representatives are used for Navier–Stokes equations, Black–Scholes equation and Weather prediction?
+A. Liner Algebra
+B. Stochastic systems
+C. Graph problems
+D. Solution of partial-differential equations
+E. Large systems with pair-wise force interactions",Solution of partial-differential equations,TRUE,
+"What is true about Commodity Cluster?
+A. is a form of HPC assembled from commercially manufactured subsystems
+B. cluster “node” is a computer that can be directly employed individually as a PC
+C. Provides economy of scale to increase performance to cost dramatically compared to custom designed MPPs of the same scale
+D. Examples are Touchstone Paragon (1994), the Thinking Machines Corporation CM-5 (1992), and the IBM SP-2","is a form of HPC assembled from commercially manufactured subsystems
+cluster “node” is a computer that can be directly employed individually as a PC
+Provides economy of scale to increase performance to cost dramatically compared to custom designed MPPs of the same scale",TRUE,
+" What is true about FLOPS?
+ Stands for Floating-point operations per second
+ We uses the greek prefixes kilo, mega, giga, tera, and peta to  represent 1000, 1 million, 1 billion, 1 trillion, and 1 quadrillion
+ is an addition or multiplication of two real (or floating-point) numbers 
+ Stands for Floating-Point OperationS
+ is an addition or multiplication of two integer numbers represented","is an addition or multiplication of two real (or floating-point) numbers
+Stands for Floating-point operations per second
+We uses the greek prefixes kilo, mega, giga, tera, and peta to represent 1000, 1 million, 1 billion, 1 trillion, and 1 quadrillion",FALSE,
+"Historically supercomputers have been applied to science and engineering, and the methodology has been described as the “third pillar of science” alongside and complementing what other pillars?
+A. Experimentation (empiricism) and Mathematics (theory)
+B. Simulation and Mathematics (theory)
+C. Empiricism and Simulation
+D. Experimentation (empiricism) and Simulation",A. Experimentation (empiricism) and Mathematics (theory),TRUE,
+"What is true about “highly parallel Linpack” (HPL)?
+A. Widely used supercomputer benchmark
+B. Solves a set of linear equations in dense matrix form
+C. measures the rate at which the system can transpose a large array
+D. gives a means of comparative evaluation between two independent systems by measuring their respective times to perform the same calculation","Widely used supercomputer benchmark
+Solves a set of linear equations in dense matrix form
+Gives a means of comparative evaluation between two independent systems by measuring their respective times to perform the same calculation",TRUE,
+"Which of the following best describes Moore's law?
+A. The prediction that supercomputer performance would double every 5 years.
+B. The hypothesis that device transistor density will double every decade.
+C. The prediction by Intel's Gordon Moore that device transistor density would increase by a factor of two every 2 years.
+D. The law that all supercomputers should use Intel processors.
+E. The guideline for assessing the efficiency of processors based on their energy consumption.","The prediction by Intel's Gordon Moore that device transistor density would increase by a factor of two every 2 years.
+",FALSE,
+" When assessing the performance of supercomputers using the Top 500 list, which benchmark is primarily used?
+A. Moore's benchmark
+B. HPC linear algebra 
+C. System stack performance rate
+D. SIMD array evaluation 
+E. HPL or ""Linpack"" benchmark for dense linear algebra","HPL or ""Linpack"" benchmark for dense linear algebra",TRUE,
+"What is the primary difference between sustained and peak performance in HPC?
+A. Sustained performance refers to the maximum rate theoretically possible by the hardware, while peak performance refers to the real-world application performance.
+B. Sustained and peak performance are the same.
+C. Sustained performance refers to the real-world application performance, while peak performance refers to the maximum rate theoretically possible by the hardware.
+D. Peak performance is only relevant for supercomputers, while sustained performance is for personal computers.
+E. Sustained performance is only achieved after a supercomputer has been operational for 5 years.","Sustained performance refers to the real-world application performance, while peak performance refers to the maximum rate theoretically possible by the hardware.",TRUE,
+"Which of the following is NOT a source of performance degradation in HPC systems?
+A. Starvation
+B. Overclocking
+C. Latency
+D. Overhead
+E. Contention",Overclocking,TRUE,
+"With the potential end of Moore's law in sight, which epoch of supercomputing evolution reflects a possible direction for HPC architecture?
+A. Von Neumann architecture in vacuum tubes 
+B. Calculator mechanical technology
+C. SIMD arrays 
+D. Multicore petaflops 
+E. Vector processing",Multicore petaflops ,TRUE,
+"Imagine you work for a company specializing in weather forecasting. The company's predictions are crucial for several industries, like aviation and agriculture. To ensure accurate predictions, you rely on a supercomputer to process vast amounts of data. Which performance metric would you prioritize for real-time weather prediction?
+A. Peak performance: the maximum rate that can be achieved theoretically by the hardware.
+B. Sustained performance: the actual or real-world performance of the application.
+C. Moore's Law performance rate. 
+D. Performance as rated by the Top 500 list. 
+E. SIMD array evaluation speed",Sustained performance: the actual or real-world performance of the application.,TRUE,
+"A biomedical research institute is analyzing complex protein folding patterns. The process involves dense linear algebra calculations. To compare two supercomputers for potential acquisition, which benchmark would be the most relevant?
+A. Von Neumann benchmark 
+B. SIMD performance metric
+C. HPL or ""Linpack"" benchmark for dense linear algebra: a measure of a system's floating-point computing power.
+D. Moore's performance rate 
+E. System stack throughput test","HPL or ""Linpack"" benchmark for dense linear algebra: a measure of a system's floating-point computing power.",TRUE,
+"XYZ Corp., a leading AI research facility, just deployed a supercomputer. During initial testing, the system frequently suffers from delays and lags. As a troubleshooter, which source of performance degradation would you first investigate?
+A. Starvation: a situation where a task is perpetually deprived of the resources or conditions it needs to proceed.
+B. CPU brand compatibility 
+C. Moore's law violation
+D. The age of the machine 
+E. Vector processing alignment",Starvation: a situation where a task is perpetually deprived of the resources or conditions it needs to proceed.,TRUE,
+"BioTech Inc. is working on simulating the human brain. This project requires significant memory and processing power. Knowing that the company is going to require enhanced computational abilities soon, what would be a recommendation in light of Moore's law?
+A. Wait for two years before buying any new supercomputer. 
+B. Acquire multiple low-powered computers now.
+C. Invest in a supercomputer with multicore petaflops architecture: a system with the ability to perform a large number of floating-point calculations simultaneously.
+D. Focus on SIMD array systems. 
+E. Just upgrade the current software without changing the hardware",Invest in a supercomputer with multicore petaflops architecture: a system with the ability to perform a large number of floating-point calculations simultaneously.,TRUE,
+"The Oceanography Department of a university wants to model ocean currents to predict the spread of pollutants. They are looking at the Top 500 list to identify a suitable supercomputer. Why is this list relevant for their decision?
+A. The list is updated biannually and ranks supercomputers based on a system's floating-point computing power using the HPL or “Linpack” benchmark.
+B. The list showcases the price of the top supercomputers. 
+C. It lists supercomputers based on their size and weight.
+D. The list ranks computers according to Moore's Law. 
+E. It shows the power consumption of each supercomputer.",The list is updated biannually and ranks supercomputers based on a system's floating-point computing power using the HPL or “Linpack” benchmark.,FALSE,
+"What are the key properties that determine performance of an HPC architecture and used in P=e×S×a(R)×μ(E)?
+A. Access, Latency, Overconsumption and Waiting
+B. Speed of components, parallelism and efficiency
+C. Security Threats, Latency, Overconsumption and Waiting
+D. Access, Latency, Overconsumption and efficiency","Speed of components, parallelism and efficiency",TRUE,
+" What are the main types of Flynn's taxonomy of parallel  architectures?
+ A. SISD—single instruction stream, single data stream
+ B. SIMD—single instruction stream, multiple data stream
+ C. MIMD—multiple instruction stream, multiple data stream
+ D. MISD—multiple instruction stream, single data stream
+ E. SPMD - single program, multiple data stream "," SISD—single instruction stream, single data stream
+ SIMD—single instruction stream, multiple data stream
+ MIMD—multiple instruction stream, multiple data stream
+ MISD—multiple instruction stream, single data stream",TRUE,
+"Please select the sentences that are true:
+ A. HPC architecture is concerned with only the lowest-level  technologies and circuit design.
+ B. The cost of the software on an HPC system is much less  than the cost of the hardware platform.
+ C. The greater the performance that is required, the harder it  is to optimize the user program.
+ D. Code reuse is critical to managing application development  complexity and difficulty"," The greater the performance that is required, the harder it  is to optimize the user program.
+ Code reuse is critical to managing application development  complexity and difficulty",TRUE,
+"Select the correct words: HPC architecture exploits its enabling technologies to _______ time to solution, ________throughput of   operation, and serve the class of computations  associated with ________, usually ______-intensive,  applications.
+ A. Maximize, Minimize, small , numeric
+ B. Maximize, Minimize, large , data
+ C. Minimize, Maximize, large, numeric
+ D. Maximize, Maximize, large , data"," Minimize, Maximize, large, numeric",TRUE,
+"Why is InfiniBand often preferred over  Ethernet in HPC systems? 
+a) It is cheaper and easier to install. 
+b) It provides higher bandwidth and lower latency. 
+c) It is more compatible with general IT workloads. 
+d) It requires less power to operate. 
+e) It has a simpler network topology",It provides higher bandwidth and lower latency. ,FALSE,C
+"Given a supercomputer designed to run  complex AI workloads, which network  topology would be most suitable to minimize data transfer latency and maximize scalability? 
+a) Star Topology 
+b) Ring Topology 
+c) Fat-tree Topology 
+d) Mesh Topology 
+e) Dragonfly Topology",Dragonfly Topology ,FALSE,C
+"In a distributed memory system used for climate modeling, what is a primary advantage of this architecture? 
+a) Simplified programming without the need for message passing. 
+b) Reduced latency due to direct memory access by all processors. 
+c) Scalability by adding more nodes to handle larger problems. 
+d) Higher cost efficiency compared to other architectures. 
+e) Reduced need for network bandwidth",Scalability by adding more nodes to handle larger problems. ,FALSE,C
+"In a heterogeneous computing system, which  programming model is specifically designed for  using NVIDIA GPUs for general-purpose processing? 
+a) OpenMP 
+b) MPI 
+c) CUDA 
+d) OpenCL 
+e) HIP","CUDA 
+",FALSE,C
+" In Symmetric Multiprocessing (SMP) systems, what is a significant limitation that affects scalability? 
+a) Complex programming requirements. 
+b) Memory contention and bus bandwidth. 
+c) High cost of hardware components. 
+d) Limited parallel processing capabilities. 
+e) Lack of support for modern programming languages",Memory contention and bus bandwidth. ,FALSE,C
+"What is true about Reliability?
+A. The bigger the system, the most faults will have. 
+B. “Hard” faults is when a part of the hardware breaks permanently
+C. “Soft” fault a when the Software brakes permanently 
+D. “Soft” fault is when a part intermittently fails but otherwise operates correctly.
+E. We can use checkpoint/restart to prevent software errors","The bigger the system, the most faults will have. 
+“Hard” faults is when a part of the hardware breaks permanently
+“Soft” fault is when a part intermittently fails but otherwise operates correctly.
+",TRUE,
+"In HPC systems, why is the use of high-speed interconnection networks, like InfiniBand, crucial?
+a) For more storage capacity. 
+b) To ensure low power consumption. 
+d) To ensure efficient communication between thousands of processors. 
+c) To allow RGB lighting synchronization.
+e) To cool down the system.",To ensure efficient communication between thousands of processors.,TRUE,
+"Which of Flynn's taxonomy classifications is described as multiple instructions operating on a single data stream and is rare in practice?
+ a) SIMD 
+b) SISD 
+c) MISD 
+d) MIMD 
+e) SIPD",MISD ,TRUE,
+"According to Flynn’s Taxonomy, which category does a modern GPU fall into? 
+a) SISD 
+b) SIMD 
+c) MISD 
+d) MIMD 
+e) None of the above",SIMD,FALSE,C
+"Which network topology would you choose for a supercomputer that requires high fault tolerance and multiple direct paths between nodes?
+ a) Star Topology 
+b) Ring Topology 
+c) Torus Topology 
+d) Mesh Topology 
+e) Hypercube Topology",Hypercube Topology,FALSE,C
+"In the context of High-Performance Computing (HPC), what advantage does incorporating accelerators like GPUs or  FPGAs alongside traditional CPUs provide?
+ a) Allows better RGB lighting effects. 
+b) Enhances the boot-up speed of the system.
+ c) Provides better aesthetics to the system build. 
+e) Reduces the power consumption of the entire system. 
+speeds up specific types of computations
+",Speeds up specific types of computations,TRUE,
+"Jane is a game developer working on optimizing a graphics engine. She wants to perform the same shading operation on  multiple vertices simultaneously. Based on Flynn's Taxonomy, which type of parallelism should Jane's graphics engine utilize?
+ a) SISD 
+b) SIMD (A paradigm where a single instruction operates on multiple data points concurrently) 
+c) MISD 
+d) MIMD 
+e) SIDI",SIMD (A paradigm where a single instruction operates on multiple data points concurrently) ,TRUE,
+"Which interconnect technology is known for its microsecond-level latency and is commonly used in high-performance computing environments? 
+a) Ethernet 
+b) InfiniBand 
+c) USB 
+d) Wi-Fi 
+e) Bluetooth",InfiniBand ,FALSE,C
+"Apple's M1 chip is known for its impressive performance in both high-end tasks like video editing and everyday tasks like browsing. The chip contains a combination of high-performance and energy-efficient cores. This diverse mixture of cores on a single chip is an example of what computing structure?
+a) Monolithic Computing  
+d) Singular Computing 
+b) Heterogeneous Computing 
+e) Binary Computing
+c) Homogeneous Computing",Heterogeneous Computing ,TRUE,
+" Dr. Thompson is researching the protein structures of a newly discovered virus. He needs to run simulations involving millions of atoms and requires a system that can handle multiple sets of instructions on multiple data points. According to Flynn's Taxonomy, which type of parallelism should Dr. Thompson's HPC system employ for his research?
+a)SISD 
+b) SIMD 
+c) MISD 
+d) MIMD (Multiple instructions operating on multiple data points) 
+e) SISD-MIMD",MIMD (Multiple instructions operating on multiple data points),TRUE,
+"The StarGaze Observatory is attempting to map the entire Milky Way. Their computational needs involve processing vast amounts of data from different telescopes concurrently. They're considering using a Beowulf cluster. Why might a Beowulf cluster be suitable for StarGaze's computational demands?
+ a) It focuses solely on SIMD operations.  
+b) It is a single powerful machine with a large CPU.
+ c) It's a cluster of networked computers acting as one system (often using commodity hardware).
+ d) It exclusively uses quantum computing. 
+e) It operates on MISD principles", It's a cluster of networked computers acting as one system (often using commodity hardware).,TRUE,
+"Fiona, a chemist, needs to run multiple molecular dynamics simulations. Each simulation differs slightly based on initial parameters. She wants to submit a single job that can handle 20 variations of these parameters. Which Slurm command would allow Fiona to efficiently manage this? Note: The --array option in Slurm can be used to submit a series of similar jobs.
+a) sbatch --array=1-20 molecular_dynamics.sh 
+b) srun --iterations=20 molecular_dynamics.sh 
+c) sbatch --loop=20
+molecular_dynamics.sh
+d) srun --repeat=20 molecular_dynamics.sh 
+e) srun --array=1-20 ",sbatch --array=1-20 molecular_dynamics.sh,FALSE,
+"Greg, a financial analyst, is running a risk assessment model on the HPC cluster. He expects the job to run for a week. To ensure that his job doesn't get interrupted during its runtime due to a time limit, which Slurm option should he use to specify a maximum wall clock time of one week? 
+a) srun --time=168:00:00 risk_model.sh 
+b) srun --duration=1W risk_model.sh 
+c) srun --walltime=7D risk_model.sh
+d) sbatch --limit=168H risk_model.sh 
+e) srun --max-time=7-00:00:00 risk_model.sh",srun --time=168:00:00 risk_model.sh ,FALSE,
+"Ivan, a data engineer, has to preprocess a large dataset for a machine learning project. He realizes after submission that he forgot to redirect the output of his job to a file. Which Slurm option can he use in the future to specify the output file for his job? 
+a) srun --file-output=preprocess_output.txt 
+b) srun --redirect=preprocess_output.txt 
+c) srun --output=preprocess_output.txt
+d) sbatch --log=preprocess_output.txt 
+e) sbatch --save=preprocess_output.txt",srun --output=preprocess_output.txt,FALSE,
+"Julia, an astrophysicist, has a complex workflow that involves multiple steps: data preprocessing, running simulations, and post-processing. She wishes to automate this in a sequence, ensuring that each step only runs after the previous one completes successfully. How should she proceed with Slurm? 
+a) Use the --dependency option with sbatch to specify job dependencies. 
+b) Use the --sequence option to order the tasks. 
+c) Submit all tasks with srun and they will naturally follow a sequence.
+d) Use the --chain option with srun to link the jobs. 
+e) Submit each step separately and monitor manually",Use the --dependency option with sbatch to specify job dependencies. ,FALSE,
+"Kyle needs to run a geospatial analysis task. However, he's unsure about the optimum number of cores to use. He wants Slurm to automatically allocate the best number of cores available at the time of execution. Which command should he use? 
+a) srun --cpus=auto geospatial_analysis.sh 
+b) srun --cores=best geospatial_analysis.sh 
+c) sbatch --ntasks=optimal geospatial_analysis.sh
+d) srun geospatial_analysis.sh 
+e) sbatch --auto-cores geospatial_analysis.sh",srun geospatial_analysis.sh,FALSE,
+"What service is responsible for monitoring the state of system resources and deciding when and on which subset of resources each job is to run?
+A. Server
+B. Communication service
+C. Scheduler
+D. MoM",Scheduler,FALSE,
+"What srun command has been sent for this execution: A srun command is submitted on a machine equipped with dual quad-core processors (each core supporting single thread of execution), two nodes will be allocated for the job. Assuming the first socket of node 0 includes cores numbered 0–3 and the second cores 4–7, task 0 will run on cores 0 and 1, task 1 on cores 4 and 5, task 2 on cores 2 and 3, and task 3 on cores 6 and 7. The remaining tasks will be instantiated on node 1, with task 4 using cores 0 and 1 and task 5 cores 4 and 5.
+A. srun –n6 –c2 –m’block:cyclic’ my_app
+B. srun –n6 –c2 –mplane=2:fcyclic,NoPack my_app
+C. srun –n6 –c2 –m’block:block’ my_app
+D. srun –wnode0[4-6],node08 –N6 my_app",srun –n6 –c2 –m’block:cyclic’ my_app,FALSE,
+"What this command will do? (multiple true)
+ qsub –q debug –l nodes=4,walltime=30:00 job.sh
+ A. Submit the job to the specific queue (“debug” in this case)
+ B. will start four instances of the job.sh program (one per host) 
+ C.the maximum amount of time a job is permitted to run is 30 min
+ D. will launch a Slurm job in debug partition 
+
+
+
+","1. Submit the job to the specific queue (“debug” in this case),
+2. the maximum amount of time a job is permitted to run is 30 min",FALSE,
+"What are the resource management tools principal functions? (multiple true)
+A. resource allocation
+B. workload scheduling
+C. support for distributed workload execution and monitoring
+D. Replaces the OS in the nodes","1. Resource Allocation
+2. Workload Scheduling
+3. Support for distributed workload execution and monitoring",FALSE,
+"What is true about job queues in resource managers?
+A. Is possible to find interactive queue solely for interactive jobs.
+B. defines the order in which jobs are selected
+C. Most systems typically use multiple job queues
+D. FIFO is a job queue strategy
+E. All answers are correct",All answers are correct,FALSE,
+"Suppose 50% of a program can be executed in parallel. What is the maximum speed up for a computer with 5 cores?
+A. 1.82 time
+B. 1.66 times
+C. 2.21 times
+D. 0.89 times",B. 1.66 times,FALSE,
+"Amdahl's Law is often cited in the context of SMP. If 20% of a program cannot be parallelized and runs on a single processor, what is the theoretical maximum speedup you can achieve with infinite processors in an SMP system?
+a) 2x 
+b) 4x 
+c) 5x 
+d) 10x 
+e) Infinite",5x,FALSE,
+"What is true about HPL benchmark?
+A. The Linpack benchmark solves a dense, regular system of linear equations
+B. The Linpack benchmark provides an estimate of a system's effective floating-point performance.
+C. The HPL benchmark is used for ranking supercomputers in the Top 500 list.
+D. HPL is part of the HPC Challenge benchmark suite that contains seven widely used HPC benchmarks
+E. Early versions of the HPL include the floating-point- intensive Whetstone benchmark and the integer-oriented Dhrystone benchmark","The Linpack benchmark solves a dense, regular system of linear equations
+The Linpack benchmark provides an estimate of a system's effective floating-point performance.
+The HPL benchmark is used for ranking supercomputers in the Top 500 list.
+HPL is part of the HPC Challenge benchmark suite that contains seven widely used HPC benchmarks
+",FALSE,
+"What is true about this image? (multiple true)
+
+A. 20-node cluster that has been partitioned into two disjoint node sets, Partition 1 and Partition 2
+B. Job 1 has been assigned all nodes in Partition 1 and all are currently utilized by Job Step 1
+C. Partition 2 the scheduler designated only 9 out of 12 available nodes for Job 2 and 8 of them are in use by two concurrent job steps, Job Steps 5 and 6
+D. remaining three nodes in Partition 2 could not be allocated to another job","20-node cluster that has been partitioned into two disjoint node sets, Partition 1 and Partition 2
+Job 1 has been assigned all nodes in Partition 1 and all are currently utilized by Job Step 1
+Partition 2 the scheduler designated only 9 out of 12 available nodes for Job 2 and 8 of them are in use by two concurrent job steps, Job Steps 5 and 6",FALSE,
+"What is the primary purpose of benchmarking in HPC?
+A. To debug software programs.
+B. To compare different programming languages.
+C. To measure and compare the performance of supercomputers
+empirically.
+D. To enhance the graphical user interface of software.
+E. To upgrade the operating system. ",To measure and compare the performance of supercomputers empirically.,FALSE,
+"What is Slurm primarily used for in HPC environments?
+a) Data storage 
+b) Network security 
+c) Task scheduling 
+d) Graphics rendering 
+e) Virtualization",Task scheduling,FALSE,
+"If a user submits a job using the 'srun' command in Slurm without specifying any nodes, what will Slurm do?
+a) The job will be rejected. 
+b) The job will be executed on the master node.
+c) Slurm will choose appropriate nodes based on available resources.
+d) The job will be executed on all nodes in the cluster
+e) Slurm will prompt the user to specify nodes",Slurm will choose appropriate nodes based on available resources.,FALSE,
+" Which command in Slurm provides information about current job status, node availability, and other cluster states?
+a) srun 
+b) sinfo
+c) spart 
+d) sstate 
+e) snodes",sinfo,FALSE,
+"Imagine a user needs to run a job that requires 4 nodes and 32 tasks with 8 tasks on each node. Which of the following Slurm commands correctly specifies this requirement?
+a) srun -N4 -n32 --ntasks-per-node=8 job_script.sh 
+b) srun -N4 -n8 --ntasks-per-node=32 job_script.sh
+c) srun -N32 -n4 --ntasks-per-node=8 job_script.sh 
+d) srun -N8 -n4 --ntasks-per-node=32 job_script.sh
+e) srun -N4 --ntasks-per-node=32 job_script.sh",srun -N4 -n32 --ntasks-per-node=8 job_script.sh ,FALSE,
+"Which of the following statements about Slurm's job priority mechanism is true?
+a) Jobs are executed based on the order they are received. 
+b) Priority is determined only by the age of the job.
+c) Priority is based on a combination of factors including job size, age, and partition configurations.
+d) Larger jobs always have higher priority. 
+e) Older jobs are always executed last.","Priority is based on a combination of factors including job size, age, and partition configurations.",FALSE,
+"Alice is working on a climate modeling project and has three large simulation tasks to run. Each simulation requires 10 nodes. She wants to ensure that if one simulation fails, it doesn't impact the others. Which of the following Slurm commands should she use to submit these simulations? Note: In Slurm, the sbatch command is used to submit a job script for later execution.
+a) srun -N10 simulation1.sh; srun -N10 simulation2.sh; srun -N10 simulation3.sh 
+b) sbatch -N10 simulation1.sh && sbatch -N10 simulation2.sh && sbatch -N10 simulation3.sh
+c) srun -N30 simulation1.sh simulation2.sh simulation3.sh 
+d) sbatch --array=1-3 -N10 simulation.sh 
+e) srun -N10 simulation1.sh & srun -N10 simulation2.sh & srun -N10
+simulation3.sh",sbatch --array=1-3 -N10 simulation.sh ,FALSE,
+"Which component of the HPC Challenge Benchmark Suite is best suited for measuring the sustainable memory bandwidth of an HPC system?
+a) HPL 
+b) RandomAccess 
+c) STREAM 
+d) FFT 
+E) DeepBenc",STREAM,FALSE,
+"Caroline, a data scientist, has been given access to an HPC cluster for her deep learning experiments. For her initial tests, she wants to run her TensorFlow training script on a GPU node. Which of the following Slurm commands would be appropriate for her to request a GPU node? Note: In Slurm, the --gres=gpu option is used to request generic resources, specifically GPUs.
+a) srun --gres=gpu:1 tensorflow_script.sh 
+b) srun --gpus=1 tensorflow_script.sh 
+c) srun --request-gpu tensorflow_script.sh
+d) sbatch --gpu tensorflow_script.sh 
+e) srun --resource=gpu tensorflow_script.s",srun --gres=gpu:1 tensorflow_script.sh ,FALSE,
+" A team is developing a machine learning model that requires benchmarking the training times and accuracy of various frameworks. Which benchmark should they use?
+a) HPL 
+b) STREAM 
+c) HPCG 
+d) MLPerf 
+e) RandomAccess",MLPerf ,FALSE,
+"An HPC system needs a comprehensive performance evaluation that includes memory bandwidth, computation power, and data access patterns. Which benchmark suite should be used and why?
+a) HPL, because it measures floating-point computation power. 
+B) STREAM, because it measures memory bandwidth. 
+C) HPCG, because it focuses on sparse matrix operations.
+D) HPC Challenge Benchmark Suite, because it includes HPL, STREAM, RandomAccess, and FFT. 
+E) DeepBench, because it benchmarks deep learning operations.","HPC Challenge Benchmark Suite, because it includes HPL, STREAM, RandomAccess, and FFT. ",FALSE,
+"Which of the following best describes the primary function of Infrastructure as a Service (IaaS) in HPC?
+A. Provides platforms for developing, running, and managing HPC applications
+B. Offers HPC applications over the internet with pay-per-use pricing
+C. Provides virtualized computing resources over the internet on a pay-as-you-go basis
+D. Delivers pre-configured environments for specific HPC applications
+E. Manages containerized applications across multiple cloud providers",Provides virtualized computing resources over the internet on a pay-as-you-go basis,TRUE,
+"A bioinformatics researcher needs to ensure that their analysis pipeline is reproducible across different HPC systems. Which technology should they use and why?
+A. Virtual Machines (VMs) because they provide full hardware virtualization
+B. Bare metal servers because they offer direct hardware access
+C. Singularity containers because they encapsulate entire software environments
+D. Docker containers because they share the host OS kernel
+E. On-premises HPC clusters because they ensure control over resources",Singularity containers because they encapsulate entire software environments,TRUE,
+"What is the main difference between Platform as a Service (PaaS) and Infrastructure as a Service (IaaS) in the context of HPC?
+A. PaaS provides hardware resources, while IaaS provides software applications
+B. IaaS provides a pay-as-you-go pricing model, while PaaS does not
+C. PaaS offers pre-configured environments for HPC applications, while IaaS provides virtualized hardware resources
+D. IaaS is used for job scheduling, while PaaS is for container management
+E. PaaS requires higher upfront costs compared to IaaS","PaaS offers pre-configured environments for HPC applications, while IaaS provides virtualized hardware resources",TRUE,
+"Which use case is best suited for hybrid cloudstrategies in HPC?
+A. Running real-time data processing tasks with low latency
+B. Performing routine calculations requiring consistent computational power
+C. Handling peak computational demands without permanent infrastructure investment
+D. Ensuring maximum performance with direct hardware access
+E. Avoiding vendor lock-in by distributing workloads across multiple providers",Handling peak computational demands without permanent infrastructure investment,TRUE,
+"What is one key advantage of using containers like Singularity in HPC environments?
+A. Requires root privileges to run
+B. Offers full hardware virtualization
+C. Provides lightweight, user-level containerization
+D. Increases overhead compared to VMs
+E. Limits flexibility in resource allocation","Provides lightweight, user-level containerization",TRUE,
+"What is the benefit of using MPI-based applications within Singularity containers in an HPC cluster, and how can you integrate it with SLURM for job scheduling?
+A. Enhanced security through user-level permissions
+B. Reduced overhead by using lightweight containers
+C. Efficient parallel computing and resource utilization
+D. Simplified software dependency management
+E. Improved scalability with cloud bursting capabilities
+",Efficient parallel computing and resource utilization,TRUE,
+"How does Singularity ensure security when running containers in an HPC environment?
+A. By requiring root privileges for container execution
+B. By using a proprietary file system for containers
+C. By running containers with user-level permissions
+D. By isolating containers using full hardware virtualization
+E. By limiting the use of Message Passing Interface (MPI) applications",By running containers with user-level permissions,TRUE,
+"Which Singularity command is used to build a container image from a definition file, and what does this process encapsulate?
+A. singularity exec
+B. singularity run
+C. singularity build
+D. singularity pull
+E. singularity start",singularity build,TRUE,
+"In the context of hybrid cloud strategies for HPC, what role does a tool like AWS Direct Connect play?
+A. It provides a high-performance computing instance
+B. It facilitates job scheduling across different HPC clusters
+C. It offers dedicated, high-speed connectivity between on-premises and AWS
+D. It automates the deployment of containerized applications
+E. It manages cost and budget for HPC resources","It offers dedicated, high-speed connectivity between on-premises and AWS",TRUE,
+"A biotech company needs to run a protein folding simulation that requires high computational power and low latency communication
+between nodes. They have an on-premises HPC cluster but need additional resources for peak demand. Which hybrid cloud strategy and tools would you recommend, and why?
+A. Use AWS EC2 Spot Instances with Elastic Fabric Adapter (EFA) for low- latency communication
+B. Use Google Cloud's Preemptible VMs for cost-effective additional resources
+C. Use Azure Batch for job scheduling and scaling of large workloads
+D. Use VMware vSphere for managing on-premises resources
+E. Use IBM Watson for AI-driven data analysis",Use AWS EC2 Spot Instances with Elastic Fabric Adapter (EFA) for low- latency communication,FALSE,
+"A research team is running climate modeling simulations that require significant computational resources. They have decided to use a hybrid cloud strategy to handle peak workloads. Which tools and techniques would best support their needs, and why?
+A. Use AWS ParallelCluster for managing and scaling HPC clusters 
+B. Use Docker containers for all their workloads
+C. Use Azure Blob Storage for storing climate data 
+D. Use IBM Watson for predictive analysis
+E. Use Google Cloud Preemptible VMs for cost-effective computing",Use AWS ParallelCluster for managing and scaling HPC clusters ,FALSE,
+"Your company needs to implement a secure, scalable HPC environment for financial risk modeling. Given the requirement for high security and compliance, which cloud service model and associated tools would you choose, and why?
+A. Use IaaS with AWS EC2 instances and Elastic Fabric Adapter (EFA) 
+B. Use SaaS with Rescale for on-demand software tools
+C. Use PaaS with Azure Batch for job scheduling and resource management 
+D. Use IaaS with Google Compute Engine and custom VMs
+E. Use PaaS with Google Cloud AI Platform for model training and deployment",Use PaaS with Azure Batch for job scheduling and resource management ,TRUE,
+"A biotech startup needs to perform large-scale genomics analysis using a bioinformatics pipeline. They decide to use Singularity containers to ensure reproducibility and portability. How would they create, run, and manage these containers in an HPC environment, and why is this approach advantageous?
+A. Use VMware vSphere for managing virtual machines
+B. Build Docker images and convert them to Singularity images using singularity build
+C. Use Azure CycleCloud for HPC cluster management 
+D. Use Google Cloud Preemptible VMs for cost savings
+E. Run the analysis directly on bare metal servers for maximum performance",Build Docker images and convert them to Singularity images using singularity build,TRUE,
+"A university research team is working on a project that requires running millions of Monte Carlo simulations for financial risk analysis. They have decided to use cloud resources to complement their on-premises HPC infrastructure. Which setup would you recommend to optimize cost and performance, and why?
+A. Use Google Cloud TPU VMs for all simulations
+B. Use AWS EC2 Spot Instances for cost-effective computation during peak loads
+C. Use Azure Blob Storage for storing simulation data 
+D. Use IBM Watson for AI-driven insights
+E. Use Docker containers for running simulations",Use AWS EC2 Spot Instances for cost-effective computation during peak loads,TRUE,
+"A pharmaceutical company is conducting high-throughput drug screening using machine learning models. They need to ensure high performance and fast deployment across different HPC systems. Which containerization technology should they use, and how would it benefit their workflow?
+A. Use VMware vSphere for managing virtual machines 
+B. Use Docker for containerization of machine learning models
+C. Use Singularity for encapsulating machine learning workflows in HPC environments
+D. Use Azure Batch for job scheduling and resource scaling
+E. Use Google Cloud Storage for storing drug screening data",Use Singularity for encapsulating machine learning workflows in HPC environments,TRUE,
+"A research team is utilizing AWS for large-scale genomics data analysis. They need to ensure the data is processed efficiently and cost-effectively. Which combination of AWS services would best support their needs, and why?
+A. AWS EC2 Spot Instances with Amazon S3 for storage 
+B. AWS Lambda for on-demand computation
+C. AWS RDS for database management 
+D. AWS LightSail for simple cloud deployment
+E. AWS CloudFront for content deliver",AWS EC2 Spot Instances with Amazon S3 for storage ,TRUE,
+"A financial firm wants to enhance their real-time risk analysis capabilities using cloud-based HPC. They aim to integrate edge computing for faster data processing. Which cloud and edge computing services should they leverage, and why?
+A. Azure Batch and Azure IoT Edge 
+B. Google Cloud AI Platform and Google Kubernetes Engine
+C. AWS Lambda and AWS Greengrass 
+D. IBM Watson and IBM Cloud Functions
+E. Google Cloud Storage and Google Cloud Functions",AWS Lambda and AWS Greengrass ,TRUE,
+"Your team is tasked with deploying an HPC application that requires high throughput and low-latency networking for a simulation. Which cloud-based HPC instance type would you choose and why?
+A. AWS EC2 C5n Instances 
+B. Google Cloud TPU Instances
+C. Microsoft Azure A-Series Instances 
+D. AWS LightSail Instances
+E. Google Cloud GKE Instances",AWS EC2 C5n Instances ,TRUE,
+"A biotech company is using Singularity containers for HPC workloads on a SLURM-managed cluster. They need to ensure the
+reproducibility of their bioinformatics pipelines. How should they create and manage these containers, and what are the benefits?
+A. Use Docker containers with Kubernetes 
+B. Create Singularity containers using a definition file and manage them with SLURM
+C. Use Azure Batch for container management 
+D. Use Google Cloud AI Platform for container orchestration
+E. Use bare metal servers for maximum performance",Create Singularity containers using a definition file and manage them with SLURM,TRUE,
+"A university is exploring multi-cloud strategies for their HPC needs to avoid vendor lock-in and enhance resilience. Which tools and
+approaches should they use to manage this multi-cloud environment effectively?
+A. Use AWS Cost Explorer for cost management 
+B. Use Terraform and Kubernetes for orchestration and deployment
+C. Use Azure Blob Storage for all data storage needs 
+D. Use Google Cloud Functions for serverless computing
+E. Use IBM Watson for AI and machine learning task",Use Terraform and Kubernetes for orchestration and deployment,TRUE,
+"A company runs a video rendering application where 40% of the task is purely sequential, and the remaining 60% of the task can be parallelized. The IT department upgrades the system to a high-performance setup with 8 cores. Using Amdahl’s Law, what is the maximum possible speedup the company can expect from the new setup? (Out of slides) 
+Option A: 1.82 times
+Option B:1.42 times
+Option C: 3.5 times
+Option D: 2.1 times",2.1 times,TRUE,
+"If a modern CPU aims to enhance instruction throughput by dividing instruction processing into distinct stages, with each stage being managed by a different segment of the CPU, what is this technique called?  (Out of slides) 
+
+Option A: Hyperthreading
+Option B: Branch Prediction
+Option C: Pipelining
+Option D: Loop Unrolling
+Option E: Vector Processing",Pipelining,TRUE,
+"In the context of the von Neumann architecture, what is the limitation where the speed of operations is constrained by the rate of data transfer between the CPU and memory?  (Out of slides)  
+Option A: CPU Throttling
+Option B: Cache Miss
+Option C: Memory Leak
+Option D: Pipeline Stalling
+Option E: von Neumann Bottleneck ",von Neumann Bottleneck,FALSE,
+"Let's say you're using Google Chrome, a popular web browser. When you open a new web page, the browser processes multiple tasks like fetching data, rendering images, and playing videos. To boost efficiency, modern CPUs process several instructions related to these tasks concurrently but in different stages. What is this technique called?  (Out of slides) 
+A. Web Lining
+B. HTML Parsing
+C. Data Mining
+D. Video Streaming
+E. Pipelining",Pipelining,TRUE,
+"What is true about MPPs clusters? MPP stands for Massively Parallel Processing. An MPP cluster is a high-performance computing system composed of multiple interconnected computers (nodes) working together to solve complex problems
+ (Out of slides) 
+A. MPPs always have shared-memory between all nodes
+B. MPPs are single systems comprising many integrated computer.
+C. Easily scales to extremes of computing system size and performance
+D. They use Message passing by a system area network (SAN) 
+E. Typically, MPPs exhibit lower efficiencies with respect to number of cores than Commodity Clusters","MPPs are single systems comprising many integrated computer.
+Easily scales to extremes of computing system size and performance
+They use Message passing by a system area network (SAN) ",TRUE,
+"Order the memory technologies by speed from faster to slower:  (Out of slides) 
+
+A. Magnetic storage, NVRAM, DRAM, SRAM
+B. DRAM, SRAM, NVRAM, Magnetic storage
+C. SRAM, DRAM, NVRAM, Magnetic Storage
+D. Magnetic storage, NVRAM, DRAM, SRAM","SRAM, DRAM, NVRAM, Magnetic Storage",FALSE,
+"Suppose 50% of a program can be executed in parallel. What is the maximum speed up for a computer with 5 cores?  (Out of slides) 
+A. 1.82 time
+B. 1.66 times
+C. 2.21 times
+D. 0.89 times",1.66 times,FALSE,
+"What is true about von Neumann architecture?  (Out of slides) 
+A. Define in 1940 the modern architecture for computers
+B. Uses an ALU, registers, processor and main memory
+C. The ALU (arithmetic logic unit) stores memory
+D. A load operation reads a word from memory and places its value into a register, to be used by the ALU.
+E. Operation of the processor is managed by the controller
+","Define in 1940 the modern architecture for computers
+Uses an ALU, registers, processor and main memory
+A load operation reads a word from memory and places its value into a register, to be used by the ALU.
+Operation of the processor is managed by the controller",TRUE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,
+,,FALSE,

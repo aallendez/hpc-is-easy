@@ -1,0 +1,1915 @@
+"The algorithms Fast Fourier Transform and
+parallel sort are examples of what class of algorithm?
+A.Fork–join
+B.Divide and conquer
+C.Halo exchange
+D.Permutation
+E.Embarrassingly parallel
+F.Manager–worker
+G.Task dataflow",Divide and conquer
+"What type of algorithm is the one in the code?
+1 if ( my_rank == master ) {
+2 send_action(INITIALIZE);
+3
+4 for (int i=0;i<num_timesteps;i++) {
+5 send_action(REFINE);
+6 send_action(INTEGRATE);
+7 send_action(OUTPUT);
+8 }
+9} else {
+10listen_for_actions();
+11}
+A. Divide-and-conquer
+B. manager–worker
+C. Halo-exchange
+D. Non of the above",manager–worker
+"______ matrix calculations exploit arrays
+(e.g., vectors) that are mostly populated
+with elements of value zero and where
+only a relatively small number of the
+elements are nonzero
+A. Quadratic
+B. Dense
+C. Sparse
+D. None of the above",Sparse
+"Scenario: You are building a weather
+simulation program that processes data for
+multiple cities concurrently. Each city's data
+processing is independent and does not rely
+on the results from another city.
+Question: Which type of algorithm would best
+fit this scenario?
+a) Fork-join parallelism
+b) Divide-and-conquer parallelism
+c) Quicksort
+d) Halo exchange
+e) Embarrassingly parallel algorithms",Embarrassingly parallel algorithms
+"Question: In the context of the word count operation for Company XYZ's Twitter data analysis, why might a
+Combiner be beneficial in Hadoop's MapReduce?
+a) b) c) e) It renames all the output files.
+It changes the input split size.
+It aggregates intermediate data on the Mapper side, reducing the amount of data shuffled.
+d) It replaces the Reducer.
+It encrypts the data before the Reducer stage"," It aggregates intermediate data on the Mapper side, reducing the amount of data shuffled."
+"A halo is a region __________ to the data subset
+mapped to a parallel task. It acts as an artificial
+boundary to that data subset and contains
+information that originates from the data subsets
+of neighboring parallel tasks.
+A. Interior
+B. Exterior
+C. Central
+D. adjacent",Exterior
+"Embarrassingly parallel algorithms are a subclass of
+________ algorithms. They are called embarrassingly
+parallel because the available concurrency is trivially
+extracted from the workflow.
+A. Fork-join
+B. Divide-and-conquer
+C. Manager-worker
+D. Task dataflows",Manager-worker
+"Task dataflow algorithms represent the
+precedent constraints among subtasks by
+their dependencies in the form of a
+directed acyclic graph. This establishes
+which tasks must be completed prior to
+initiating a succeeding task.
+A. True
+B. False",TRUE
+"______ matrix calculations exploit arrays
+(e.g., vectors) that are mostly populated
+with elements of value zero and where
+only a relatively small number of the
+elements are nonzero
+A. Quadratic
+B. Dense
+C. Sparse
+D. None of the above",
+"Quicksort is an example of a _________ algorithm for ______ data
+A. Divide-and-conquer - ordening
+B. Manager-worker - finding
+C. Embarrassingly parallel - finding
+D. Task dataflow - orderning",
+"For what type of data structures is
+breadth first search algorithm
+used for?
+A. sparse Matrixes
+B. graph data structures
+C. Dense matrixes
+D. vectors",graph data structures
+"The algorithms Fast Fourier Transform and parallel sort are examples of what class of algorithm?
+A.Fork–join
+B.Divide and conquer
+C.Halo exchange
+D.Permutation
+E.Embarrassingly parallel
+F.Manager–worker
+G.Task dataflow",
+"What type of algorithm is the one
+from the image?
+See image P.80 M4S1
+A.Fork–join
+B.Divide and conquer
+C.Halo exchange
+D.Embarrassingly parallel
+E.Manager–worker",Divide and conquer
+"What type of algorithm is the one in the code?
+1 if ( my_rank == master ) {
+2 send_action(INITIALIZE);
+3
+4 for (int i=0;i<num_timesteps;i++) {
+5 send_action(REFINE);
+6 send_action(INTEGRATE);
+7 send_action(OUTPUT);
+8 }
+9} else {
+10listen_for_actions();
+11}
+A. Divide-and-conquer
+B. manager–worker
+C. Halo-exchange
+D. Non of the above",
+"One of the simplest ways to solve these
+wavelike partial differential equations on
+a supercomputer is through the use of:
+A. Divide and conquer
+B. Embarrassingly parallel algorithms
+C. finite differencing and halo exchange
+D. Fork–join",finite differencing and halo exchange
+"Match each algorithm type with an example
+A. Fork–join
+B. Divide and conquer
+C. Halo exchange
+D. Permutation
+E. Embarrassingly parallel
+F. Manager–worker
+G. Task dataflow
+
+
+A. Cannon's algorithm, Fast Fourier Transform
+B. OpenMP parallel for-loop
+C. Breadth first search
+D. Fast Fourier Transform, parallel sort
+E. Finite difference/finite element partial differential equation solvers
+F. Monte Carlo
+G. Simple adaptive mesh refinement","Fork–join -> OpenMP parallel for-loop
+Divide and conquer -> Fast Fourier Transform, parallel sort
+Halo exchange -> Finite difference/finite element partial differential equation solvers
+Permutation  -> Cannon's algorithm, Fast Fourier Transform
+Embarrassingly parallel -> Monte Carlo 
+Manager–worker -> Simple adaptive mesh refinement
+Task dataflow  ->  Breadth first search"
+"Question 12: What best describes Fork-join parallelism?
+A) A method to subdivide a problem repeatedly until tasks are trivial.
+B) A process where one manager controls the remaining worker processes.
+C) A technique that starts at a fork and ends when all concurrent tasks have reached the join point.
+D) A strategy mainly used for sparse matrix calculations.
+E) A workflow in which concurrency is trivially extracted.",A technique that starts at a fork and ends when all concurrent tasks have reached the join point.
+"Question 13: In the context of parallel algorithms, what is a ""halo""?
+A) A method to order data
+B) An exterior region to a data subset mapped to a parallel task
+C) A technique for extracting concurrency from the workflow
+D) A sparse matrix representation
+E) An algorithm for dynamic load balancing",
+"Question 14: Why are certain algorithms labeled as ""Embarrassingly Parallel""?
+A) They cannot be divided into subtasks.
+B) They are overly complex and hard to understand.
+C) Their available concurrency is difficult to extract from the workflow.
+D) They lack efficiency in distributed computing.
+E) The available concurrency is trivially extracted from the workflow.",The available concurrency is trivially extracted from the workflow.
+"Question 15: Sparse matrix calculations are advantageous because:
+A) They utilize arrays that are entirely populated with zeros.
+B) They represent matrices larger than what the main memory of a computer could store by only saving nonzero elements.
+C) They always improve the efficiency of distributed computing.
+D) They follow the manager-worker workflow.
+E) They employ the divide-and-conquer strategy for ordering data. ",They represent matrices larger than what the main memory of a computer could store by only saving nonzero elements.
+"Imagine a tool named 'MatrixMaster', which is designed to handle and operate on massive matrices. However,
+due to memory constraints, it cannot load the entire matrix into memory. Instead, it's known to efficiently handle matrices
+where most of its elements are zeros. Which data structure should 'MatrixMaster' ideally utilize?
+a) Full matrix representation
+b) Sparse matrix
+c) Linked list
+d) Binary tree
+e) Hash map",Sparse matrix
+"Question 17: You're using a tool called 'TaskFlowGrapher' that visually represents tasks as nodes and their dependencies as
+edges in a directed graph. The tool ensures that tasks are executed in the correct order based on their dependencies. Which
+parallel algorithm concept does 'TaskFlowGrapher' most closely align with?
+1. a) Fork-join parallelism
+2. b) Embarrassingly parallel algorithms
+3. c) Halo exchange
+4. d) Task dataflow algorithms
+5. e) Divide-and-conquer parallelism",Task dataflow algorithms
+"Question 18: You're developing an e-commerce platform and need an algorithm that recursively breaks down the product
+list into smaller chunks to sort them efficiently before merging them back together. Which algorithm or parallelism
+approach would be suitable for this case?
+1. a) Fork-join parallelism
+2. b) Halo exchange
+3. c) Manager–worker workflow
+4. d) Embarrassingly parallel algorithms
+5. e) Divide-and-conquer parallelism",Divide-and-conquer parallelism
+"Question 19: A tool named 'HaloMapper' works with data subsets mapped to parallel tasks. It
+ensures that each task can access data from neighboring tasks to perform computations. The
+'HaloMapper' tool's primary function is based on which parallel computing concept?
+a) Fork-join parallelism
+b) Sparse matrix calculations
+c) Manager–worker workflow
+d) Halo exchange
+e) Embarrassingly parallel algorithms",
+"Question 20: Consider a tool named 'ConcurrentTreeSearch' that allows researchers to explore
+multiple paths of a decision tree simultaneously. Instead of exploring one path and then
+backtracking, it evaluates many paths in parallel to find a solution faster. The operation of
+'ConcurrentTreeSearch' is a prime example of which parallel algorithm technique?
+a) Divide-and-conquer parallelism
+b) Embarrassingly parallel algorithms
+c) Fork-join parallelism
+d) Task dataflow algorithms
+e) Parallel depth-first search",Fork-join parallelism
+"Question 21: Why is velocity an essential factor when considering big data, and what role does real-time processing play in industries like finance or healthcare?
+A) Velocity refers to the amount of data generated at a specific time and plays no role in real-time processing.
+B) Velocity refers to the speed of communication between processors in a parallel system.
+C) Velocity is synonymous with the volume of data stored in big data applications.
+D) Velocity refers to the need for more storage in a system.
+E) Velocity refers to the speed at which data is generated and processed. In industries like finance, real-time processing is crucial for executing timely trades or fraud detection.","Velocity refers to the speed at which data is generated and processed. In industries like finance, real-time processing is crucial for executing timely trades or fraud detection."
+"In the Fork–Join model, why is the collapse(2) directive used in OpenMP, and what is its practical advantage when adding two matrices of size N x N in parallel?
+A) collapse(2) is used to collapse nested loops into a single loop for better load balancing and thread efficiency, making it ideal for matrix operations where both row and column operations are independent.
+B) collapse(2) splits the matrix into two parts and processes them sequentially to ensure accuracy.
+C) collapse(2) is used to prevent race conditions between threads.
+D) It allows two threads to work on the same row of the matrix at the same time.
+E) It is used to reduce memory consumption during parallel matrix addition.","collapse(2) is used to collapse nested loops into a single loop for better load balancing and thread efficiency, making it ideal for matrix operations where both row and column operations are independent."
+"Question 23: In a parallel merge sort implementation, how does the divide and conquer strategy improve the efficiency of sorting large datasets?
+A) By dividing the dataset into smaller parts, each sorted independently in parallel, the time complexity is reduced to O(n), making it faster than traditional merge sort.
+B) It sorts only the largest subarray in parallel, and the rest are sorted sequentially.
+C) It divides the problem recursively, solves smaller subproblems in parallel, and then combines the solutions, resulting in improved load balancing and reduced total execution time.
+D) Divide and conquer improves memory usage by splitting the dataset into several small arrays.
+E) It converts a serial sort into a bubble sort.","It divides the problem recursively, solves smaller subproblems in parallel, and then combines the solutions, resulting in improved load balancing and reduced total execution time."
+"Question 24: Given a word count problem in MapReduce, what is the main reason for using the shuffle and sort phase between the Map and Reduce steps?
+A) To ensure that all values associated with a particular key are grouped together for aggregation in the Reduce phase.
+B) To sort the data in lexicographic order.
+C) To randomly distribute data across the network for fault tolerance.
+D) To reduce the amount of data sent to the reduce function by eliminating duplicates.
+E) To compress the output from the Map function for faster processing.",To ensure that all values associated with a particular key are grouped together for aggregation in the Reduce phase.
+"High-Performance Computing (HPC) is vital in big data analytics. Which of the following best explains the role of HPC in solving the challenges posed by large-scale data processing?
+A) HPC provides a larger storage capacity for big data, reducing the need for distributed storage systems like HDFS.
+B) HPC systems offer high computational power, enabling parallel processing of massive datasets, which is crucial for applications like weather prediction models that require timely and accurate results.
+C) HPC systems eliminate the need for distributed file systems by using a single processor with faster clock speeds.
+D) HPC can only be used in academic research and has limited applicability in industries like finance or healthcare.
+E) HPC systems can only handle structured data efficiently.","HPC systems offer high computational power, enabling parallel processing of massive datasets, which is crucial for applications like weather prediction models that require timely and accurate results."
+"You are tasked with processing terabytes of customer transaction data from an online marketplace using the MapReduce programming model. What would be the correct way to divide
+this task?
+A) Use the map() function to distribute tasks across nodes and the reduce() function to combine intermediate results for each customer transaction.
+B) Use the map() function to aggregate the data and the reduce() function to split the data into smaller chunks.
+C) Store all data in memory, use the map() function to aggregate transactions and discard the reduce() function.
+D) Use the reduce() function to count the total number of transactions before mapping them.
+E) Split the data manually into smaller parts and execute both functions in sequence.",Use the map() function to distribute tasks across nodes and the reduce() function to combine intermediate results for each customer transaction.
+"Question 27: In a real-world weather forecasting system, HPC systems are used to process large datasets from satellite imagery. Why is data locality important in such a system when using distributed
+computing frameworks like Apache Hadoop?
+A) It ensures that all data is stored on a single machine for faster processing.
+B) It minimizes the movement of data between different nodes by processing the data where it is stored, reducing network bottlenecks.
+C) It ensures the data is split equally among all the available processors.
+D) It allows the system to prioritize weather data over other types of data.
+E) It improves the fault tolerance of the system by replicating the data to all nodes.",
+"You are building a parallel application to simulate molecular interactions. Which parallel algorithm model would you choose to handle the large number of independent computations, and
+why?
+A) Fork-Join model, because molecular interactions are highly dependent on boundary conditions.
+B) Divide and Conquer, since the interactions between molecules need to be recursively split into smaller interactions.
+C) Embarrassingly Parallel, because each molecular interaction can be computed independently without the need for communication between computations.
+D) Halo Exchange, since molecular interactions involve constant communication of boundary data between processors.
+E) Task Dataflow, as it ensures that all dependencies are resolved before each task runs.","Embarrassingly Parallel, because each molecular interaction can be computed independently without the need for communication between computations."
+"Question 29: You are tasked with developing a fault-tolerant distributed file system for a data center. Which technology, based on the principles of MapReduce, would you use to ensure both scalability
+and fault tolerance, and why?
+A) Hadoop Distributed File System (HDFS), as it provides data replication across multiple nodes, ensuring scalability and fault tolerance.
+B) Apache Kafka, because it provides data fault tolerance through messaging queues.
+C) MPI (Message Passing Interface), because it allows for low-latency messaging between distributed systems.
+D) OpenMP, as it helps distribute tasks across a single multi-core machine.
+E) Spark Streaming, because it processes data streams in real-time without data replication.",
+"Your task is to improve the performance of an image processing system by applying parallel computing. The system applies filters to
+different sections of a large image. Which parallel algorithm is most suitable for this task, and why?
+A) Halo Exchange, because filters need to exchange data with neighboring sections.
+B) Fork-Join, as each filter can be applied independently to different sections of the image.
+C) Divide and Conquer, as the image should be recursively split into smaller chunks.
+D) Embarrassingly Parallel, since each filter must communicate its results to the other filters.
+E) Task Dataflow, because filters are dependent on the order in which they are applied.","Fork-Join, as each filter can be applied independently to different sections of the image."
+"You are tasked with optimizing a large-scale matrix multiplication using Cannon’s algorithm on an HPC system. How does Cannon’s
+algorithm improve performance in parallel matrix multiplication?
+A) By dividing the matrix into blocks and systematically shifting them across processors to minimize data movement and optimize processor usage.
+B) By splitting the matrix into rows and distributing them across processors for independent computation.
+C) By applying a divide and conquer strategy to recursively split matrices into smaller matrices.
+D) By precomputing the matrix inverses and storing them across nodes for faster access.
+E) By using shared memory to store matrix blocks and reduce access time.",By dividing the matrix into blocks and systematically shifting them across processors to minimize data movement and optimize processor usage.
+"Question 32: You are working on a distributed computational fluid dynamics (CFD) application that requires frequent communication between
+processors for boundary data exchange. Which parallel algorithm model would be most suitable for this type of communication?
+A) Fork-Join, because it handles independent computations with ease.
+B) Embarrassingly Parallel, as CFD computations require no communication between processors.
+C) Halo Exchange, as it focuses on exchanging boundary data between adjacent processors, which is essential for CFD applications.
+D) Divide and Conquer, as it breaks down the fluid model into smaller sections that can be solved recursively.
+E) Manager-Worker, because it involves distributing CFD tasks to worker processors dynamically.","Halo Exchange, as it focuses on exchanging boundary data between adjacent processors, which is essential for CFD applications."
+"Question 34: In the following MapReduce program, what will happen if the combine() method is not
+implemented?
+import java.io.IOException;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Reducer;
+public class WordCount {
+public static class TokenizerMapper extends Mapper<Object, Text,
+Text, IntWritable>{
+private final static IntWritable one = new IntWritable(1);
+private Text word = new Text();
+public void map(Object key, Text value, Context context)
+throws IOException, InterruptedException {
+String[] tokens = value.toString().split(""\\s+"");
+for (String token : tokens) {
+word.set(token);
+context.write(word, one);
+}
+}
+}
+public static class IntSumReducer extends Reducer<Text,
+IntWritable, Text, IntWritable> {
+public void reduce(Text key, Iterable<IntWritable> values,
+Context context) throws IOException, InterruptedException {
+int sum = 0;
+for (IntWritable val : values) {
+sum += val.get();
+}
+context.write(key, new IntWritable(sum));
+}}}
+A) The job will fail as Hadoop requires a combine() method for word count programs.
+B) The program will run, but the performance will be slower as all intermediate data is sent to the
+reducer without local aggregation.
+C) The map() function will not execute if combine() is missing.
+D) Hadoop will automatically implement the combine() method in this case.
+E) The reducer will not receive any data since the combiner acts as an intermediary step","The program will run, but the performance will be slower as all intermediate data is sent to the
+reducer without local aggregation."
+"In the following Hadoop MapReduce program, what is the purpose of the
+setInputFormatClass() method?
+import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
+import org.apache.hadoop.mapreduce.Job;
+public class MapReduceJob {
+public static void main(String[] args) throws Exception {
+Job job = Job.getInstance();
+job.setJarByClass(MapReduceJob.class);
+job.setMapperClass(MyMapper.class);
+job.setReducerClass(MyReducer.class);
+job.setInputFormatClass(TextInputFormat.class);
+job.setOutputKeyClass(Text.class);
+job.setOutputValueClass(IntWritable.class);
+// Rest of job configuration...
+System.exit(job.waitForCompletion(true) ? 0 : 1);
+}}
+A) It specifies the format of the output data, ensuring it's compatible with HDFS.
+B) It sets how the output data will be structured before being written to the HDFS.
+C) It defines how the input data is split into key-value pairs to be processed by the mapper.
+D) It specifies the type of data the reducer will produce after processing.
+E) It defines the scheduling priority for this job in the Hadoop cluster.
+",It defines how the input data is split into key-value pairs to be processed by the mapper.
+"Question 19: Consider the following Fork-Join implementation for summing an array. What is the issue
+in this code regarding scalability in a parallel system?
+#include <omp.h>
+#define N 1000000
+int sum_array(int *array) {
+int sum = 0;
+#pragma omp parallel
+{
+#pragma omp for
+for (int i = 0; i < N; i++) {
+sum += array[i];
+}
+}
+return sum;
+}
+A) The variable sum should be private to each thread and then reduced after the parallel section.
+B) The array should be split and processed by different processes rather than threads.
+C) The OpenMP for loop should use collapse(2) for better performance.
+D) The array is not large enough for parallelism to improve performance.
+E) The outer #pragma omp parallel is unnecessary and reduces performance.",The variable sum should be private to each thread and then reduced after the parallel section.
+"In a divide-and-conquer approach, consider the following code for calculating Fibonacci
+numbers. What optimization can be applied to improve its parallel execution?
+#include <omp.h>
+int fib(int n) {
+if (n <= 1) return n;
+int x, y;
+#pragma omp task shared(x)
+x = fib(n-1);
+#pragma omp task shared(y)
+y = fib(n-2);
+#pragma omp taskwait
+return x + y;
+}
+A) The tasks should be created only for larger values of n to avoid overhead from excessive task creation
+for small values.
+B) The #pragma omp taskwait is unnecessary and can be removed.
+C) The fib() function should be rewritten as a loop for better parallelism.
+D) Shared variables x and y should be declared outside the function to improve task performance.
+E) The recursion should be replaced with a sequential divide-and-conquer algorithm.","The tasks should be created only for larger values of n to avoid overhead from excessive task creation
+for small values."
+"Question 21: The following code implements a manager-worker model for computing the sum of a large array in parallel. What is
+the issue in the current approach?
+#include <omp.h>
+#define N 1000000
+void compute_sum(int *array, int *result) {
+#pragma omp parallel
+{
+int local_sum = 0;
+#pragma omp for
+for (int i = 0; i < N; i++) {
+local_sum += array[i];
+}
+#pragma omp critical
+{
+*result += local_sum;
+}
+}
+}
+A) Using #pragma omp critical for updating the result introduces significant overhead; instead, the reduction clause should be used.
+B) The local_sum should be declared outside the parallel block for better performance.
+C) The array is not split evenly among workers, leading to load imbalance.
+D) OpenMP tasks should be used instead of threads to better distribute the workload.
+E) The critical section should use a mutex instead of #pragma omp critical.","Using #pragma omp critical for updating the result introduces significant overhead; instead, the reduction clause should be used."
+"Question 22: Given the following code snippet for performing a parallel matrix-vector multiplication using Cannon’s algorithm,
+what modification can enhance performance?
+#include <mpi.h>
+#define N 1000
+void cannon_matrix_vector(double A[N][N], double x[N], double y[N], int rank, int size) {
+int i, j;
+for (i = rank * N / size; i < (rank + 1) * N / size; i++) {
+y[i] = 0;
+for (j = 0; j < N; j++) {
+y[i] += A[i][j] * x[j];
+}
+}
+// Missing Cannon's shift implementation
+}
+A) Implementing the systematic block shifting (Cannon's algorithm) will minimize interprocessor communication and optimize parallel
+efficiency.
+B) MPI_Send should be used instead of directly accessing the arrays.
+C) Matrix-vector multiplication should be done entirely in shared memory instead of distributed.
+D) The code should be split into smaller tasks to improve granularity.
+E) MPI_Reduce should be used to aggregate results from different processors.",
+"What are the main type of workloads
+in an HPC converged architecture?
+A. Simulation
+B. Experimental
+C. Visualization
+D. Theoretical
+E. Map Reduce
+F. AI
+G. analytics",
+"MapReduce is a simple programming
+model for enabling _______computations,
+including data processing on very-large-
+input datasets in a highly scalable and
+__________ way.
+A. Object-oriented, asynchronous
+B. Distributed, fault-tolerance
+C. Parallel, machine learning adapted
+D. Serial, nonparallel",
+"What is true about Hadoop?
+A. provides open-source implementation of MapReduce
+B. C. Provides a higher-level ML framework
+provides a distributed file system, job scheduling and
+resource management tools
+D. Is normally included as one service of most Operating
+systems
+E. F. Is programmed using Java, but supports C++ and Python
+Is programmed using Fortran, but supports C and Lisp",
+"What type of MapReduce functional is the one described
+in the example below?
+function counts the number of characters of an input word,
+returning as a key the word length and returning as a value
+the input word
+IF we supplied as input “computing”, it would return the
+key–value pair “9:computing”
+A. Shuffle
+B. Map
+C. Reduce
+D. Short-Merge",Map
+"What type of MapReduce functional is the one described in the example below? takes as an argument a key and all values associated with that key. For example:
+• crossword-puzzle designer would like to know the number of words with a length of four characters that occur in a large-input dataset.
+• would simply count the number of grouped values associated with each key.
+A. Shuffle
+B. Map
+C. Reduce
+D. Short-Merge",Reduce
+"What is the following Hadoop distributed filesystem
+command doing?
+hdfs dfs -put hamlet.txt /hamlet
+A. Placing a text file of Shakespeare's Hamlet (hamlet.txt) stored in HDFS in the local file system
+B. Placing a text file of Shakespeare's Hamlet (hamlet.txt) stored in the local file system in HDFS
+C. Converting a text file of Shakespeare’s Hamlet (hamlet.txt) from a HDFS format into one that can be readable
+D. None of the above",Placing a text file of Shakespeare's Hamlet (hamlet.txt) stored in the local file system in HDFS
+"Quiz M5.S3.Q7
+What is the most recent added pillar added recently into
+the scientific method pillars?
+A. experimental method
+B. theoretical method
+C. computer simulation
+D. Data science (Big Data & AI)",
+"Quiz M5.S3.Q8
+What has been one of the key factors for
+the introduction of Machine Learning into
+HPC systems?
+A. Introduction of GPU-accelerated
+hardware that can be used by ML
+B. Introduction of FPGA-accelerated
+hardware that can be used by ML
+C. Support for high performance double
+precision floating point operations
+D. None of the above",
+"Quiz M5.S3.Q9
+What are potential benefits of using Machine Learning within HPC?
+A. Better stability/accuracy -> Higher-quality simulations
+B. Resists Moore's Law fade -> Continuing future simulation progress
+C. Lower-precision data requirements -> Larger/finer grids, better
+science
+D. Trained models run at peak speed -> Perfectly accelerate existing
+applications
+E. Reduced code optimization requirement -> Scientists can code
+simply, naturally
+F. Reduced maintenance -> More science/dollar
+G. Orders-of-magnitude speed-up/lower energy ->
+Bigger/longer/cheaper simulations
+H. All of the above",
+"Quiz M5.S3.Q10
+What are examples of lower level
+Machine Learning frameworks used
+in HPC?
+A. Tensorflow
+B. Keras
+C. Kubernetes
+D. PyTorch
+E. MLFLow",
+"Match the different following Hadoop components with
+its main function is used for:
+A. HDFS
+B. Hbase
+C. MapReduce
+D. Pig
+E. Zookeper
+F. Oozie
+G. Hive
+H. Mahout
+A. NoSQL Database
+B. Distributed Storage
+C. Distributed Processing
+D. Query
+E. Machine Learning
+F. Scripting
+G. Workflow & Scheduling
+H. Coordination","HDFS - Distributed Storage 
+Hbase - NoSQL Database
+MapReduce - Distributed Processing
+Pig - Scripting
+Zookeper - Coordination
+Oozie - Workflow and Scheduling
+Hive - Query
+Mahout - Machine Learning
+"
+"Question 12. Which of the following is NOT an open-source machine learning framework popularly used in HPC?
+A. TensorFlow
+B. PyTorch
+C. NVIDIA's NCCL
+D. Apache Spark
+E. Scikit-learn",
+"Question 13: Considering the parallel nature of AI computations, which architectural decision is often recommended for AI workloads in HPC?
+A. Scale-out architectures
+B. Scale-up architectures
+C. Centralized architectures
+D. Edge computing architectures
+E. Decentralized architectures",Scale-out architectures
+"Question 14: When performing deep learning in distributed environments, which library is essential for multi-GPU communication?
+A. TensorFlow
+B. PyTorch
+C. NVIDIA's NCCL
+D. MPI (Message Passing Interface)
+E. CUDA",
+"Question 15: One of the challenges of integrating AI into HPC is ensuring that:
+A. AI tasks are not GPU-bound.
+B. AI dominates all available resources.
+C. There's a slow interconnect leading to data transfer bottlenecks.
+D. AI doesn't dominate resources, leaving other HPC tasks starved.
+E. Parallel processing is avoided to maintain efficiency.",
+"Question 16: Which benefit of using AI in HPC is associated with the ability to manage detailed simulations integrating AI components?
+A. Efficiency through parallel processing.
+B. Handling complexity.
+C. Improved data transfer rates.
+D. Easier integration with traditional HPC simulations.
+E. Automatic resource allocation.",
+"Question 17: A research team is working on a large-scale deep learning project that requires data to be trained across multiple GPUs in a distributed cluster.
+Which tool, described as a library for multi-GPU communication in distributed environments, would best suit their needs?
+A. TensorFlow: An open-source machine learning framework.
+B. PyTorch: Another popular framework often used in research.
+C. NVIDIA's NCCL: Library for multi-GPU communication in distributed settings.
+D. Apache Hadoop: A distributed processing system.
+E. MySQL: A relational database management system.",
+"Question 18: Alice is developing an AI model to predict weather patterns. She requires vast computational power and parallel processing capabilities to
+reduce her model's training time. Considering her needs, what benefit of integrating AI in HPC is Alice taking advantage of?
+A. Efficiency through parallel processing.
+B. Automatic resource allocation.
+C. Improved data transfer rates.
+D. Handling of small-scale simulations.
+E. Easy integration with non-HPC tools.",
+"Question 19: Bob's HPC setup for simulating molecular dynamics is being repurposed to also handle AI tasks. However, he notices other simulations are
+getting lesser resources. Which challenge of integrating AI into HPC is Bob facing?
+A. AI tasks are overly GPU-bound.
+B. Slow interconnect leading to data transfer bottlenecks.
+C. AI dominating resources, leaving other HPC tasks starved.
+D. Inefficiency in parallel processing.
+E. Difficulty in integrating with non-AI tools.",
+"Question 20: Emma is setting up a distributed HPC environment for her deep learning research. She's concerned about data transfer rates between nodes
+affecting her computations. Which consideration should she prioritize to address this?
+A. Ensure a fast interconnect to avoid data transfer bottlenecks.
+B. Maximize the use of GPUs for every AI task.
+C. Integrate NVIDIA's NCCL for multi-GPU communication.
+D. Use only PyTorch for her research.
+E. Store all her data locally on each node.",
+" In 2015, the city of Flint, Michigan, faced a severe public health crisis due to lead contamination in its drinking water. Imagine you're a team of scientists and engineers tasked 
+with studying the flow of water through Flint's pipe system, assessing the spread of lead contamination in different regions, and visualizing the integrity of the city's aging pipe 
+infrastructure.
+Using HPC visualization techniques, propose a comprehensive study to assess and present the situation to city officials.
+Which of the following HPC visualization concepts would you choose to effectively communicate your findings, and why?
+a) Streamlines 
+b) Isosurface
+c) Volume rendering through ray tracing 
+d) Mesh tessellation
+1) areas of equal lead concentration in the water
+2) interior of the city's aging pipes
+3) 3D model of the city's pipe infrastructure
+4) flow of water through the city's pipe system","Streamlines: flow of water through the city's pipe system
+Isosurface: areas of equal lead concentration in the water
+Volume Rendering through Ray Tracing: interior of the city's aging pipes
+Mesh Tessellation: 3d model of the city's pipeline infrastructure"
+"In VTK, what mappers and actors mean?
+A. “mappers” convert data into graphics primitives while “actors” alter the visual properties of those
+graphics
+B. “mappers” create data from graphics primitives while “actors” provide data for those graphics
+C. “actors” convert data into graphics primitives while “mappers” alter the visual properties of those
+graphics
+D. None of the above","A. “mappers” convert data into graphics primitives while “actors” alter the visual properties of those
+graphics"
+"What is true about VTK?
+A. VTK is one of the most important open-source
+visualization libraries for HPC users
+B. VTK provides many 3D visualization algorithms,
+parallel computing support
+C. VTK interfaces to interpreted languages like Python
+D. All of them",All of them
+"What type of visualization representation is the one
+in the image?
+See image P52 M4S2
+A. Streamlines
+B. Isosurfaces
+C. volume rendering through ray tracing
+D. mesh tessellations",Isosurfaces
+"What type of visualization representation is the one
+in the image?
+See image P53 M4S2
+A. Streamlines
+B. Isosurfaces
+C. volume rendering through ray tracing
+D. mesh tessellations",volume rendering through ray tracing
+"What type of visualization representation is the one
+in the image?
+See image P54 M4S2
+A. Streamlines
+B. Isosurfaces
+C. volume rendering through ray tracing
+D. mesh tessellations",Streamlines
+"What type of visualization representation is the one
+in the image?
+See image P55 M4S2
+A. Streamlines
+B. Isosurfaces
+C. volume rendering through ray tracing
+D. mesh tessellations",
+"What command will draw the following image?
+See image P56 M4S2
+A. plot [0:4][-5:5] “gnu_example.dat” using 1:2 with
+linespoints title “data”, sin(x) title “gaussian”
+B. splot “gnu_example.dat” with linespoints title
+“data”, 10∗exp(-(x-3)∗∗2-(y-3)∗∗2) title “gaussian”
+C. None of the above",
+"What toolkit that is one of the most used visualization toolkits is also used in several full visualization tools such as ParaView and Vislt
+A. Gnuplot
+B. Matplotlib
+C. VTK
+D. None of the above",VTK
+"What is a big difference between Gnuplot and Matplotlib
+A. Matplotlib itself does not support 3D surface plots or other 3D-type visualizations
+B. Gnuplot itself does not support 3D surface plots or other 3D type visualizations
+C. Gnuplot is open source and Matplotlib is proprietary
+D. Gnuplot is python-based and matplotlib is Fortran-based",Matplotlib itself does not support 3D surface plots or other 3D-type visualizations
+"What is true about VTK?
+A. VTK is one of the most important open-source
+visualization libraries for HPC users
+B. VTK provides many 3D visualization algorithms,
+parallel computing support
+C. VTK interfaces to interpreted languages like Python
+D. All of them",
+"In VTK, what mappers and actors mean?
+A. “mappers” convert data into graphics primitives while “actors” alter the visual properties of those
+graphics
+B.“mappers” create data from graphics primitives while “actors” provide data for those graphics
+C. “actors” convert data into graphics primitives while “mappers” alter the visual properties of those
+graphics
+D. None of the above",
+"What type of visualization will plot the following code using VTK?
+import vtk # the VTK Python interface
+rt = vtk.vtkRTAnalyticSource()# data for testing
+contour_filter = vtk.vtkContourFilter()
+contour_filter.SetInputConnection(rt.GetOutputPort())
+contour_filter.SetValue(0, 190)
+mapper = vtk.vtkPolyDataMapper()
+mapper.SetInputConnection(contour_filter.GetOutputPort())
+A. streamlines
+B. polygon geometric structure
+C. isosurfaces of 3D data
+D. volume rendering",isosurfaces of 3D data 
+"Match the different visualization structures with each
+code in VTK (Visualization Toolkit):
+A. Form_A = vtk.vtkPolyData()
+B. Form_B = vtk.vtkContourFilter()
+C. Form_C = vtk.vtkSmartVolumeMapper()
+D. Form_D = vtk.vtkStreamTracer()
+
+A. volume rendering
+B. polygon geometric structure
+C. isosurface filter
+D. Stream Lines",
+"Question 12. What is the primary motivation for utilizing data visualization on HPC systems?
+a) To make the data look more colorful
+b) To ease the burden of storage on HPC systems
+c) To prepare presentation graphics for business meetings
+d) To debug and explore data for scientific insights
+e) To encrypt the data for security purposes",To debug and explore data for scientific insights
+"An aerospace engineer wants to visualize airflow around an airplane's wing using a technique that
+shows curves tangent to the vector field. Which visualization concept should they use?
+a) Isosurfaces 
+b) Mesh tessellations 
+c) Streamlines 
+d) Ray tracing 
+e) Volume rendering",Streamlines 
+"Question 14. If a researcher has a 3D dataset where they want to visualize surfaces that connect data points of the
+same value, which technique should they apply?
+a) Volume rendering by ray tracing 
+b) Mesh tessellations 
+c) Streamlines
+d) Gnuplot plots 
+e) Isosurfaces
+",Isosurfaces
+"A medical practitioner wishes to visualize MRI scan data to look inside a human body without
+invasive procedures. Which technique allows rays to be cast through the data volume and samples the volume?
+a) Mesh tessellations 
+b) Isosurfaces 
+c) Volume rendering by ray tracing
+d) Streamlines 
+e) Gnuplot plots",Volume rendering by ray tracing
+"A data scientist wants to create a customized visualization solution for a specific application. Which
+tool or library provides a collection of visualization algorithms to achieve this?
+a) Matplotlib 
+b) Gnuplot 
+c) ParaView 
+d) VTK 
+e) VisIt",VTK
+"Question 17. A geologist is examining the crust layers of the Earth. They have data points of varying depths and
+values and want to visualize the connectivity between these points using polygons. Which foundational
+visualization concept should they utilize?
+a) Streamlines 
+b) Volume rendering by ray tracing 
+c) Isosurfaces
+d) Mesh tessellations 
+e) ParaView",Mesh tessellations
+"Question 18. Eleanor, an environmental scientist, is studying patterns of air pollution across a city.
+She collects data over time and wants to generate a series of 2D plots for her research paper. Which
+tool, described as a simple command-line visualization tool, would be apt for her needs?
+a) Streamlines – used for visualizing curves tangent to a vector field.
+b) Gnuplot – a command-line tool specifically for creating 2D and 3D plots.
+c) VTK – a toolkit for creating application-specific visualizations.
+d) Isosurfaces – used for visualizing surfaces connecting data points of the same value.
+e) Volume rendering by ray tracing – technique for seeing inside data volumes.",Gnuplot – a command-line tool specifically for creating 2D and 3D plots.
+"Question 19. Mike, a meteorologist, is trying to predict storm patterns. He has accumulated a vast
+amount of weather data, including wind speeds and directions at various altitudes. He wishes to
+visualize the potential paths these winds would follow. Which technique, known for showing curves
+tangent to vector fields, should he use?
+a) Mesh tessellations – technique for showing data point connections with polygons.
+b) Isosurfaces – used to visualize points of the same value in 3D space.
+c) Streamlines – represent curves that are tangent to a vector field.
+d) Matplotlib – a Python-based tool mainly for 2D visualizations.
+e) VTK – a general collection of visualization algorithms.",Streamlines – represent curves that are tangent to a vector field.
+"Question 20. Jenny, an archaeologist, has used ground-penetrating radar to map an ancient
+underground structure. She possesses a 3D dataset of this underground area and wants to
+interactively explore it using a tool with a graphical user interface. Which tool, equipped with a GUI
+and built on VTK algorithms, would be ideal for her?
+a) Matplotlib – primarily used for 2D plotting using Python.
+b) Gnuplot – a command-line interface for 2D and 3D plots.
+c) ParaView – a visualization solution with a GUI, built on VTK algorithms.
+d) Streamlines – technique for visualizing vector fields.
+e) Isosurfaces – technique for connecting data points with similar values.","ParaView – a visualization solution with a GUI, built on VTK algorithms."
+"Question1: In high-performance computing, cache utilization is crucial for improving performance. Given a 2D matrix stored in row-major order in memory,
+what access pattern will maximize cache utilization when performing matrix multiplication on large matrices? Assume the matrix does not fit entirely in the
+cache.
+A. Access the matrix in row-major order for both matrices.
+B. Access the matrix in row-major order for one matrix and column-major order for the other matrix.
+C. Access the matrix in column-major order for both matrices.
+D. Use blocked matrix multiplication with cache blocking techniques.
+E. Access rows sequentially but skip columns to improve cache performance.",
+"Question 2: In a high-performance application, you observe that a code accessing elements of an array with a stride of 4 (i.e., accessing every 4th element)
+performs poorly due to cache inefficiency. Which of the following techniques can help mitigate this performance issue?
+A. Increase the cache size of the system.
+B. Change the access pattern to sequential access within a loop.
+C. Change the array layout to column-major order.
+D. Use software prefetching to load the data ahead of use.
+E. Add more processors to reduce computation time.",Change the access pattern to sequential access within a loop.
+" In distributed computing, load balancing is critical for optimizing performance. Consider a weather simulation model where different
+geographical regions are processed on multiple nodes. Which data structure and strategy would you use to minimize load imbalance and communication
+overhead between nodes?
+A. Use an array structure with static assignment of regions to nodes.
+B. Implement a dynamic load balancing mechanism with a distributed hash table (DHT) to evenly distribute workloads.
+C. Partition the grid using a row-major layout and assign rows to processors sequentially.
+D. Use a linked list structure to store regions and assign them to processors dynamically.
+E. Assign more computationally intensive regions to more powerful nodes manually.",Implement a dynamic load balancing mechanism with a distributed hash table (DHT) to evenly distribute workloads.
+"Question 4: Scientific visualization often involves working with large datasets. In the context of high-performance computing, what is the primary advantage
+of using a parallel rendering framework (e.g., MPI-based) for visualizing such datasets?
+A. It increases the resolution of visualizations.
+B. It allows rendering tasks to be split across multiple processors, enabling real-time visualization of large datasets.
+C. It reduces the amount of data required to generate the visualization.
+D. It enables the rendering of 3D objects with higher color depth.
+E. It eliminates the need for data preparation and aggregation.",
+"Question 5: You are working with a large matrix that needs to be accessed for both row-wise and column-wise computations. Which of the following
+strategies can best minimize cache misses and enhance performance on a cache-based architecture during alternating row- and column-wise access?
+A. Store the matrix in row-major order and process rows sequentially.
+B. Use column-major order and process columns sequentially.
+C. Implement loop tiling or blocking to access submatrices, keeping data in cache as long as possible.
+D. Perform row-wise access only and avoid column-wise access entirely.
+E. Access alternate rows and columns without changing the data layout.",
+"Question 6: Sparse matrices are widely used in HPC for handling large, sparse datasets. Which sparse matrix storage
+format is the most efficient for parallelizing matrix-vector multiplication on a distributed memory system?
+A. Compressed Sparse Row (CSR) 
+B. Compressed Sparse Column (CSC)
+C. Coordinate List (COO) 
+D. Blocked Sparse Row (BSR) 
+E. Diagonal (DIA)",Compressed Sparse Row (CSR)
+"Question 7: In a Non-Uniform Memory Access (NUMA) architecture, where memory access speed depends on the
+proximity of memory to the processor, which strategy ensures optimal memory locality for parallel processing?
+A. Random memory allocation across all NUMA nodes.
+B. Use of the ""first-touch"" policy, where memory is allocated closest to the processor that first accesses it.
+C. Round-robin allocation of memory pages across all available processors.
+D. Centralizing all data in a single memory node.
+E. Alternating memory access between different processors to ensure uniform usage.",
+"When parallelizing a task using OpenMP for a large dataset with irregular workloads across iterations,
+which scheduling policy is most appropriate to ensure load balancing and efficient use of all threads?
+A. Static scheduling 
+B. Dynamic scheduling 
+C. Guided scheduling
+D. Affinity scheduling 
+E. Static chunk scheduling",Dynamic scheduling 
+"Which of the following data structures is most suited for evenly distributing computational workloads
+across nodes in a distributed memory system to minimize communication overhead?
+A. Array with static partitioning 
+B. Linked list with dynamic updates
+C. Distributed Hash Table (DHT) 
+D. Heap with dynamic rebalancing
+E. Priority queue with synchronized access",Distributed Hash Table (DHT) 
+"Question 10: Strided access patterns often cause performance degradation in HPC applications. Which of the
+following approaches would be most effective in improving cache utilization and reducing cache misses for such
+access patterns?
+A. Reorganize data into a column-major layout.
+B. Use a cache-blocking technique to group data into cache-friendly blocks.
+C. Increase the cache size to accommodate more strided data.
+D. Use strided access sparingly and switch to sequential access.
+E. Use software prefetching for strided data access",
+"Question 12: In high-performance computing, prefetching can be used to hide memory access latencies. Which type of
+prefetching is most suitable for improving performance in applications with predictable memory access patterns?
+A. Hardware prefetching
+B. Software prefetching
+C. Random prefetching
+D. Cache-aware prefetching
+E. Compiler-directed prefetching",Hardware prefetching
+,
+"Question 13: In a parallel environment with multiple threads accessing a shared hash table, which mechanism is most
+appropriate to ensure thread-safe operations without introducing significant contention?
+A. Coarse-grained locking
+B. Fine-grained locking
+C. Lock-free hash tables
+D. Read-write locks
+E. Atomic operations for all hash table updates",Lock-free hash tables
+"Question 14: For sparse matrices with irregular sparsity patterns, which storage format provides the best balance of memory
+efficiency and computational performance for sparse matrix-vector multiplication?
+A. Compressed Sparse Row (CSR)
+B. Ellpack-Itpack (ELL)
+C. Diagonal (DIA)
+D. Coordinate List (COO)
+E. Jagged Diagonal Storage (JDS)",Compressed Sparse Row (CSR)
+"Question 15: In high-performance computing, matrix multiplication can be optimized using blocked algorithms to
+take advantage of cache locality. Given the following C++ code for a simple blocked matrix multiplication, identify
+the key performance improvement provided by this approach.
+#define BLOCK_SIZE 64
+void blocked_matrix_multiply(double* A, double* B, double* C, int N) {
+for (int i = 0; i < N; i += BLOCK_SIZE) {
+for (int j = 0; j < N; j += BLOCK_SIZE) {
+for (int k = 0; k < N; k += BLOCK_SIZE) {
+for (int ii = i; ii < i + BLOCK_SIZE && ii < N; ++ii) {
+for (int jj = j; jj < j + BLOCK_SIZE && jj < N; ++jj) {
+for (int kk = k; kk < k + BLOCK_SIZE && kk < N; ++kk) {
+C[ii * N + jj] += A[ii * N + kk] * B[kk * N + jj];
+}
+}
+}
+}
+}
+}
+}
+What is the primary performance benefit of using the blocked algorithm in this code?
+A. It minimizes memory usage.
+B. It improves cache locality by accessing small blocks of data that fit in the cache.
+C. It reduces computational complexity.
+D. It reduces the number of arithmetic operations.",It improves cache locality by accessing small blocks of data that fit in the cache.
+"Question 16: Sparse matrix-vector multiplication (SpMV) is a common operation in HPC. The following code
+parallelizes SpMV using OpenMP for a matrix stored in CSR format. Identify the role of OpenMP in this parallel
+implementation.
+#include <omp.h>
+#include <vector>
+void spmv_csr_omp(const std::vector<double>& values, const std::vector<int>&
+col_idx,
+const std::vector<int>& row_ptr, const std::vector<double>&
+x,
+std::vector<double>& y) {
+int n = row_ptr.size() - 1;
+#pragma omp parallel for
+for (int i = 0; i < n; i++) {
+double sum = 0.0;
+for (int j = row_ptr[i]; j < row_ptr[i + 1]; j++) {
+sum += values[j] * x[col_idx[j]];
+}
+y[i] = sum;
+}
+}
+What does OpenMP provide in this SpMV implementation?
+A. Automatic data partitioning between multiple processes.
+B. Lock-free synchronization between threads.
+C. Parallel execution of each matrix row computation across multiple threads.
+D. Vectorization of the inner loop for faster execution.",
+"Question 17: Consider the following C++ code for parallelizing in-order traversal of a binary search tree (BST) using OpenMP. WhichOpenMP construct ensures that tree 
+nodes are processed in parallel?
+#include <omp.h>
+#include <iostream>
+
+struct Node {
+int key;
+Node* left;
+Node* right;
+};
+void parallel_inorder_traversal(Node* node) {
+if (node == nullptr) return;
+#pragma omp task shared(node)
+parallel_inorder_traversal(node->left);
+#pragma omp taskwait
+std::cout << node->key << "" "";
+#pragma omp task shared(node)
+parallel_inorder_traversal(node->right);
+}
+int main() {
+Node* root = ...; // Assume BST is initialized here
+#pragma omp parallel
+{
+#pragma omp single
+parallel_inorder_traversal(root);
+}
+return 0;
+}
+What does the #pragma omp task directive achieve in this parallel in-order traversal?
+A. It divides the work between multiple processes.
+B. It spawns new parallel tasks for left and right subtree traversals.
+C. It ensures that node access is synchronized across threads.
+D. It vectorizes the traversal loop for faster execution.", It spawns new parallel tasks for left and right subtree traversals.
+"Question 18: In a concurrent hash table, fine-grained locks are used to reduce contention.
+Analyze the following C++ implementation of a thread-safe hash table using fine-grained locking.
+What is the advantage of using fine-grained locks here?
+#include <iostream>
+#include <vector>
+#include <mutex>
+#include <list>
+template <typename K, typename V>
+class ConcurrentHashTable {
+struct Entry {
+K key;
+V value;
+};
+std::vector<std::list<Entry>> table;
+std::vector<std::mutex> locks;
+size_t hashFunction(const K& key) {
+return std::hash<K>{}(key) % table.size();
+}
+public:
+ConcurrentHashTable(size_t size) : table(size), locks(size) {}
+void insert(const K& key, const V& value) {
+size_t index = hashFunction(key);
+std::lock_guard<std::mutex> lock(locks[index]);
+for (auto& entry : table[index]) {
+if (entry.key == key) {
+entry.value = value;
+return;
+}
+}
+table[index].emplace_back(Entry{key, value});
+
+}
+
+bool find(const K& key, V& value) {
+size_t index = hashFunction(key);
+std::lock_guard<std::mutex> lock(locks[index]);
+for (const auto& entry : table[index]) {
+if (entry.key == key) {
+value = entry.value;
+return true;
+}
+}
+return false;
+}
+What is the primary advantage of using fine-grained locks
+in this hash table implementation?
+A. It ensures faster hash computations.
+B. It reduces contention by allowing multiple threads to
+operate on different buckets concurrently.
+C. It locks the entire hash table to ensure thread-safety.
+D. It ensures atomic access to individual hash entries.",It reduces contention by allowing multiple threads to operate on different buckets concurrently.
+"The following CUDA code performs sparse matrix-vector multiplication using the CSR format. Analyse the performance characteristics of this CUDA kernel.
+__global__ void spmv_csr_cuda(int n, const double* values, const int* col_idx,
+const int* row_ptr, const double* x, double* y) {
+int row = blockIdx.x * blockDim.x + threadIdx.x;
+if (row < n) {
+double sum = 0.0;
+for (int j = row_ptr[row]; j < row_ptr[row + 1]; j++) {
+sum += values[j] * x[col_idx[j]];
+}
+y[row] = sum;
+}
+}
+void spmv_csr_launch(int n, const double* values, const int* col_idx,
+const int* row_ptr, const double* x, double* y) {
+int blockSize = 256;
+int gridSize = (n + blockSize - 1) / blockSize;
+spmv_csr_cuda<<<gridSize, blockSize>>>(n, values, col_idx, row_ptr, x, y);
+}
+What is the key advantage of using CUDA for sparse matrix-vector multiplication in this implementation?
+A. It reduces the computational complexity of the algorithm.
+B. It parallelizes the computation by assigning each row to a GPU thread, maximizing data throughput.
+C. It uses atomic operations to ensure thread-safety.
+D. It reduces the memory footprint of the matrix by compressing the data"," It parallelizes the computation by assigning each row to a GPU thread, maximizing data throughput."
+"Question 20: You have a large dataset that needs to be processed and visualized in parallel using Python's multiprocessing library and matplotlib. 
+The following code parallelizes the computation of data and visualizes the results. What is the purpose of using multiprocessing in this visualization task?
+import matplotlib.pyplot as plt
+import numpy as np
+from multiprocessing import Pool
+def compute_and_plot(data_chunk):
+plt.figure()
+plt.plot(data_chunk)
+plt.savefig(f'plot_{data_chunk[0]}.png')
+if __name__ == ""__main__"":
+data = np.random.randn(100000)
+chunks = np.array_split(data, 10) # Split data into 10 chunks
+with Pool(4) as p: # Use 4 parallel processes
+p.map(compute_and_plot, chunks)
+What is the main advantage of using multiprocessing for visualizing large datasets?
+A. It reduces memory usage.
+B. It allows data to be processed and visualized concurrently, reducing total execution time.
+C. It generates more accurate visualizations.
+D. It simplifies the visualization logic."," It allows data to be processed and visualized concurrently, reducing total execution time."
+"Question 21: The following Python code uses matplotlib to generate an interactive 3D plot from a simulated dataset. Identify the component that makes the plot interactive.
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+# Generate data
+X = np.linspace(-5, 5, 100)
+Y = np.linspace(-5, 5, 100)
+X, Y = np.meshgrid(X, Y)
+Z = np.sin(np.sqrt(X**2 + Y**2))
+# Plot
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_surface(X, Y, Z, cmap='viridis')
+plt.show()
+Which feature of this code allows for interactive manipulation (e.g., rotating, zooming) of the 3D plot?
+A. The use of the viridis colormap.
+B. The projection='3d' argument in add_subplot.
+C. The plt.show() function call.
+D. The use of np.meshgrid to generate the grid for plotting.",
+"Question 22: In HPC, high-dimensional data can be visualized using Principal Component Analysis (PCA) to reduce dimensionality. The following Python code applies PCA to a 
+high-dimensional dataset and visualizes the results in 2D. What is the role of PCA in this visualization?
+import matplotlib.pyplot as plt
+from sklearn.decomposition import PCA
+from sklearn.datasets import load_iris
+# Load dataset
+data = load_iris()
+X = data.data
+# Apply PCA to reduce dimensionality to 2D
+pca = PCA(n_components=2)
+X_pca = pca.fit_transform(X)
+# Plot the transformed data
+plt.scatter(X_pca[:, 0], X_pca[:, 1], c=data.target)
+plt.xlabel('PC 1')
+plt.ylabel('PC 2')
+plt.title('PCA of Iris Dataset')
+plt.show()
+What does PCA achieve in this visualization task?
+A. It reduces the number of data points to be plotted.
+B. It reduces the dimensionality of the data from 4D to 2D, making it possible to visualize.
+C. It clusters the data into distinct groups for easier visualization.
+D. It increases the computational efficiency of the plot.","It reduces the dimensionality of the data from 4D to 2D, making it possible to visualize."
+"Question 23: The following code generates a heatmap using seaborn to visualize performance metrics from different HPC jobs. What is the purpose of using a heatmap in 
+this context?
+import seaborn as sns
+import matplotlib.pyplot as plt
+import numpy as np
+# Generate some mock performance data
+performance_data = np.random.rand(10, 10) # 10 jobs, 10 metrics
+# Create the heatmap
+sns.heatmap(performance_data, annot=True, cmap=""coolwarm"")
+plt.title(""HPC Job Performance Heatmap"")
+plt.show()
+What is the advantage of using a heatmap for visualizing performance metrics?
+A. It reduces the complexity of the dataset by converting all values to a single color.
+B. It allows users to easily identify patterns, correlations, or outliers in performance metrics across different jobs.
+C. It generates more detailed plots than line plots.
+D. It simplifies the dataset by aggregating the values into a few categories.",
+"Question 24: In HPC, real-time data visualization is useful to monitor simulations or iterative computations. The following Python code uses matplotlib.animation to 
+create an animated plot. What is the purpose of using animation in data visualization?
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib.animation as animation
+# Generate data
+x = np.linspace(0, 2 * np.pi, 100)
+y = np.sin(x)
+# Setup the figure and plot
+fig, ax = plt.subplots()
+line, = ax.plot(x, y)
+# Animation function
+def animate(i):
+line.set_ydata(np.sin(x + i / 10.0)) # Update the data
+return line,
+# Create the animation
+ani = animation.FuncAnimation(fig, animate, frames=100, interval=50, blit=True)
+plt.show()
+What is the primary benefit of using real-time animation in data visualization?
+A. It creates more detailed static plots.
+B. It allows the visualization of data that changes over time or iterations, giving insights into dynamic processes.
+C. It improves the resolution of the plot.
+D. It reduces memory consumption during visualization.",
+"You are training a deep learning model on a dataset that is too large to fit
+into the memory of a single GPU. You have access to a system with multiple
+GPUs across several machines. Your objective is to minimize training time
+while maintaining the accuracy of the model. What is the most suitable
+TensorFlow strategy to use in this scenario, and why?
+1.Mirrored Strategy: Single machine with multiple GPUs, synchronous
+training.
+2. Parameter Server Strategy: Multiple machines, asynchronous training.
+3. Central Storage Strategy: Single machine with multiple GPUs,
+synchronous training.
+4.Multi-Worker Mirrored Strategy: Multiple machines, synchronous
+training.
+5.Sequential Strategy: Single machine with a single GPU, training one step
+at a time.",Multi-Worker Mirrored Strategy
+"You want to train a model on multiple GPUs using TensorFlow. Below is a snippet of code
+for single-GPU training. How should you modify the code to use all available GPUs on the
+machine?
+import tensorflow as tf
+strategy = ??? # Fill in the missing part
+with strategy.scope():
+model = create_model()
+model.compile(optimizer='adam',
+loss='sparse_categorical_crossentropy')
+model.fit(train_dataset, epochs=5)
+A) tf.distribute.MultiWorkerMirroredStrategy()
+B) tf.distribute.MirroredStrategy()
+C) tf.distribute.Strategy()
+D) tf.distribute.experimental.CentralStorageStrategy()
+E) tf.distribute.DistributeTPUStrategy()",tf.distribute.MirroredStrategy()
+"You want to perform distributed training across multiple nodes with TensorFlow. How
+can you adapt the following code to work across 4 nodes, each with multiple GPUs?
+import tensorflow as tf
+strategy = ??? # Fill in the missing part
+with strategy.scope():
+model = create_model()
+model.compile(optimizer='adam',
+loss='sparse_categorical_crossentropy')
+model.fit(train_dataset, epochs=5)
+A) Use tf.distribute.MirroredStrategy()
+B) Use tf.distribute.MultiWorkerMirroredStrategy()
+C) Run the model separately on each node without distributing
+D) Use tf.distribute.experimental.ParameterServerStrategy()
+E) Use tf.distribute.experimental.TPUStrategy()",Use tf.distribute.MultiWorkerMirroredStrategy()
+"Consider the following PyTorch code where you are training a large model that does not fit on a single GPU, so you apply model parallelism by manually
+splitting the model across two GPUs. In this implementation of model parallelism, what is a major drawback of the current approach, and how can it be
+improved for better performance?
+import torch
+import torch.nn as nn
+# Model with two components placed on different GPUs
+class LargeModel(nn.Module):
+def
+__
+init__(self):
+super(LargeModel, self).
+__
+init__()
+self.layer1 = nn.Linear(4096, 2048).cuda(0) # Place on GPU 0
+self.layer2 = nn.Linear(2048, 1024).cuda(1) # Place on GPU 1
+def forward(self, x):
+x = x.cuda(0)
+x = self.layer1(x)
+x = x.cuda(1)
+x = self.layer2(x)
+return x
+# Instantiate model
+model = LargeModel()
+# Example input
+input_data = torch.randn(64, 4096).cuda(0)
+# Forward pass
+output = model(input_data)
+A) The model is not parallelized effectively since both layers could be run on the same GPU to avoid data transfer.
+B) There is inefficient GPU utilization because the second layer runs on CPU, which increases latency.
+C) The data transfer between GPUs causes synchronization delays, and it can be improved by using more efficient interconnects like NVLink or using torch.distributed for communication.
+D) Model parallelism reduces memory usage, but it also increases the risk of gradient vanishing due to additional GPU operations.
+E) Using larger batch sizes would mitigate the impact of GPU communication overhead, making this implementation efficient.
+","The data transfer between GPUs causes synchronization delays, and it can be improved by using more efficient interconnects like NVLink or using torch.distributed for communication."
+"Which of the following is NOT a benefit of integrating AI models into HPC
+environments for weather prediction?
+A) Reduced model training time due to parallel processing.
+B) Ability to handle more complex simulations.
+C) Efficient use of multiple GPUs for data processing.
+D) Reduced need for data preprocessing.
+E) Ability to predict extreme weather events with higher accuracy. ",Reduced need for data preprocessing.
+"A startup wants to implement an AI solution to analyze customer behavior. They are in the early stages and have limited data, but they anticipate the data size to grow exponentially. Considering future growth, what architectural advice would you give them for their AI workload in HPC?
+A. Focus on a scale-up architecture, adding more power to a single machine.
+B. Use only TensorFlow for its scalability.
+C. Focus on a scale-out architecture, adding more machines to the setup.
+D. Rely solely on CPU-based computations.
+E. Store all dat"," Focus on a scale-out architecture, adding more machines to the setup."
+"The use of mixed precision training can reduce memory usage and improve performance when
+training large models. Given the following PyTorch code, identify what change should be made
+to enable mixed precision training:
+import torch
+import torch.optim as optim
+model = LargeModel().cuda()
+optimizer = optim.Adam(model.parameters(), lr=1e-4)
+for data, target in train_loader:
+optimizer.zero_grad()
+output = model(data)
+loss = loss_function(output, target)
+loss.backward()
+optimizer.step()
+A) Add with torch.cuda.amp.autocast() context around forward pass
+B) Reduce the learning rate
+C) Add .half() to the model parameters
+D) Use FP16 for the optimizer
+E) Increase the batch size", Add with torch.cuda.amp.autocast() context around forward pass
+"During the training of a large-scale neural network
+model like GPT, the memory footprint becomes a
+critical issue. Which of the following strategies is
+least likely to directly alleviate memory bottlenecks
+when training such models?
+A) Model parallelism
+B) Data parallelism
+C) Gradient accumulation
+D) Increasing learning rate
+E) Mixed precision training",
+"You are training a large-scale model that does not fit into the memory
+of your GPUs when using a batch size of 2048. Using gradient
+accumulation over 4 mini-batches, each of size 512, enables you to
+simulate the desired batch size without memory overflow. Which of the
+following is true regarding the training process with gradient
+accumulation?
+A) The model updates its parameters after each mini-batch of size 512.
+B) The gradients are accumulated over four mini-batches, and the
+parameters are updated after each mini-batch.
+C) The loss for each mini-batch must be normalized by 4 during gradient
+accumulation.
+D) Gradient accumulation requires more memory compared to using a
+single large batch.
+E) Gradient accumulation reduces the effective batch size.",The loss for each mini-batch must be normalized by 4 during gradient accumulation
+"Question 3: During distributed deep learning, both data
+and model parallelism are used to optimize training
+performance. Which of the following scenarios is most
+likely to introduce communication overhead that could
+degrade performance?
+A) Using data parallelism with synchronous gradient
+updates
+B) Splitting the model across multiple GPUs using model
+parallelism
+C) Reducing the batch size while using data parallelism
+D) Performing forward propagation in parallel
+E) Using mixed precision training to reduce memory usage",
+"The use of mixed precision training can reduce memory usage and improve performance
+when training large models. Given the following PyTorch code, identify what change
+should be made to enable mixed precision training:
+import torch
+import torch.optim as optim
+model = LargeModel().cuda()
+optimizer = optim.Adam(model.parameters(), lr=1e-4)
+for data, target in train_loader:
+optimizer.zero_grad()
+output = model(data)
+loss = loss_function(output, target)
+loss.backward()
+optimizer.step()
+A) Add with torch.cuda.amp.autocast() context around forward pass
+B) Reduce the learning rate
+C) Add .half() to the model parameters
+D) Use FP16 for the optimizer
+E) Increase the batch size ",Add with torch.cuda.amp.autocast() context around forward pass
+"Efficient parallelism is essential when training large deep learning
+models like BERT and GPT-3. Which of the following types of
+hardware interconnects would most likely minimize communication
+overhead in a large-scale, distributed deep learning setup with
+thousands of GPUs?
+A) PCI Express (PCIe)
+B) Ethernet
+C) Infiniband
+D) USB 3.0
+E) SATA",Infiniband
+"You are training a deep learning model too large to fit
+on a single GPU using model parallelism. Each layer
+of the model is split across two GPUs. However, you
+notice a significant delay in training due to
+communication between GPUs. Which of the
+following adjustments is most likely to reduce the
+delay without compromising the training?
+A) Increase the batch size
+B) Use asynchronous updates across GPUs
+C) Increase the learning rate
+D) Use larger GPUs with more memory
+E) Minimize communication between GPUs by
+redistributing layers",Minimize communication between GPUs by redistributing layers
+"When optimizing time-to-solution for training a large-scale deep learning model,
+which of the following techniques would most effectively reduce the overall time
+required for training, assuming the same hardware configuration?
+A) Using a lower learning rate throughout training
+B) Running the model on CPUs instead of GPUs
+C) Using gradient accumulation to increase effective batch size
+D) Applying mixed precision training
+E) Reducing the number of layers in the model ",Applying mixed precision training
+"In a data parallelism setup, you distribute the training data across 8 GPUs,
+each with a batch size of 64. After every mini-batch, each GPU computes
+gradients locally, which are then synchronized across GPUs. What would be
+the effective batch size for the training job, and what is a potential downside
+of increasing the batch size further?
+A) Effective batch size: 512, downside: increased communication overhead
+B) Effective batch size: 512, downside: slower gradient updates
+C) Effective batch size: 64, downside: underfitting due to small gradients
+D) Effective batch size: 64, downside: reduced memory usage
+E) Effective batch size: 8, downside: insufficient data per batch","Effective batch size: 512, downside: increased communication overhead"
+"When training deep neural networks with many
+layers, vanishing gradients can be a significant
+issue, particularly with activation functions like
+sigmoid or tanh. Suppose you are using ReLU
+(Rectified Linear Unit) activation in your model.
+Which of the following strategies is most likely to
+further mitigate vanishing gradients while training a
+50-layer deep convolutional neural network?
+A) Use dropout to reduce overfitting
+B) Apply weight regularization (L2)
+C) Implement residual connections (ResNet)
+D) Use gradient clipping
+E) Use batch normalization only in the last layer
+",Implement residual connections (ResNet)
+"You are tasked with training a convolutional neural network (CNN) on two GPUs using PyTorch. You want to distribute the training across both GPUs. Below is a partial code
+snippet for training on one GPU. Which modification would you make to train the model
+using both GPUs?
+import torch
+import torch.nn as nn
+import torch.optim as optim
+A) Use nn.DistributedDataParallel(model)
+model = CNNModel().cuda()
+optimizer = optim.Adam(model.parameters())
+B) Replace model = CNNModel().cuda() with model = nn.DataParallel(CNNModel())
+C) Use torch.multiprocessing.spawn() to launch multiple processes for data, target in dataloader:
+D) Use .half() precision for mixed precision training optimizer.zero_grad()
+E) Initialize the model inside a with torch.cuda.amp.autocast() contextoutput = model(data.cuda()) loss = loss_function(output, target.cuda()) loss.backward() optimizer.step()",Replace model = CNNModel().cuda() with model = nn.DataParallel(CNNModel())
+"You want to implement distributed training using PyTorch's DistributedDataParallel (DDP) across multiple GPUs on multiple nodes. The following code
+trains on a single GPU. Which changes would you make to distribute the training across 4 GPUs on 2 nodes using DDP?
+import torch
+import torch.distributed as dist
+import torch.nn as nn
+import torch.optim as optim
+def train(rank, world_size):
+# Initialize the distributed environment
+dist.init_process_group(backend='nccl', rank=rank, world_size=world_size)
+model = CNNModel().cuda(rank)
+model = nn.parallel.DistributedDataParallel(model, device_ids=[rank])
+optimizer = optim.Adam(model.parameters())
+for data, target in dataloader:
+optimizer.zero_grad()
+output = model(data.cuda(rank))
+loss = loss_function(output, target.cuda(rank))
+loss.backward()
+optimizer.step()
+# Launch the distributed training
+train(rank=0, world_size=4)
+A) Use DataParallel instead of DistributedDataParallel
+B) Remove dist.init_process_group and run without the distributed environment
+C) Launch multiple processes using torch.multiprocessing.spawn() for each GPU
+D) Set device_ids to None and let PyTorch decide the devices
+E) Use DistributedDataParallel only for single-node multi-GPU training ",
+"Question 12: In PyTorch’s DistributedDataParallel (DDP), gradient synchronization is critical when training across multiple GPUs. Which of the following statements best
+describes how DDP handles gradient synchronization?
+A) Gradients are synchronized manually after every forward pass
+B) Gradients are accumulated and averaged across GPUs in a single node but not across nodes
+C) Gradients are synchronized after each forward pass automatically, and the model parameters are updated only after this step
+D) Gradients are only synchronized at the end of the training epoch
+E) DDP requires an external library to perform gradient synchronization",
+"Question 13: You have a training script train.py that is written using PyTorch’s DistributedDataParallel. You want to run this script across multiple nodes with 8 GPUs
+each (total of 2 nodes and 16 GPUs). Which command would you use to launch the training across all GPUs using the torch.distributed.launch utility?
+A) python train.py --nproc_per_node=16
+B) python -m torch.distributed.launch --nproc_per_node=8 --nnodes=2 --node_rank=0 --master_addr=<MASTER_NODE_IP> --master_port=29500 train.py
+C) mpirun -np 16 python train.py
+D) torch.distributed.launch --nproc_per_node=1 --nnodes=8 train.py
+E) torchrun --nnodes=2 --nproc_per_node=16 train.py",
+"Question 14: When performing distributed training with multiple GPUs on multiple nodes using DistributedDataParallel, how should you modify the data loader to
+ensure each GPU processes a unique subset of the dataset?
+A) No modification is needed; each GPU will automatically receive different data
+B) Use torch.utils.data.Subset to manually split the data for each GPU
+C) Use torch.utils.data.DataLoader with shuffle=False for each GPU
+D) Use torch.utils.data.distributed.DistributedSampler to ensure that each GPU receives unique data
+E) Set the batch_size to the number of GPUs to ensure proper distribution",
+"Question 15: When performing distributed training across multiple nodes with PyTorch’s DistributedDataParallel, which environment variables must be set to ensure
+proper communication between nodes, and what role does each play?
+A) MASTER_ADDR, MASTER_PORT, RANK, WORLD_SIZE
+B) CUDA_VISIBLE_DEVICES, RANK, NODE_COUNT, GPUS_PER_NODE
+C) MASTER_NODE, PROCESS_COUNT, GPU_COUNT, RANK
+D) RANK, MASTER_IP, GPU_COUNT, BATCH_SIZE
+E) WORLD_RANK, NODE_IP, GPU_ID, MASTER_PORT","MASTER_ADDR, MASTER_PORT, RANK, WORLD_SIZE"
+"Question 16: You want to train a model on multiple GPUs using TensorFlow. Below is a snippet of code for single-GPU training.
+How should you modify the code to use all available GPUs on the machine?
+import tensorflow as tf
+strategy = ??? # Fill in the missing part
+with strategy.scope():
+model = create_model()
+model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')
+model.fit(train_dataset, epochs=5)
+A) tf.distribute.MultiWorkerMirroredStrategy()
+B) tf.distribute.MirroredStrategy()
+C) tf.distribute.Strategy()
+D) tf.distribute.experimental.CentralStorageStrategy()
+E) tf.distribute.DistributeTPUStrategy()",
+"Question 17: You want to perform distributed training across multiple nodes with TensorFlow. How can you adapt the following
+code to work across 4 nodes, each with multiple GPUs?
+import tensorflow as tf
+strategy = ??? # Fill in the missing part
+with strategy.scope():
+model = create_model()
+model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')
+model.fit(train_dataset, epochs=5)
+A) Use tf.distribute.MirroredStrategy()
+B) Use tf.distribute.MultiWorkerMirroredStrategy()
+C) Run the model separately on each node without distributing
+D) Use tf.distribute.experimental.ParameterServerStrategy()
+E) Use tf.distribute.experimental.TPUStrategy()",
+"Question 18: You are planning to use Horovod to perform distributed training on TensorFlow across 16 GPUs. Below is part of the code for training on a single GPU. 
+How should you modify it to work with Horovod?
+import tensorflow as tf
+model = create_model()
+model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')
+model.fit(train_dataset, epochs=10)
+A) Add horovod.init() and use horovod.DistributedOptimizer()
+B) Use tf.distribute.MirroredStrategy() for multi-GPU support
+C) Set CUDA_VISIBLE_DEVICES for each process manually
+D) Modify tf.config.experimental.set_visible_devices() for each GPU
+E) Launch the script using torch.distributed.launch utility",
+"Question 19: When performing distributed training across multiple GPUs and nodes with PyTorch’s DistributedDataParallel, how should you modify the 
+DataLoader to ensure each GPU processes different parts of the dataset?
+A) Use DataLoader with shuffle=True and split the dataset manually
+B) Pass a DistributedSampler to the DataLoader to ensure correct data partitioning
+C) Use DataLoader without any modification; PyTorch handles everything automatically
+D) Reduce the batch size to match the number of GPUs
+E) Disable the shuffle option to ensure the same data is processed across GPUs",
+"Question 20: You are training a deep learning model using Horovod for distributed training across 8 GPUs. Each GPU calculates its own gradient, and then gradients are 
+averaged across all GPUs using the AllReduce operation. Suppose you observe that the training process becomes communication-bound as the number of GPUs increases. 
+What is the most effective way to minimize the communication
+overhead while maintaining convergence?
+A) Reduce the batch size to make gradient synchronization faster.
+B) Use Horovod's gradient compression to reduce the size of data transferred during synchronization.
+C) Switch from Horovod to PyTorch’s native DistributedDataParallel.
+D) Reduce the number of GPUs to reduce synchronization time.
+E) Increase the frequency of synchronization across GPUs.",Use Horovod's gradient compression to reduce the size of data transferred during synchronization.
+"Question 21: Imagine you are training a distributed model for classifying medical images across multiple GPUs, but the dataset is highly imbalanced 
+(with far fewer images of rare conditions). Which strategy
+would best handle this imbalance while taking advantage of distributed training?
+A) Use over-sampling of the minority class on each GPU.
+B) Train separate models on different GPUs for each class.
+C) Use data augmentation to create synthetic examples of the minority class.
+D) Implement weighted loss functions to give more importance to rare classes.
+E) Train with a smaller batch size to prevent the imbalance from affecting convergence. ",Implement weighted loss functions to give more importance to rare classes.
+"Question 22: You are training a large-scale transformer model across multiple GPUs. The training was initially done with a batch size of 128 on
+a single GPU, but after moving to a distributed setup with 8 GPUs, the effective batch size is now 1024. The model struggles with convergence,
+and accuracy is not improving. What should you adjust to maintain good model performance?
+A) Increase the learning rate proportionally to the batch size.
+B) Reduce the number of GPUs to reduce the batch size.
+C) Switch to a smaller model to prevent overfitting.
+D) Use gradient accumulation to simulate a smaller batch size.
+E) Lower the learning rate to avoid large gradient updates.",Increase the learning rate proportionally to the batch size.
+"While training a model with mixed precision (FP16) on NVIDIA V100 GPUs, you observe that the training is fast but sometimes
+suffers from numerical instability. What is the best approach to prevent instability while continuing to benefit from mixed precision training?
+A) Switch to FP32 for all operations to avoid numerical instability.
+B) Use dynamic loss scaling, which automatically scales the loss to prevent overflow and underflow.
+C) Decrease the batch size to improve stability.
+D) Switch from mixed precision to lower precision formats like FP8 to reduce memory usage further.
+E) Disable backpropagation to avoid instability","Use dynamic loss scaling, which automatically scales the loss to prevent overflow and underflow."
+"Question 24: Your company is developing a natural language processing model with 350 billion parameters. Due to the size of the model, a
+single GPU does not have enough memory to store all the model parameters. You are considering whether to use model parallelism or data
+parallelism. Which statement about model parallelism is correct, and why might it be a better choice in this scenario?
+A) Model parallelism is less efficient than data parallelism because it leads to communication bottlenecks between GPUs.
+B) Model parallelism is better for large models since it distributes model layers across multiple GPUs, reducing memory usage per GPU.
+C) Data parallelism should always be used because it improves gradient synchronization efficiency.
+D) Model parallelism is less flexible than data parallelism since it requires each GPU to have the same portion of data.
+E) Model parallelism is faster because it reduces the overall number of GPUs needed.","Model parallelism is better for large models since it distributes model layers across multiple GPUs, reducing memory usage per GPU."
+"Question 25: You are developing a neural network for a self-driving car system, but the available GPU memory only allows for a mini-batch size
+of 16, which is too small for stable training. To simulate a larger batch size without increasing memory usage, you decide to use gradient
+accumulation. How does gradient accumulation help, and what trade-offs might you encounter?
+A) It allows you to accumulate gradients over multiple mini-batches, simulating a larger batch size, but increases training time.
+B) It reduces the model's memory footprint by halving the number of parameters, but may lower accuracy.
+C) It reduces the number of gradient updates required, allowing faster convergence.
+D) It stores gradients in CPU memory rather than GPU memory, which may increase the communication overhead.
+E) It applies the gradients after each mini-batch, reducing memory usage but decreasing convergence speed. ",
+"You are training a deep neural network with multiple hidden layers using the
+sigmoid activation function, and you observe very slow learning. You decide
+to switch to the ReLU (Rectified Linear Unit) activation function. Why would
+this help mitigate the vanishing gradient problem?
+A) ReLU has a non-linear output range that ensures large gradients in every
+layer.
+B) ReLU prevents vanishing gradients by allowing negative outputs, which
+ensures better gradient flow.
+C) ReLU does not saturate in the positive range, allowing gradients to
+propagate effectively through many layers.
+D) ReLU increases the learning rate, which helps avoid vanishing gradients.
+E) ReLU operates in the same way as sigmoid, so there is no improvement in
+gradient flow.","ReLU does not saturate in the positive range, allowing gradients to
+propagate effectively through many layers."
+"Question 15: You are training a deep learning model on a GPU with limited
+memory, so you decide to use gradient accumulation. What is the primary
+reason for using gradient accumulation?
+A) It allows training with larger effective batch sizes by accumulating
+gradients over multiple mini-batches.
+B) It reduces the number of weight updates, resulting in faster
+convergence.
+C) It increases memory efficiency by performing gradient updates more
+frequently.
+D) It speeds up training by reducing the time spent computing gradients.
+E) It reduces overfitting by performing smaller gradient updates.","It allows training with larger effective batch sizes by accumulating
+gradients over multiple mini-batches."
+"You are training a large deep learning model on multiple GPUs using data parallelism in PyTorch. Below is the partial code of the training loop. What
+would be the result of running this script on a machine with 4 GPUs?
+import torch
+import torch.nn as nn
+import torch.optim as optim
+class SimpleModel(nn.Module):
+def
+__
+init__(self):
+super(SimpleModel, self).
+__
+init__()
+self.fc1 = nn.Linear(1024, 512)
+self.fc2 = nn.Linear(512, 10)
+def forward(self, x):
+x = torch.relu(self.fc1(x))
+return self.fc2(x)
+# Model instantiation
+model = SimpleModel()
+# Setting up Data Parallelism
+if torch.cuda.device_count() > 1:
+model = nn.DataParallel(model)
+model.cuda()
+optimizer = optim.SGD(model.parameters(), lr=0.01)
+# Data input for one batch
+input_data = torch.randn(64, 1024).cuda()
+# Forward pass
+output = model(input_data)
+A) The script will throw an error since nn.DataParallel does not support multi-GPU.
+B) The script will run, but only one GPU will be utilized.
+C) The script will execute using all 4 GPUs, and each GPU will handle a separate portion of the data batch.
+D) Only two GPUs will be utilized since PyTorch limits data parallelism to 2 GPUs.
+E) The script will execute on 4 GPUs, but all data will be processed on the main GPU, reducing efficiency.","The script will execute using all 4 GPUs, and each GPU will handle a separate portion of the data batch."
+"You are training a transformer model that exceeds your GPUS's memory capacity. To solve this, you use gradient 
+accumulation to simulate larger batch sizes. What is the main purpose of dividing the loss by accumulation_Steps? Consider 
+the following code snippet:
+
+accumulation_steps = 4
+optimizer.zero_grad()
+
+for i, data in enumerate(dataloader):
+  output = model(data)
+  loss = loss_function(output, labels)
+  loss = loss / accumulation_steps # Scale loss
+  loss.backward()
+
+if (i + 1) % accumulation_steps == 0:
+  optimizer.step()
+  optimizer.zero_grad()
+
+A) To reduce the overall memory usage during training.
+B) To make the loss values smaller for numerical stability during backpropagation.
+C) To average the gradients over the accumulated mini-batches, ensuring the same effective batch size.
+D) To prevent overfitting by introducing random noise to the gradient updates.
+E) To increase the number of updates for each epoch.
+","To average the gradients over the accumulated mini-batches, ensuring the same effective batch size."
+"Consider the following TensorFlow code to train a model using mixed precision. What is the
+primary advantage of using mixed precision training for large-scale deep learning models?
+import tensorflow as tf
+from tensorflow.keras.mixed_precision import experimental as mixed_precision
+policy = mixed_precision.Policy('mixed_float16')
+mixed_precision.set_policy(policy)
+# Model and optimizer setup
+model = create_model()
+optimizer = tf.keras.optimizers.Adam()
+# Compile the model with loss and metrics
+model.compile(optimizer=optimizer,loss='sparse_categorical_crossentropy',
+metrics=['accuracy'])
+# Train the model
+model.fit(train_dataset, epochs=5)
+A) It reduces the number of training epochs needed for convergence.
+B) It decreases memory usage and speeds up computation by using 16-bit floating-point
+(FP16) operations where possible.
+C) It prevents overfitting by using lower-precision gradients during backpropagation.
+D) It increases model accuracy by using higher-precision weights in the forward pass.
+E) It makes the model compatible with TPU hardware, which only supports FP16 precision.",It decreases memory usage and speeds up computation by using 16-bit floating-point (FP16) operations where possible.
+"You are training a model with 1 billion parameters on an HPC cluster
+using data parallelism across 32 GPUs. Training the model on a single
+GPU takes 100 days. Assuming perfect scaling, how long would it take
+to train the model on 32 GPUs?
+A) 100 days.
+B) 50 days.
+C) 3.125 days.
+D) 25 days.
+E) 10 days.",3.125 days.
+"You are training a large deep learning model that exceeds the memory capacity of a single GPU. You implement
+model parallelism by splitting the model layers across two GPUs. Which of the following best describes the effect of
+this change?
+A) The training time will be halved because two GPUs will perform the same operations in parallel.
+B) The memory footprint on each GPU will be reduced, but the communication overhead between GPUs may
+increase the total training time.
+C) The training time will remain unchanged, but you will now be able to use larger batch sizes.
+D) Model parallelism will reduce the overall memory usage but increase the risk of vanishing gradients.
+E) The training will now run twice as fast because each GPU handles half of the model’s operations.","The memory footprint on each GPU will be reduced, but the communication overhead between GPUs may increase the total training time."
+"You are training a deep neural network with multiple hidden layers using the
+sigmoid activation function, and you observe very slow learning. You decide to
+switch to the ReLU (Rectified Linear Unit) activation function. Why would this help
+mitigate the vanishing gradient problem?
+A) ReLU has a non-linear output range that ensures large gradients in every layer.
+B) ReLU prevents vanishing gradients by allowing negative outputs, which ensures
+better gradient flow.
+C) ReLU does not saturate in the positive range, allowing gradients to propagate
+effectively through many layers.
+D) ReLU increases the learning rate, which helps avoid vanishing gradients.
+E) ReLU operates in the same way as sigmoid, so there is no improvement in
+gradient flow.",
+"You add batch normalization to your deep neural
+network, and it significantly improves training speed.
+What is the primary reason that batch normalization
+helps mitigate the vanishing gradient problem?
+A) It reduces the learning rate, preventing large
+oscillations in the loss function.
+B) It normalizes the input of each layer, keeping the input
+values within a range that prevents gradients from
+vanishing.
+C) It adds noise to the model weights, which helps
+prevent overfitting and improves gradient propagation.
+D) It forces all activations to be positive, which
+guarantees non-vanishing gradients.
+E) It automatically adjusts the learning rate, ensuring
+faster convergence.","It normalizes the input of each layer, keeping the input values within a range that prevents gradients from vanishing."
+"You are designing a deep residual network (ResNet) to avoid
+the vanishing gradient problem. Which of the following best
+explains how residual connections help in this regard?
+A) They average the gradients across layers, ensuring no
+vanishing gradients.
+B) They introduce a new activation function that prevents
+gradients from vanishing.
+C) They bypass layers using shortcut connections, allowing
+gradients to flow directly to earlier layers without
+diminishing.
+D) They allow for a larger learning rate, which prevents
+gradients from vanishing.
+E) They ensure that gradients are always positive by using
+ReLU in the residual connections. ","They bypass layers using shortcut connections, allowing gradients to flow directly to earlier layers without diminishing."
+"You are training a convolutional neural network (CNN) on an NVIDIA GPU and decide to use cuDNN to accelerate the training process. How does
+cuDNN optimize convolution operations in deep learning?
+A) It changes the model’s architecture to reduce the number of layers.
+B) It performs automatic batch normalization to prevent overfitting.
+C) It provides highly optimized implementations of convolution operations that run efficiently on NVIDIA GPUs.
+D) It automatically reduces the model’s memory footprint by splitting large tensors across multiple GPUs.
+E) It compresses the input data to reduce the number of calculations
+needed during training.",It provides highly optimized implementations of convolution operations that run efficiently on NVIDIA GPUs.
+"You are training a recurrent neural network (RNN) for sequence data. How does cuDNN
+improve the performance of RNNs on NVIDIA GPUs?
+A) It optimizes gradient calculations during backpropagation to reduce memory usage.
+B) It provides optimized implementations for recurrent layers, reducing computation time
+and improving memory efficiency.
+C) It parallelizes the RNN across multiple GPUs without requiring any code changes.
+D) It automatically handles vanishing gradients by scaling the gradients during
+backpropagation.
+E) It reduces the need for hidden layers, making the RNN model simpler and faster.","It provides optimized implementations for recurrent layers, reducing computation time and improving memory efficiency."
+"Question 11: You are using an NVIDIA GPU to train a very large deep learning model. How does cuDNN help optimize memory usage during training?
+A) It automatically compresses large tensors, allowing the model to fit in GPU memory.
+B) It allows models to be split across multiple GPUs, reducing the memory load on each GPU.
+C) It uses efficient memory allocation algorithms to minimize memory overhead and maximize the amount of memory available for model parameters.
+D) It handles data augmentation on the GPU to reduce the CPU-GPU communication overhead.
+E) It reduces the model size by lowering the number of parameters in each layer.",
+"Question 12: You are training a deep learning model with a batch size of 512. How does increasing the batch size from 512 to 2048 affect the model's training process?
+A) It decreases training time per epoch but may lead to slower convergence and potentially worse generalization.
+B) It increases the accuracy of the model during the training phase by reducing noise in the gradient.
+C) It results in fewer weight updates per epoch, improving the model's ability to generalize to new data.
+D) It forces the model to use a lower learning rate, which improves convergence speed.
+E) It leads to overfitting because larger batch sizes result in higher accuracy on training data.",
+"When increasing the batch size by a factor of 4 during training, what should you do to the learning rate according to the linear scaling rule?
+A) Decrease the learning rate by a factor of 4.
+B) Keep the learning rate unchanged.
+C) Increase the learning rate by a factor of 4.
+D) Double the learning rate to compensate for fewer updates.
+E) Reduce the learning rate by half to avoid overfitting.",Increase the learning rate by a factor of 4.
+"You are scaling the batch size to fit more data in GPU memory for distributed training. What is a potential drawback of using very large batch sizes (e.g.,
+4096)?
+A) Larger batch sizes lead to noisier gradient updates, which increases the risk of overfitting.
+B) Using larger batch sizes significantly increases the risk of vanishing gradients during training.
+C) Large batch sizes reduce the number of weight updates per epoch, which may slow down convergence and degrade generalization.
+D) Larger batch sizes make the training process less stable due to frequent gradient clipping.
+E) Large batch sizes eliminate the need for data parallelism, causing synchronization overhead.","Large batch sizes reduce the number of weight updates per epoch, which may slow down convergence and degrade generalization."
+"Question 15: You are training a deep learning model on a GPU with limited memory, so you decide to use gradient accumulation. What is the primary reason for using
+gradient accumulation?
+A) It allows training with larger effective batch sizes by accumulating gradients over multiple mini-batches.
+B) It reduces the number of weight updates, resulting in faster convergence.
+C) It increases memory efficiency by performing gradient updates more frequently.
+D) It speeds up training by reducing the time spent computing gradients.
+E) It reduces overfitting by performing smaller gradient updates.",
+"Question 16: Consider the following code snippet using gradient accumulation. Why is it important to divide the loss by accumulation_steps in this code?
+accumulation_steps = 4
+optimizer.zero_grad()
+for i, data in enumerate(dataloader):
+output = model(data)
+loss = loss_function(output, labels)
+loss = loss / accumulation_steps
+loss.backward()
+if (i + 1) % accumulation_steps == 0:
+optimizer.step()
+optimizer.zero_grad()
+A) To prevent the model from overfitting to the training data.
+B) To ensure that the gradients are properly averaged over the accumulated mini-batches.
+C) To reduce the overall memory footprint during training.
+D) To increase the learning rate for faster convergence.
+E) To limit the gradient updates to a smaller portion of the dataset.",To ensure that the gradients are properly averaged over the accumulated mini-batches.
+"Question 17: You are training a model using gradient accumulation with 8 mini-batches, each of size 32. What is the effective batch size in this case?
+A) 8 
+B) 32 
+C) 256 
+D) 64 
+E) 128",256
+"You are working on training a large transformer model using mixed precision and gradient accumulation to fit it into memory. Below is a code snippet that implements
+both. What is the role of GradScaler and why is it necessary when using both gradient accumulation and mixed precision training in this context?
+import torch
+from torch.cuda.amp import autocast, GradScaler
+# Model, optimizer, and loss function setup
+model = TransformerModel().cuda()
+optimizer = torch.optim.Adam(model.parameters(), lr=3e-4)
+scaler = GradScaler()
+accumulation_steps = 4
+optimizer.zero_grad()
+# Training loop
+for i, (inputs, labels) in enumerate(dataloader):
+inputs, labels = inputs.cuda(), labels.cuda()
+with autocast(): # Mixed precision enabled
+outputs = model(inputs)
+loss = loss_function(outputs, labels)
+loss = loss / accumulation_steps # Accumulate loss
+scaler.scale(loss).backward() # Scale loss for mixed precision
+if (i + 1) % accumulation_steps == 0:
+scaler.step(optimizer) # Perform optimization step
+scaler.update() # Update scaling factor
+optimizer.zero_grad() # Clear gradients
+A) GradScaler dynamically scales the gradients to prevent overflow during backpropagation, which is critical when using FP16 precision.
+B) GradScaler ensures that the model's gradients are averaged correctly when accumulating gradients across mini-batches.
+C) GradScaler adjusts the learning rate based on the mini-batch size to stabilize training in mixed precision.
+D) GradScaler ensures the accumulation of loss across mini-batches is performed in FP32 precision, which is required for stability.
+E) GradScaler reduces the memory usage of gradient accumulation by storing gradients in lower precision.","GradScaler dynamically scales the gradients to prevent overflow during backpropagation, which is critical when using FP16 precision."
+"In a distributed training setup across 4 GPUs, you decide to use a dynamic batch size scaling approach to increase the batch size after every epoch. 
+Below is the code implementing the strategy. What would be the effect of dynamically increasing the batch size
+on the training process, and what additional adjustment should be made to optimize performance?
+import torch
+import torch.distributed as dist
+from torch.utils.data import DataLoader, DistributedSampler
+# Initialize the distributed process group
+dist.init_process_group(backend='nccl')
+# Model, optimizer, and dataset
+model = LargeTransformerModel().cuda()
+optimizer = torch.optim.Adam(model.parameters(), lr=1e-4)
+dataset = MyDataset()
+# Training loop
+batch_size = 128
+for epoch in range(10):
+# Adjust batch size at the start of each epoch
+if epoch % 2 == 0:
+batch_size *= 2
+# Create a distributed sampler and data loader
+sampler = DistributedSampler(dataset)
+dataloader = DataLoader(dataset, batch_size=batch_size, sampler=sampler)
+for i, (inputs, labels) in enumerate(dataloader):
+inputs, labels = inputs.cuda(), labels.cuda()
+optimizer.zero_grad()
+outputs = model(inputs)
+loss = loss_function(outputs, labels)
+loss.backward()
+optimizer.step()
+# Synchronize across GPUs at the end of the epoch
+dist.barrier()
+A) Increasing the batch size will increase the number of weight updates per epoch, which improves model convergence. No further adjustments are necessary.
+B) Increasing the batch size reduces the number of updates per epoch, so the learning rate should also be increased proportionally to maintain effective learning.
+C) Dynamically increasing the batch size increases memory usage, which could result in an out-of-memory error on some GPUs. The model architecture should be 
+changed instead.
+D) Dynamic batch size scaling is computationally inefficient, so the process should be abandoned to maximize GPU usage.
+E) Larger batch sizes will slow down the data loading process, so using fewer GPUs would be more efficient.
+Backu",
+"We are executing the following commands:
+> gcc -O2 mvmult_papi.c -o mvmult_papi -lcblas -lpapi.
+and later:
+> ./mvmult_papi 20000
+Size 20000; abs. sum: 10000.000000 (expected: 10000)
+PAPI counts:
+init: event1: 0 event2: 0
+mult: event1: 804193640 event2: 0
+sum: event1: 20276 event2: 0
+What are we doing?
+a) Compile and link with the PAPI library and run papi to check performance
+b) Compile and run mvmult to debug the program lpapi
+c) Run the program mvmult 20000 times for getting performance information
+d) None of the above ",Compile and link with the PAPI library and run papi to check performance
+,
+MISSING QUESTIONS,
+"In a Hadoop MapReduce job, the following code defines a custom partitioner to distribute data among reducers. What is the likely outcome of using this partitioner?
+
+
+
+import org.apache.hadoop.mapreduce.Partitioner;
+ 
+public class CustomPartitioner extends Partitioner<Text, IntWritable> {
+   @Override
+   public int getPartition(Text key, IntWritable value, int numReduceTasks) {
+       if (key.toString().charAt(0) < 'N') {
+           return 0;
+       } else {
+           return 1;
+       }
+   }
+}
+A. The key-value pairs will be distributed to reducers randomly.
+B. All key-value pairs will go to the same reducer regardless of their content.
+C. The partitioner will divide the data based on the first letter of the key, sending keys starting with letters A-M to one reducer and N-Z to another.
+D. The partitioner will balance the load evenly across all reducers.
+E. The partitioner guarantees an equal number of keys per reducer.","C. The partitioner will divide the data based on the first letter of the key, sending keys starting with letters A-M to one reducer and N-Z to another."
+"Examine the following MapReduce code snippet for counting the frequency of product IDs in a large dataset. What would be the most suitable input format for this program?
+
+
+
+ 
+public class ProductCount {
+   public static class ProductMapper extends Mapper<Object, Text, Text, IntWritable> {
+       private final static IntWritable one = new IntWritable(1);
+       private Text productID = new Text();
+ 
+       public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
+           String[] fields = value.toString().split("","");
+           productID.set(fields[0]); // Product ID is the first field
+           context.write(productID, one);
+       }
+   }
+}
+A. TextInputFormat, because each line in the dataset represents a single record that contains the product ID.
+B. SequenceFileInputFormat, because product IDs need to be stored in sequence for faster access.
+C. KeyValueTextInputFormat, because each line represents key-value pairs with multiple fields.
+D. BinaryInputFormat, since product IDs may be binary-encoded.
+E. NullInputFormat, because the mapper doesn't require the input.","TextInputFormat, because each line in the dataset represents a single record that contains the product ID."
+"In parallel computing, how does graph partitioning help to improve load balancing and reduce communication overhead when processing large distributed graphs?
+a) By evenly distributing the number of vertices across processors.
+b) By minimizing the number of edges that cross partition boundaries.
+c) By centralizing all graph data in one processor.
+d) By storing only the highest-degree vertices in each partition.
+e) By replicating vertices across partitions to minimize communication.",By minimizing the number of edges that cross partition boundaries.
+"In the following Hadoop MapReduce program, what role does the cleanup() method in the mapper play, and when is it executed?
+import java.io.IOException;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Mapper;
+ 
+public class CustomMapper extends Mapper<Object, Text, Text, IntWritable> {
+   private int recordCount = 0;
+ 
+   public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
+       recordCount++;
+       // Process each record...
+   }
+ 
+   protected void cleanup(Context context) throws IOException, InterruptedException {
+       context.write(new Text(""Total Records Processed""), new IntWritable(recordCount));
+   }
+}
+a) It is executed after each record is processed to reset the state of the mapper.
+b) It runs once after all records have been processed by the mapper, allowing for final cleanup operations, such as emitting the total record count.
+c) It is called after each map task is completed to clean up temporary files.
+d) The cleanup() method is not needed and will never be executed in this case.
+e) It runs after the reduce phase to finalize the output.","It runs once after all records have been processed by the mapper, allowing for final cleanup operations, such as emitting the total record count."

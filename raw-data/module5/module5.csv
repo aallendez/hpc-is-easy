@@ -1,0 +1,2284 @@
+"Consider the following loop that attempts to use SIMD parallelism
+in OpenMP. Why is this loop not suitable for SIMD parallelism?
+#pragma omp simd
+for (int i = 1; i < N; i++) {
+array[i] = array[i - 1] + 1;
+}
+A. The loop has independent iterations
+B. The memory access pattern is optimized
+C. There is a loop-carried dependency
+D. The loop size is too small
+E. SIMD cannot be applied to floating-point operations",There is a loop-carried dependency
+"What role does the #pragma omp taskwait directive play in this recursive function? In
+recursive algorithms like the Fibonacci computation, tasks can be created at each recursive
+step. Consider the following code snippet:
+int fib(int n) {
+if (n < 2) return n;
+int x, y;
+#pragma omp task shared(x)
+x = fib(n - 1);
+#pragma omp task shared(y)
+y = fib(n - 2);
+#pragma omp taskwait
+return x + y;
+}
+A. It ensures that the tasks for fib(n-1) and fib(n-2) complete before combining their results
+B. It prevents tasks from being created too early
+C. It forces the program to wait for all threads to finish
+D. It balances the workload among threads
+E. It prevents memory access conflicts",It ensures that the tasks for fib(n-1) and fib(n-2) complete before combining their results
+"Imagine you are tasked with optimizing the performance of a
+dynamic workload in a parallel program. You decide to use
+OpenMP's task-based parallelism. In the following situation,
+you have many small, independent tasks to execute, but their
+execution times vary significantly.
+Which OpenMP directive or clause would you use to ensure
+that tasks are distributed dynamically among threads, and no
+thread remains idle while there are still tasks to execute?
+A. #pragma omp parallel for schedule(static)
+B. #pragma omp task
+C. #pragma omp parallel for schedule(guided)
+D. #pragma omp sections
+E. #pragma omp taskwait",#pragma omp task
+"Consider the following loop designed to apply a transformation
+to an array using SIMD parallelism. To maximize performance
+using SIMD instructions, what is the most important factor to
+ensure when designing this loop?
+#pragma omp simd
+for (int i = 0; i < N; i++) {
+array[i] = array[i] * 2.0;
+}
+A. Ensure loop iterations are dependent on each other
+B. Ensure memory alignment using #pragma omp simd
+aligned(array:32)
+C. Use nested loops to reduce iteration count
+D. Use complex control flows inside the loop
+E. Manually split the loop into separate chunks",
+"You are developing a program to offload computations to a GPU
+using OpenMP 4.0's GPU offloading features. The program must
+transfer data arrays A and B to the GPU, perform computations,
+and then retrieve the result in array C. Which of the following
+OpenMP directives should you use to efficiently manage the
+memory transfers between the host (CPU) and the device (GPU)
+in this scenario?
+A. #pragma omp target data map(to: A, B)
+B. #pragma omp parallel for schedule(dynamic)
+C. #pragma omp simd
+D. #pragma omp critical
+E. #pragma omp target map(to: A, B) map(from: C)",
+"In a program that computes recursive Fibonacci numbers using OpenMP tasks, the following code is used. What
+is the role of the #pragma omp taskwait directive in this code?
+#pragma omp parallel
+{
+#pragma omp single
+{
+result = fib(30);
+}
+}
+int fib(int n) {
+int x, y;
+if (n < 2) return n;
+#pragma omp task shared(x)
+x = fib(n - 1);
+#pragma omp task shared(y)
+y = fib(n - 2);
+#pragma omp taskwait
+return x + y;
+}
+A. It ensures that all threads have completed execution
+B. It prevents race conditions by synchronizing threads
+C. It ensures that the fib(n-1) and fib(n-2) tasks complete before returning their results
+D. It forces all tasks in the program to finish before proceeding
+E. It balances the load among threads",It ensures that the fib(n-1) and fib(n-2) tasks complete before returning their results
+"You are tasked with optimizing a parallel loop with a large number of iterations. Each iteration
+performs some processing on elements of an array. To reduce overhead while maintaining load
+balance, you decide to use the OpenMP taskloop directive. How can you control the granularity of
+tasks created by #pragma omp taskloop to reduce the task creation overhead while ensuring
+efficient parallelism?
+A. By using the schedule(static) clause
+B. By specifying a grainsize clause to control the number of iterations per task
+C. By adding a critical section to reduce the number of tasks
+D. By using #pragma omp single
+E. By using #pragma omp taskwait to avoid task creation overhead",By specifying a grainsize clause to control the number of iterations per task
+"You are implementing a simulation where different
+sections of the simulation grid require varying levels of
+computation. To avoid idle threads, you decide to
+dynamically balance the workload among threads. Which
+OpenMP directive and scheduling clause would best
+balance the load by dynamically assigning chunks of work
+to threads as they become available?
+A. #pragma omp for schedule(static, 1)
+B. #pragma omp parallel for schedule(dynamic, 1)
+C. #pragma omp task
+D. #pragma omp sections
+E. #pragma omp critical",
+"Consider the following loop that attempts to use SIMD
+parallelism in OpenMP. Why is this loop not suitable for SIMD
+parallelism?
+#pragma omp simd
+for (int i = 1; i < N; i++) {
+array[i] = array[i - 1] + 1;
+}
+A. The loop has independent iterations
+B. The memory access pattern is optimized
+C. There is a loop-carried dependency
+D. The loop size is too small
+E. SIMD cannot be applied to floating-point operations",
+"You are writing a program that processes
+large arrays using parallelism. You are deciding between
+using #pragma omp parallel for and #pragma omp
+taskloop for dividing work among threads. What is a key
+advantage of using #pragma omp taskloop over
+#pragma omp parallel for?
+A. Taskloop is faster than parallel for
+B. Taskloop allows finer control over task creation and
+granularity
+C. Parallel for can handle dynamic workloads better
+D. Parallel for requires fewer synchronization points
+E. Taskloop forces static scheduling",
+"You have offloaded a computation to the GPU using
+OpenMP’s target directives. Despite this, you observe that
+the performance gain is minimal. Profiling reveals significant
+time spent on data transfers between the CPU and the GPU.
+What is the most effective strategy to reduce the data
+transfer bottleneck?
+A. Use #pragma omp task
+B. Use map(tofrom:) to reduce data transfers between the
+CPU and GPU
+C. Increase the number of CPU threads
+D. Use #pragma omp barrier to synchronize threads
+E. Avoid using GPU offloading for small data sets",Use map(tofrom:) to reduce data transfers between the CPU and GPU
+"In the following OpenMP task-based code, there are dependencies between
+tasks that must be respected. What is the purpose of the depend(in: A[i-1])
+depend(out: A[i]) clauses?
+#pragma omp parallel
+{
+#pragma omp single
+{
+for (int i = 1; i < N; i++) {
+#pragma omp task depend(in: A[i-1]) depend(out: A[i])
+process(A[i]);
+}
+}
+}
+A. They define which thread will execute each task
+B. They enforce a specific order of task execution based on data dependencies
+C. They balance the load across threads
+D. They reduce the number of synchronization points
+E. They ensure SIMD vectorization",They enforce a specific order of task execution based on data dependencies
+"When using SIMD parallelism in OpenMP, memory alignment
+can significantly affect performance. Why is the
+aligned(data:32) clause used here?
+#pragma omp simd aligned(data:32)
+for (int i = 0; i < N; i++) {
+data[i] = data[i] * 2.0;
+}
+A. To reduce loop iterations
+B. To ensure that memory accesses are properly aligned for
+efficient SIMD execution
+C. To prevent race conditions
+D. To force the compiler to vectorize the loop
+E. To increase the size of each SIMD instruction",
+"When creating tasks in OpenMP, you notice a performance drop due to the overhead of
+creating too many small tasks. Which OpenMP clause can help you reduce task creation
+overhead by adjusting the granularity of tasks?
+A. schedule(static)
+B. grainsize
+C. critical
+D. collapse
+E. atomic",
+"You have implemented an OpenMP target region to
+offload a computation to the GPU. However, the computation
+involves both data transfers and kernel executions. To improve
+performance, you decide to overlap data transfers and
+computations. Which OpenMP clause can you use to ensure that
+data transfers do not block computation on the GPU?
+A. nowait
+B. atomic
+C. schedule(guided)
+D. taskwait
+E. aligned",
+"What role does the #pragma omp taskwait directive play in
+this recursive function? In recursive algorithms like the Fibonacci
+computation, tasks can be created at each recursive step. Consider the
+following code snippet:
+int fib(int n) {
+if (n < 2) return n;
+int x, y;
+#pragma omp task shared(x)
+x = fib(n - 1);
+#pragma omp task shared(y)
+y = fib(n - 2);
+#pragma omp taskwait
+return x + y;
+}
+A. It ensures that the tasks for fib(n-1) and fib(n-2) complete before
+combining their results
+B. It prevents tasks from being created too early
+C. It forces the program to wait for all threads to finish
+D. It balances the workload among threads
+E. It prevents memory access conflicts",
+"Guided scheduling can be useful when
+the workload size decreases over time. You are
+implementing an algorithm with decreasing
+computation per iteration. Which OpenMP scheduling
+strategy would best adapt to this situation?
+A. schedule(static)
+B. schedule(dynamic)
+C. schedule(guided)
+D. schedule(auto)
+E. schedule(runtime)",
+"Consider the following loop for matrix multiplication.
+What is the main benefit of using #pragma omp simd in this matrix
+multiplication loop?
+#pragma omp simd
+for (int i = 0; i < N; i++) {
+for (int j = 0; j < M; j++) {
+for (int k = 0; k < K; k++) {
+C[i][j] += A[i][k] * B[k][j];
+}
+}
+}
+A. Reduces the number of iterations
+B. Increases parallelism by vectorizing inner loops
+C. Avoids race conditions between threads
+D. Forces the loop to run sequentially
+E. Synchronizes threads at the end of each loop",
+"You are working on a real-time weather
+simulation where different regions require varying amounts
+of computation based on localized weather phenomena
+(e.g., storms vs. calm areas). To ensure efficient use of
+computational resources, you want to dynamically distribute
+these computation-heavy regions across multiple CPU
+threads. Which OpenMP scheduling technique should you
+use to dynamically assign work so that threads remain busy
+regardless of how long computations take in different
+regions?
+A. schedule(static)
+B. schedule(dynamic)
+C. schedule(guided)
+D. schedule(auto)
+E. schedule(runtime)",
+"You are tasked with improving the
+performance of an image-processing
+application that applies a filter to each pixel of a
+large image. Each pixel operation is
+independent and involves a simple arithmetic
+calculation. You want to use SIMD to speed up
+this operation. What OpenMP directive and
+clause would you use to ensure that multiple
+pixels are processed simultaneously using SIMD,
+and what memory condition must be satisfied?
+A. #pragma omp simd with aligned memory
+access
+B. #pragma omp parallel for with dynamic
+scheduling
+C. #pragma omp critical to avoid race conditions
+D. #pragma omp task for each pixel
+E. #pragma omp barrier to synchronize threads",
+"You are implementing a genome
+sequencing application where each DNA sequence is
+processed independently but the computation time
+varies significantly based on the sequence complexity.
+You want to ensure that tasks are dynamically assigned
+to threads and no thread is left idle. Which
+combination of OpenMP constructs would allow you
+to dynamically schedule tasks across threads and
+ensure that tasks are properly synchronized?
+A. #pragma omp parallel for schedule(static)
+B. #pragma omp task and #pragma omp taskwait
+C. #pragma omp parallel for schedule(guided)
+D. #pragma omp critical and #pragma omp single
+E. #pragma omp sections",
+"You are working on a financial application
+that calculates risk metrics (such as Value at Risk) for a
+large number of financial instruments. Each instrument's
+calculation is independent, but you want to offload the
+computations to a GPU to speed up the process. How
+should you structure the OpenMP directives to ensure
+efficient GPU offloading and minimize data transfer
+overhead?
+A. #pragma omp target map(tofrom: risk_data)
+B. #pragma omp parallel for schedule(static)
+C. #pragma omp simd aligned(risk_data:32)
+D. #pragma omp critical
+E. #pragma omp taskloop",#pragma omp target map(tofrom: risk_data)
+"You are optimizing a CFD simulation that performs a
+series of stencil computations on a 3D grid. The simulation involves
+significant data reuse and you want to maximize the performance
+using both SIMD and task parallelism in OpenMP. Which OpenMP
+features should you use to optimize both the memory access
+patterns and the parallel task execution for this type of problem?
+A. #pragma omp taskloop with #pragma omp simd aligned(grid:32)
+B. #pragma omp critical with #pragma omp barrier
+C. #pragma omp parallel for schedule(static)
+D. #pragma omp sections
+E. #pragma omp atomic with #pragma omp single",#pragma omp taskloop with #pragma omp simd aligned(grid:32)
+"You are implementing a recursive quicksort
+algorithm and want to parallelize the sorting process
+using OpenMP tasks. Since quicksort is a divide-and-
+conquer algorithm, you want each partitioning step to
+be executed in parallel. However, you must ensure that
+all tasks are synchronized correctly before merging the
+results. Which OpenMP construct allows you to create
+tasks for each partitioning step and ensure that all tasks
+are completed before merging the results?
+A. #pragma omp task and #pragma omp taskwait
+B. #pragma omp parallel for
+C. #pragma omp sections and #pragma omp critical
+D. #pragma omp simd
+E. #pragma omp single and #pragma omp barrier",
+"You are tasked with improving the performance of matrix
+multiplication for two large matrices, A and B, using OpenMP. Below is
+the basic sequential code for matrix multiplication. Which OpenMP
+directive would you use to parallelize the outer two loops efficiently,
+ensuring that all iterations are independent?
+for (int i = 0; i < N; i++) {
+for (int j = 0; j < N; j++) {
+C[i][j] = 0;
+for (int k = 0; k < N; k++) {
+C[i][j] += A[i][k] * B[k][j];
+}
+}
+}
+A. #pragma omp simd
+B. #pragma omp parallel for
+C. #pragma omp task
+D. #pragma omp single
+E. #pragma omp critical",
+"You are working on an application where
+you need to apply a transformation to each element in
+an array. The operation is independent for each
+element, making it ideal for SIMD vectorization. The
+following code shows the sequential version. Which
+OpenMP directive should you use to enable SIMD
+parallelism, and what condition must be satisfied for
+efficient SIMD execution?
+for (int i = 0; i < N; i++) {
+array[i] = array[i] * 2.0;
+}
+A. #pragma omp task
+B. #pragma omp simd aligned(array:32)
+C. #pragma omp parallel for
+D. #pragma omp sections
+E. #pragma omp critical",
+"You are implementing a parallel merge sort
+using OpenMP tasks. The following code shows a simplified
+version of the sequential merge sort algorithm. How would
+you parallelize the recursive calls to merge_sort using
+OpenMP tasks, ensuring that both halves of the array are
+sorted in parallel?
+void merge_sort(int arr[], int left, int
+right) {
+if (left < right) {
+int mid = (left + right) / 2;
+merge_sort(arr, left, mid);
+merge_sort(arr, mid + 1, right);
+merge(arr, left, mid, right);
+}
+}
+A. #pragma omp parallel for
+B. #pragma omp task and #pragma omp taskwait
+C. #pragma omp sections
+D. #pragma omp simd
+E. #pragma omp critical",
+"You are implementing a stencil
+computation over a 2D grid in a heat diffusion
+simulation. Each point in the grid is updated based
+on its neighbors in the previous time step. The
+following code shows a simplified version of the
+stencil computation:
+Which OpenMP directive would you use to
+parallelize this loop with tasks, allowing finer control
+over the granularity of task creation?
+for (int i = 1; i < N-1; i++) {
+for (int j = 1; j < M-1; j++) {
+grid[i][j] = (grid[i-1][j] +
+grid[i+1][j] + grid[i][j-1] +
+grid[i][j+1]) * 0.25;
+}
+}
+A. #pragma omp parallel for
+B. #pragma omp taskloop with grainsize
+C. #pragma omp simd
+D. #pragma omp sections
+E. #pragma omp critical",#pragma omp taskloop with grainsize
+"You are implementing a parallel
+reduction to sum the elements of a large array using
+OpenMP. The following code shows a basic parallel
+reduction using a critical section. Which OpenMP
+directive should you use to avoid the overhead of a
+critical section and achieve efficient parallel
+reduction?
+int sum = 0;
+#pragma omp parallel for
+for (int i = 0; i < N; i++) {
+#pragma omp critical
+sum += array[i];
+}
+A. #pragma omp task
+B. #pragma omp reduction(+: sum)
+C. #pragma omp simd
+D. #pragma omp barrier
+E. #pragma omp sections",
+"You are developing an MPI-based application for simulating fluid flow
+across a grid of points. The grid is decomposed among multiple
+processes using MPI, and communication between the processes
+occurs when exchanging boundary data between neighboring grid
+points. To improve performance, you decide to implement non-
+blocking communication using MPI_Isend and MPI_Irecv.
+Given that the application also performs heavy computation on each
+process's local grid points, how can non-blocking communication
+improve the overall performance of the simulation?
+Which of the following strategies is most effective for improving the
+performance of the communication-computation overlap?
+1. Perform the communication and wait for all MPI_Isend and
+MPI_Irecv calls to complete before starting any computation.
+2. Initiate MPI_Isend and MPI_Irecv calls, immediately follow them
+by calling MPI_Waitall, and then perform the computations.
+3. Initiate MPI_Isend and MPI_Irecv, proceed with the
+computations while the communication is in progress, and only
+call MPI_Waitall once the computations are done.
+4. Use only blocking communication such as MPI_Send and
+MPI_Recv because they are easier to implement and debug.
+5. Split the grid further and decrease the message size to minimize
+communication overhead, even without using non-blocking
+communication.","Initiate MPI_Isend and MPI_Irecv, proceed with the
+computations while the communication is in progress, and only call MPI_Waitall
+once the computations are done."
+"Consider an MPI application where Process 0 needs to directly write data to Process 1's memory using
+one-sided communication. Which function is responsible for writing the data? Identify the function
+that enables Process 0 to write data into Process 1’s memory without requiring Process 1 to be
+involved in the communication.
+#include <mpi.h>
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+MPI_Init(&argc, &argv);
+int rank, size;
+MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+int data = 100; // Data to be transferred
+MPI_Win win;
+MPI_Win_create(&data, sizeof(int), sizeof(int), MPI_INFO_NULL,
+MPI_COMM_WORLD, &win);
+if (rank == 0) {
+int new_data = 42;
+MPI_Win_fence(0, win);
+MPI_Put(&new_data, 1, MPI_INT, 1, 0, 1, MPI_INT, win); // Write
+to Process 1
+MPI_Win_fence(0, win);
+}
+MPI_Win_free(&win);
+MPI_Finalize();
+return 0;
+}
+A) MPI_Get
+B) MPI_Send
+C) MPI_Put
+D) MPI_Reduce
+E) MPI_Bcast",MPI_Put
+"In iterative applications such as solvers, the same communication pattern is repeated in every iteration.
+To reduce communication overhead, you decide to use persistent communication requests. Complete the
+code below to initialize and use a persistent send request. Which function initializes a persistent send
+request that can be reused in multiple iterations?
+#include <mpi.h>
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+MPI_Init(&argc, &argv);
+int rank;
+MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+int data = 42;
+MPI_Request request;
+// Initialize a persistent send request
+MPI_Send_init(&data, 1, MPI_INT, 1, 0, MPI_COMM_WORLD, &request);
+// Iterative communication loop
+for (int i = 0; i < 10; i++) {
+MPI_Start(&request); // Start the persistent communication
+MPI_Wait(&request, MPI_STATUS_IGNORE); // Wait for completion
+}
+MPI_Request_free(&request); // Free the request
+MPI_Finalize();
+return 0;
+}
+A) MPI_Isend
+B) MPI_Send
+C) MPI_Send_init
+D) MPI_Comm_spawn
+E) MPI_Gather",MPI_Send_init
+"You are running a simulation where processes frequently need to perform
+collective reductions on large datasets, which becomes a bottleneck. You
+decide to use non-blocking collective operations to allow the processes to
+continue computation while waiting for the reduction to complete. Which
+MPI function allows you to overlap collective reduction operations with
+computation, and how do you ensure the reduction is completed before
+using the result?
+MPI_Request request;
+MPI_Ireduce(sendbuf, recvbuf, count, MPI_DOUBLE,
+MPI_SUM, 0, MPI_COMM_WORLD, &request);
+// Perform other computations while reduction is in
+progress
+compute_step();
+// Ensure reduction is completed before using
+recvbuf
+MPI_Wait(&request, MPI_STATUS_IGNORE);
+A) MPI_Ireduce and MPI_Wait
+B) MPI_Reduce and MPI_Barrier
+C) MPI_Bcast and MPI_Isend
+D) MPI_Isend and MPI_Irecv
+E) MPI_Gather and MPI_Reduce",MPI_Ireduce and MPI_Wait
+"In an adaptive climate simulation, the
+computational workload increases drastically in certain
+regions as the simulation progresses. You need to allocate
+additional computational resources to those regions
+dynamically. Which MPI function is best suited for adding
+processes at runtime to handle this increased load? Which
+of the following functions should you use in MPI to
+dynamically add new processes during execution?
+A) MPI_Barrier
+B) MPI_Comm_spawn
+C) MPI_Isend
+D) MPI_Comm_create
+E) MPI_Reduce",
+"You are optimizing a fluid dynamics
+simulation where neighboring processes need to
+frequently exchange boundary (ghost) data.
+Using traditional two-sided communication
+results in performance bottlenecks. One-sided
+communication could reduce synchronization
+overhead, but you want to ensure that the data
+exchange happens asynchronously. Which pair of
+functions would you use to implement one-sided
+communication where Process 1 can write data
+to Process 2's memory asynchronously?
+A)MPI_Put and MPI_Win_create
+B)MPI_Send and MPI_Recv
+C)MPI_Bcast and MPI_Reduce
+D)MPI_Comm_spawn and MPI_Comm_accept
+E)MPI_Gather and MPI_Scatter",MPI_Put and MPI_Win_create
+"Consider a matrix multiplication
+application where some regions of the matrix require
+more computational power due to varying data
+complexity. To dynamically assign new processes for
+handling these regions, you decide to use dynamic
+process management. In the following code snippet,
+which MPI function is used to dynamically assign more
+processes for handling regions with higher
+computational load?
+int extra_workers = 2;
+MPI_Comm intercomm;
+MPI_Comm_spawn(""worker_program"",
+MPI_ARGV_NULL, extra_workers,
+MPI_INFO_NULL, 0, MPI_COMM_SELF,
+&intercomm, MPI_ERRCODES_IGNORE);
+A)MPI_Isend
+B)MPI_Irecv
+C)MPI_Comm_spawn
+D)MPI_Comm_split
+E) MPI_Comm_connect",MPI_Comm_spawn
+"In a high-performance
+application, you want to overlap
+communication with computation to
+maximize efficiency. You implement non-
+blocking communication to send data
+between processes while performing
+calculations simultaneously. Which of the
+following function calls initiates a non-
+blocking send operation, allowing the process
+to proceed with computation before the data
+transmission completes?
+A)MPI_Barrier
+B)MPI_Isend
+C)MPI_Send
+D)MPI_Comm_spawn
+E)MPI_Win_fence",
+"You are working on a weather simulation
+where one process frequently updates the shared
+memory of another process with real-time data. You
+decide to use one-sided communication to optimize
+this exchange. However, synchronization between the
+processes is crucial to ensure data consistency. Which
+function should you use to ensure that all one-sided
+communication operations are completed before
+proceeding with further computation?
+A)MPI_Wait
+B)MPI_Win_fence
+C)MPI_Reduce
+D)MPI_Comm_split
+E)MPI_Gather",MPI_Win_fence
+"In a simulation, the main MPI process needs to
+dynamically spawn additional worker processes when a specific
+condition is met (e.g., the workload exceeds a threshold). Which
+function in the following code allows the main process to spawn
+additional worker processes?
+#include <mpi.h>
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+MPI_Init(&argc, &argv);
+int rank;
+MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+if (rank == 0) {
+// Master process spawns 3 worker processes
+MPI_Comm intercomm;
+MPI_Comm_spawn(""worker_program"", MPI_ARGV_NULL, 3,
+MPI_INFO_NULL, 0, MPI_COMM_SELF, &intercomm, MPI_ERRCODES_IGNORE);
+printf(""Master process spawned 3 workers.\n"");
+}
+MPI_Finalize();
+return 0;
+}
+A)MPI_Comm_split
+B)MPI_Comm_spawn
+C)MPI_Comm_connect
+D)MPI_Comm_accept
+E) MPI_Bcast",
+"Consider an MPI application where Process 0 needs to
+directly write data to Process 1's memory using one-sided
+communication. Which function is responsible for writing the data?
+Identify the function that enables Process 0 to write data into Process 1’s
+memory without requiring Process 1 to be involved in the
+communication.
+#include <mpi.h>
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+MPI_Init(&argc, &argv);
+int rank, size;
+MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+int data = 100; // Data to be transferred
+MPI_Win win;
+MPI_Win_create(&data, sizeof(int), sizeof(int), MPI_INFO_NULL, MPI_COMM_WORLD,
+&win);
+if (rank == 0) {
+int new_data = 42;
+MPI_Win_fence(0, win);
+MPI_Put(&new_data, 1, MPI_INT, 1, 0, 1, MPI_INT, win); // Write to Process
+1 MPI_Win_fence(0, win);
+}
+MPI_Win_free(&win);
+MPI_Finalize();
+return 0;
+}
+A) MPI_Get
+B) MPI_Send
+C) MPI_Put
+D)MPI_Reduce
+E) MPI_Bcast",
+"In a matrix multiplication task, you want to send matrix rows between processes without blocking the
+computation. The following code shows an attempt to overlap communication and computation.
+Which function allows non-blocking communication, allowing the process to continue computation while the data
+is being sent?
+#include <mpi.h>
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+MPI_Init(&argc, &argv);
+int rank, size;
+MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+int buffer[100]; // Data to send
+MPI_Request request;
+if (rank == 0) {
+// Send data to Process 1 without blocking
+MPI_Isend(buffer, 100, MPI_INT, 1, 0, MPI_COMM_WORLD, &request);
+printf(""Data sent asynchronously.\n"");
+// Perform some computation while the data is being transmitted
+for (int i = 0; i < 1000000; i++) {
+// Simulate computation
+}
+// Wait for the non-blocking send to complete
+MPI_Wait(&request, MPI_STATUS_IGNORE);
+}
+MPI_Finalize();
+return 0;
+}
+A) MPI_Send 
+B) MPI_Irecv 
+C) MPI_Isend
+D) MPI_Put 
+E) MPI_Comm_spawn",
+"You are working on a distributed memory application where
+Process 0 needs to retrieve data from Process 1’s memory using one-sided
+communication. Complete the following code by choosing the correct MPI
+function to perform this operation. Which function retrieves data from
+Process 1’s memory into Process 0?
+#include <mpi.h>
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+MPI_Init(&argc, &argv);
+int rank;
+MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+int data = rank; // Data at each process
+MPI_Win win;
+MPI_Win_create(&data, sizeof(int), sizeof(int), MPI_INFO_NULL,
+MPI_COMM_WORLD, &win);
+if (rank == 0) {
+int received_data;
+MPI_Win_fence(0, win);
+MPI_Get(&received_data, 1, MPI_INT, 1, 0, 1, MPI_INT, win); // Get
+data from Process 1
+MPI_Win_fence(0, win);
+printf(""Data received from Process 1: %d\n"", received_data);
+}
+MPI_Win_free(&win);
+MPI_Finalize();
+return 0;
+}
+A) MPI_Put 
+B) MPI_Get 
+C) MPI_Isend
+D) MPI_Comm_split 
+E) MPI_Irecv",
+"In large-scale simulations, collective communication often becomes a bottleneck. You decide to use non-blocking collective
+operations to broadcast data without blocking computations. Complete the code below by selecting the appropriate function. Which MPI
+function should be used to perform a non-blocking broadcast?
+#include <mpi.h>
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+MPI_Init(&argc, &argv);
+int rank;
+MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+int data;
+if (rank == 0) {
+data = 42; // Data to broadcast
+}
+MPI_Request request;
+MPI_Ibcast(&data, 1, MPI_INT, 0, MPI_COMM_WORLD, &request); // Non-blocking broadcast
+// Perform computation while the broadcast happens
+for (int i = 0; i < 100000; i++) {
+// Simulate computation
+}
+MPI_Wait(&request, MPI_STATUS_IGNORE); // Wait for broadcast to complete
+printf(""Rank %d received data: %d\n"", rank, data);
+MPI_Finalize();
+return 0;
+}
+A) MPI_Bcast 
+B) MPI_Gather 
+C) MPI_Ibcast
+D) MPI_Isend 
+E) MPI_Wait",
+"After spawning new processes, the parent and child processes
+must communicate using an intercommunicator. Complete the following code
+to send a message from the parent to the spawned child processes. Which MPI
+function is used to send a message from the parent process to the child
+processes through the intercommunicator?
+#include <mpi.h>
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+MPI_Init(&argc, &argv);
+int rank;
+MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+if (rank == 0) {
+// Spawn 2 worker processes
+MPI_Comm intercomm;
+MPI_Comm_spawn(""worker_program"", MPI_ARGV_NULL, 2,
+MPI_INFO_NULL, 0, MPI_COMM_SELF, &intercomm,
+MPI_ERRCODES_IGNORE);
+int msg = 100;
+MPI_Send(&msg, 1, MPI_INT, 0, 0, intercomm); // Send
+message to child processes
+}
+MPI_Finalize();
+return 0;
+}
+A) MPI_Bcast 
+B) MPI_Send 
+C) MPI_Isend 
+D) MPI_Put 
+E) MPI_Recv",
+"You are tasked with optimizing an MPI application
+where one process receives data from another process
+asynchronously. Choose the correct function to initiate the non-
+blocking receive operation. Which function allows a process to
+receive data without blocking until the data is actually available?
+#include <mpi.h>
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+MPI_Init(&argc, &argv);
+int rank;
+MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+int buffer[10]; // Buffer for receiving data
+MPI_Request request;
+if (rank == 1) {
+// Non-blocking receive from process 0
+MPI_Irecv(buffer, 10, MPI_INT, 0, 0, MPI_COMM_WORLD, &request);
+printf(""Non-blocking receive initiated.\n"");
+// Perform some computation
+for (int i = 0; i < 100000; i++) {
+// Simulate computation
+}
+// Wait for the receive operation to complete
+MPI_Wait(&request, MPI_STATUS_IGNORE);
+}
+MPI_Finalize();
+return 0;
+}
+A) MPI_Recv 
+B) MPI_Isend 
+C) MPI_Irecv 
+D) MPI_Win_fence 
+E) MPI_Put",MPI_Irecv
+"In a distributed simulation, you need to update a
+shared variable across multiple processes atomically. Choose the
+correct MPI function to perform this atomic operation using one-
+sided communication. Which function should be used to perform
+atomic updates to a shared variable across processes?
+#include <mpi.h>
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+MPI_Init(&argc, &argv);
+int rank;
+MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+int shared_data = 0;
+MPI_Win win;
+MPI_Win_create(&shared_data, sizeof(int),
+sizeof(int), MPI_INFO_NULL, MPI_COMM_WORLD, &win);
+if (rank == 1) {
+int value_to_add = 10;
+MPI_Win_fence(0, win);
+MPI_Accumulate(&value_to_add, 1, MPI_INT, 0,
+0, 1, MPI_INT, MPI_SUM, win); // Atomic update on
+shared variable
+MPI_Win_fence(0, win);
+}
+MPI_Win_free(&win);
+MPI_Finalize();
+return 0;
+}
+A) MPI_Put 
+B) MPI_Get 
+C) MPI_Accumulate
+D) MPI_Send 
+E) MPI_Irecv",
+"You are developing a high-performance MPI application
+where Process 0 needs exclusive access to Process 1's memory for a one-
+sided write operation. Complete the code by choosing the correct function
+to lock the memory. Which function allows Process 0 to lock Process 1’s
+memory for exclusive access?
+#include <mpi.h>
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+MPI_Init(&argc, &argv);
+int rank;
+MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+int shared_data = 100;
+MPI_Win win;
+MPI_Win_create(&shared_data, sizeof(int), sizeof(int),
+MPI_INFO_NULL, MPI_COMM_WORLD, &win);
+if (rank == 0) {
+int new_data = 42;
+MPI_Win_lock(MPI_LOCK_EXCLUSIVE, 1, 0, win); // Lock
+Process 1's memory
+MPI_Put(&new_data, 1, MPI_INT, 1, 0, 1, MPI_INT,
+win); // Write to Process 1's memory
+MPI_Win_unlock(1, win); // Unlock Process 1's memory
+}
+MPI_Win_free(&win);
+MPI_Finalize();
+return 0;
+}
+A) MPI_Put 
+B) MPI_Get 
+C) MPI_Win_lock
+D) MPI_Comm_split 
+E) MPI_Accumulate",MPI_Win_lock
+"In iterative applications such as solvers, the same communication
+pattern is repeated in every iteration. To reduce communication overhead, you
+decide to use persistent communication requests. Complete the code below to
+initialize and use a persistent send request. Which function initializes a persistent
+send request that can be reused in multiple iterations?
+#include <mpi.h>
+#include <stdio.h>
+int main(int argc, char *argv[]) {
+MPI_Init(&argc, &argv);
+int rank;
+MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+int data = 42;
+MPI_Request request;
+// Initialize a persistent send request
+MPI_Send_init(&data, 1, MPI_INT, 1, 0, MPI_COMM_WORLD, &request);
+// Iterative communication loop
+for (int i = 0; i < 10; i++) {
+MPI_Start(&request); // Start the persistent communication
+MPI_Wait(&request, MPI_STATUS_IGNORE); // Wait for
+completion
+}
+MPI_Request_free(&request); // Free the request
+MPI_Finalize();
+return 0;
+}
+A) MPI_Isend 
+B) MPI_Send 
+C) MPI_Send_init
+D) MPI_Comm_spawn 
+E) MPI_Gather",MPI_Send_init
+"You are running a climate simulation where certain regions
+(e.g., storms or high-pressure areas) require more computational
+resources than others. The simulation should dynamically allocate new
+processes when these regions become active and release them when the
+load decreases. Which MPI function would you use to dynamically allocate
+more processes when the storm regions require additional resources, and
+why?
+int main(int argc, char *argv[]) {
+MPI_Init(&argc, &argv);
+int rank;
+MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+if (rank == 0) {
+int extra_processes = 4; // Number of
+processes needed for storm regions
+MPI_Comm intercomm;
+MPI_Comm_spawn(""storm_simulation"",
+MPI_ARGV_NULL, extra_processes, MPI_INFO_NULL, 0,
+MPI_COMM_SELF, &intercomm, MPI_ERRCODES_IGNORE);
+printf(""Dynamically allocated %d additional
+processes for storm regions.\n"", extra_processes);
+}
+MPI_Finalize();
+return 0;
+}
+A) MPI_Comm_spawn 
+B) MPI_Barrier
+C) MPI_Isend
+D) MPI_Comm_split 
+E) MPI_Wait",
+"You are working on a distributed matrix multiplication program
+where each process holds part of the matrix. Instead of using traditional two-
+sided communication (send/receive), you decide to optimize by using one-sided
+communication to write the results directly into other processes' memory spaces.
+Which MPI function allows you to directly write the computed results from one
+process into another process’s memory without their active involvement?
+int main(int argc, char *argv[]) {
+MPI_Init(&argc, &argv);
+int rank;
+MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+int result = rank * 10; // Result of some
+computation
+MPI_Win win;
+MPI_Win_create(&result, sizeof(int), sizeof(int),
+MPI_INFO_NULL, MPI_COMM_WORLD, &win);
+if (rank == 0) {
+int new_value = 42;
+MPI_Win_fence(0, win);
+MPI_Put(&new_value, 1, MPI_INT, 1, 0, 1, MPI_INT,
+win); // Write result to process 1
+MPI_Win_fence(0, win);
+}
+MPI_Win_free(&win);
+MPI_Finalize();
+return 0;
+}
+A) MPI_Send 
+B) MPI_Put 
+C) MPI_Bcast 
+D) MPI_Recv 
+E) MPI_Isend",
+"You are developing an ocean circulation model that
+frequently exchanges boundary data between neighbouring
+processes. The model suffers from delays due to blocking
+communication. You want to overlap communication with
+computation to reduce these delays. Which MPI function allows you
+to initiate communication without waiting for it to complete,
+allowing the process to continue computation while the data is
+being sent or received?
+int boundary_data[100]; // Boundary data to send
+MPI_Request request;
+MPI_Isend(boundary_data, 100, MPI_INT, neighbor_rank,
+0, MPI_COMM_WORLD, &request); // Non-blocking send
+// Continue computation while communication happens
+perform_computation();
+// Ensure that the communication is complete before
+using the data
+MPI_Wait(&request, MPI_STATUS_IGNORE);
+A) MPI_Isend 
+B) MPI_Send 
+C) MPI_Barrier
+D) MPI_Gather 
+E) MPI_Comm_split",
+"You are building a high-performance computing system
+for processing financial transactions in real time. The load fluctuates
+throughout the day, so you want the system to spawn additional
+processes dynamically when transaction volume spikes and terminate
+them when the load subsides. Which MPI function should you use to
+manage processes dynamically as the load changes, ensuring optimal
+resource usage?
+if (current_load > threshold) {
+int extra_workers = 5; // Spawn 5 more processes
+MPI_Comm intercomm;
+MPI_Comm_spawn(""worker_program"", MPI_ARGV_NULL,
+extra_workers, MPI_INFO_NULL, 0, MPI_COMM_SELF,
+&intercomm, MPI_ERRCODES_IGNORE);
+printf(""Spawned %d additional processes to handle
+high load.\n"", extra_workers);
+}
+A) MPI_Comm_spawn
+B) MPI_Reduce
+C) MPI_Gather
+D) MPI_Wait
+E) MPI_Barrier",
+"You are running a large molecular dynamics simulation
+where multiple processes need to frequently exchange small pieces of
+data. Instead of sending many small messages, you want to aggregate
+these messages into larger packets to reduce communication
+overhead. Which MPI technique is most suitable for aggregating small
+messages into larger ones to improve communication efficiency?
+struct data_packet {
+double velocity;
+double position;
+double temperature;
+};
+struct data_packet packet;
+packet.velocity = compute_velocity();
+packet.position = compute_position();
+packet.temperature = compute_temperature();
+// Send the entire packet as a single message instead of
+three separate messages
+MPI_Send(&packet, sizeof(packet), MPI_BYTE,
+destination_rank, tag, MPI_COMM_WORLD);
+A) MPI_Gather 
+B) MPI_Reduce
+C) Message Aggregation
+D) MPI_Bcast 
+E) MPI_Isend",Message Aggregation
+" You are designing a large-scale physics simulation that runs on a
+heterogeneous system with a mix of CPUs and GPUs. The workload is dynamic, and
+different sections of the simulation have varying computational requirements over time.
+You want to dynamically adjust the computational resources to balance the load
+between CPUs and GPUs as efficiently as possible. The spawned processes may need to
+communicate across different architectures. Which combination of MPI functions and
+concepts should you use to dynamically manage the processes and allow cross-
+communication between different groups of processes (CPU and GPU)?
+MPI_Comm intercomm_cpu_gpu, intercomm_gpu_cpu;
+if (rank == 0) {
+// Spawning additional processes for GPU computation
+MPI_Comm_spawn(""gpu_program"", MPI_ARGV_NULL, 4,
+MPI_INFO_NULL, 0, MPI_COMM_SELF, &intercomm_cpu_gpu,
+MPI_ERRCODES_IGNORE);
+// Establishing communication between CPU and GPU processes
+MPI_Comm_connect(port_name, MPI_INFO_NULL, 0,
+MPI_COMM_SELF, &intercomm_gpu_cpu);
+}
+A) MPI_Comm_spawn and MPI_Comm_connect 
+B) MPI_Barrier and MPI_Send
+C) MPI_Comm_split and MPI_Comm_accept 
+D) MPI_Isend and MPI_Recv
+E) MPI_Gather and MPI_Reduce",
+"You are implementing a scientific simulation that uses one-sided
+communication to update multiple shared variables across processes. Each process can
+modify a set of shared variables, but you want to ensure that only one process can access
+the memory of another process at a time, and you need fine-grained control over the
+synchronization. Which MPI function is used to ensure that exclusive access to a shared
+window is granted to a single process, and which synchronization method should be used to
+manage this access?
+MPI_Win_lock(MPI_LOCK_EXCLUSIVE, target_rank, 0, win); // Lock
+window for exclusive access
+MPI_Put(&data, 1, MPI_INT, target_rank, target_disp, 1, MPI_INT,
+win); // Perform RMA operation
+MPI_Win_unlock(target_rank, win); // Unlock window after operation
+A) MPI_Win_lock and MPI_Win_unlock
+B) MPI_Win_fence
+C) MPI_Barrier
+D) MPI_Isend and MPI_Irecv
+E) MPI_Put and MPI_Get",MPI_Win_lock and MPI_Win_unlock
+"You are running a simulation where processes frequently need to
+perform collective reductions on large datasets, which becomes a bottleneck. You
+decide to use non-blocking collective operations to allow the processes to
+continue computation while waiting for the reduction to complete. Which MPI
+function allows you to overlap collective reduction operations with computation,
+and how do you ensure the reduction is completed before using the result?
+MPI_Request request;
+MPI_Ireduce(sendbuf, recvbuf, count, MPI_DOUBLE, MPI_SUM, 0,
+MPI_COMM_WORLD, &request);
+// Perform other computations while reduction is in progress
+compute_step();
+// Ensure reduction is completed before using recvbuf
+MPI_Wait(&request, MPI_STATUS_IGNORE);
+A) MPI_Ireduce and MPI_Wait 
+B) MPI_Reduce and MPI_Barrier
+C) MPI_Bcast and MPI_Isend 
+D) MPI_Isend and MPI_Irecv
+E) MPI_Gather and MPI_Reduce",
+"In a large-scale 3D CFD (Computational Fluid Dynamics) simulation, neighboring
+processes need to frequently exchange ghost cell data. You want to optimize this by using one-
+sided communication to directly write the updated boundary data into each neighboring process’s
+memory. Which combination of MPI functions should you use to write boundary data into
+neighboring processes’ memory regions while ensuring synchronization?
+int ghost_data[100]; // Data to update ghost cells
+MPI_Win win;
+MPI_Win_create(ghost_data, sizeof(ghost_data), sizeof(int),
+MPI_INFO_NULL, MPI_COMM_WORLD, &win);
+MPI_Win_fence(0, win); // Start RMA epoch
+MPI_Put(&updated_data, 100, MPI_INT, neighbor_rank, 0, 100, MPI_INT,
+win); // Write to neighbor's memory
+MPI_Win_fence(0, win); // End RMA epoch to synchronize
+A) MPI_Put and MPI_Win_fence 
+B) MPI_Send and MPI_Recv
+C) MPI_Isend and MPI_Irecv 
+D) MPI_Barrier and MPI_Gather
+E) MPI_Get and MPI_Wait",
+"In a real-time high-performance computing
+environment, some processes might fail due to hardware issues.
+You are tasked with designing a system that can detect process
+failures and spawn new processes dynamically to replace the
+failed ones. This ensures fault tolerance in a large distributed MPI
+application. Which MPI techniques would you employ to detect
+the failure of a process and dynamically spawn replacement
+processes during execution?
+int err_class;
+MPI_Comm intercomm;
+if (MPI_Comm_spawn(""replacement_program"", MPI_ARGV_NULL, 1,
+MPI_INFO_NULL, 0, MPI_COMM_SELF, &intercomm,
+MPI_ERRCODES_IGNORE) != MPI_SUCCESS) {
+MPI_Error_class(err_class);
+if (err_class == MPI_ERR_COMM) {
+printf(""Error: Failed process detected, replacing
+it.\n"");
+}
+}
+A) MPI_Comm_spawn, MPI_Error_class
+B) MPI_Comm_disconnect and MPI_Barrier
+C) MPI_Gather and MPI_Reduce
+D) MPI_Comm_split and MPI_Comm_connect
+E) MPI_Send and MPI_Recv",
+"You are managing a large-scale scientific simulation that models fluid
+dynamics, requiring both distributed memory and shared memory
+parallelism to scale across a supercomputer. Initially, your system uses
+MPI (Message Passing Interface) to distribute the workload across
+multiple nodes. However, performance improvements have begun to
+taper off, particularly on nodes with many cores and available GPUs.
+Why might a hybrid computing approach using MPI + OpenMP + GPU
+be a better solution to further improve performance, and what
+specific advantages does it offer for this HPC task?
+A) MPI alone cannot fully utilize the computational power of multi-
+core processors and GPUs, but OpenMP can manage shared-
+memory parallelism on each node and GPUs can offload compute-
+heavy tasks.
+B) MPI is not suitable for parallel computing, while OpenMP and
+GPUs are inherently better at distributing tasks across multiple
+nodes.
+C) OpenMP is designed for heterogeneous computing, and adding
+MPI allows more effective task distribution across different GPUs.
+D) Using MPI to manage inter-node communication and OpenMP for
+parallelism inside each CPU core increases communication
+overhead, making it less efficient than using only GPUs.
+E) Hybrid computing only improves energy efficiency, not
+performance, so it’s only useful for reducing power consumption on
+large clusters.","MPI alone cannot fully utilize the computational power of multi-core
+processors and GPUs, but OpenMP can manage shared-memory parallelism on each node and
+GPUs can offload compute-heavy tasks."
+"In a hybrid MPI+OpenMP application designed for a
+multi-node HPC system, which of the following best
+describes the complementary roles of MPI and OpenMP?
+A. MPI manages distributed memory parallelism across
+nodes, and OpenMP handles shared memory parallelism
+within each node.
+B. MPI handles intra-node parallelism using threads,
+while OpenMP manages inter-node communication.
+C. Both MPI and OpenMP are used interchangeably for
+inter-node communication.
+D. OpenMP is solely responsible for all parallelism,
+rendering MPI unnecessary in a hybrid model.
+E. MPI is used only for GPU acceleration, while OpenMP
+handles CPU computations.","MPI manages distributed memory parallelism across
+nodes, and OpenMP handles shared memory parallelism
+within each node."
+"Which of the following is a primary advantage of using
+CUDA-aware MPI in MPI+GPU hybrid applications?
+A. It allows MPI to handle communication exclusively
+through CPU memory, simplifying the programming model.
+B. It enables direct data transfers between GPU memories
+across different nodes, bypassing the CPU.
+C. It automatically balances the load between MPI
+processes and OpenMP threads without manual tuning.
+D. It eliminates the need for CUDA streams by managing all
+GPU operations internally.
+E. It converts all double-precision computations to single-
+precision to enhance performance.","It enables direct data transfers between GPU memories across
+different nodes, bypassing the CPU."
+"In the context of minimizing communication overhead in
+MPI+OpenMP+GPU hybrid applications, which of the following
+strategies is most effective?
+A. Using blocking MPI calls to ensure data consistency before
+computation.
+B. Performing all computations on the CPU to avoid GPU-related
+communication delays.
+C. Overlapping communication and computation using non-
+blocking MPI calls and CUDA streams.
+D. Increasing the number of MPI processes per node to distribute
+the communication load.
+E. Using only OpenMP for all parallelism, eliminating the need for
+MPI communication.","Overlapping communication and computation using non-
+blocking MPI calls and CUDA streams."
+"In a hybrid MPI+OpenMP application designed for a multi-
+node HPC system, which of the following best describes
+the complementary roles of MPI and OpenMP?
+A. MPI handles intra-node parallelism using threads, while
+OpenMP manages inter-node communication.
+B. MPI manages distributed memory parallelism across
+nodes, and OpenMP handles shared memory parallelism
+within each node.
+C. Both MPI and OpenMP are used interchangeably for
+inter-node communication.
+D. OpenMP is solely responsible for all parallelism,
+rendering MPI unnecessary in a hybrid model.
+E. MPI is used only for GPU acceleration, while OpenMP
+handles CPU computations.",
+"Consider the following code snippet from a hybrid
+MPI+OpenMP+CUDA application used for matrix multiplication:
+#include <mpi.h>
+#include <omp.h>
+#include <cuda_runtime.h>
+#include <iostream>
+__global__ void gpu_matrix_mult(double *A, double *B, double *C, int N) {
+int row = blockIdx.y * blockDim.y + threadIdx.y;
+int col = blockIdx.x * blockDim.x + threadIdx.x;
+if (row < N && col < N) {
+double sum = 0;
+for (int i = 0; i < N; ++i) {
+sum += A[row * N + i] * B[i * N + col];
+}
+C[row * N + col] = sum;
+}
+}
+int main(int argc, char *argv[]) {
+MPI_Init(&argc, &argv);
+int world_size, rank;
+MPI_Comm_size(MPI_COMM_WORLD, &world_size);
+MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+int N = 1024; // Matrix size
+double *A, *B, *C;
+// Allocate memory for matrices
+A = (double*)malloc(N * N * sizeof(double));
+B = (double*)malloc(N * N * sizeof(double));
+C = (double*)malloc(N * N * sizeof(double));
+// Initialize matrices with OpenMP
+#pragma omp parallel for
+for (int i = 0; i < N * N; i++) {
+A[i] = rand() / double(RAND_MAX);
+B[i] = rand() / double(RAND_MAX);
+}
+// CUDA kernel configuration
+dim3 threadsPerBlock(16, 16);
+dim3 blocksPerGrid((N + threadsPerBlock.x - 1) /
+threadsPerBlock.x,
+(N + threadsPerBlock.y - 1) /
+threadsPerBlock.y);
+// Allocate device memory
+double *d_A, *d_B, *d_C;
+cudaMalloc(&d_A, N * N * sizeof(double));
+cudaMalloc(&d_B, N * N * sizeof(double));
+cudaMalloc(&d_C, N * N * sizeof(double));
+// Copy data to GPU
+cudaMemcpy(d_A, A, N * N * sizeof(double),
+cudaMemcpyHostToDevice);
+cudaMemcpy(d_B, B, N * N * sizeof(double),
+cudaMemcpyHostToDevice);
+// Launch GPU kernel
+gpu_matrix_mult<<<blocksPerGrid,
+threadsPerBlock>>>(d_A, d_B, d_C, N); 
+// Copy result back to host
+cudaMemcpy(C, d_C, N * N * sizeof(double), cudaMemcpyDeviceToHost);
+// Finalize MPI
+MPI_Finalize();
+// Free memory
+free(A); free(B); free(C);
+cudaFree(d_A); cudaFree(d_B); cudaFree(d_C);
+return 0;
+}
+
+Which of the following statements is incorrect regarding the integration of MPI,
+OpenMP, and CUDA in this code?
+
+A. MPI is initialized to handle inter-node communication, although it is not
+explicitly used in the provided snippet.
+B. OpenMP parallelizes the initialization of matrices A and B across multiple CPU
+cores.
+C. CUDA is used to offload the matrix multiplication operation to the GPU for
+acceleration.
+D. The code ensures that each MPI process uses a separate GPU by assigning
+device_id based on the process rank.
+E. Memory allocated on the GPU is copied back to the host after the CUDA kernel
+execution.",The code ensures that each MPI process uses a separate GPU by assigning device_id based on the process rank.
+"In the context of minimizing communication overhead in
+MPI+OpenMP+GPU hybrid applications, which of the
+following strategies is most effective?
+Options:
+A. Using blocking MPI calls to ensure data consistency
+before computation.
+B. Performing all computations on the CPU to avoid GPU-
+related communication delays.
+C. Overlapping communication and computation using
+non-blocking MPI calls and CUDA streams.
+D. Increasing the number of MPI processes per node to
+distribute the communication load.
+E. Using only OpenMP for all parallelism, eliminating the
+need for MPI communication.",
+"Which of the following is a primary advantage of using CUDA-
+aware MPI in MPI+GPU hybrid applications?
+
+A. It allows MPI to handle communication exclusively through
+CPU memory, simplifying the programming model.
+B. It enables direct data transfers between GPU memories across
+different nodes, bypassing the CPU.
+C. It automatically balances the load between MPI processes and
+OpenMP threads without manual tuning.
+D. It eliminates the need for CUDA streams by managing all GPU
+operations internally.
+E. It converts all double-precision computations to single-
+precision to enhance performance.",
+"In the provided TensorFlow and Horovod code example for
+mixed precision training, what is the main purpose of
+setting the mixed precision policy to 'mixed_float16'?
+
+A. To ensure all computations are performed in single-
+precision (FP32) for maximum accuracy.
+B. To enable the model to use half-precision (FP16) for
+most operations while maintaining FP32 for critical
+accumulations, enhancing computational speed and
+reducing memory usage.
+C. To convert all floating-point operations to integer
+operations for better compatibility with MPI.
+D. To allow MPI to handle communication between nodes
+using mixed precision data types.
+E. To disable GPU acceleration and perform all
+computations on the CPU.","To enable the model to use half-precision (FP16) for most operations while maintaining FP32 for critical accumulations, enhancing computational speed and reducing memory usage."
+"In a hybrid MPI+OpenMP application where
+some MPI processes handle more
+computationally intensive tasks than others,
+which strategy is most effective in achieving load
+balancing?
+
+A. Use static scheduling in OpenMP to assign
+fixed chunks of work to threads.
+B. Increase the number of MPI processes to
+distribute the workload evenly.
+C. Implement dynamic scheduling in OpenMP to
+allow threads to take on additional work as they
+become available.
+D. Reduce the number of OpenMP threads to
+match the least loaded MPI process.
+E. Disable OpenMP parallelism and rely solely on
+MPI for load distribution.",
+"Why is memory affinity important in NUMA (Non-
+Uniform Memory Access) architectures when developing
+hybrid MPI+OpenMP applications?
+
+A. It ensures that all MPI processes share the same
+memory space.
+B. It minimizes the latency by allocating memory close to
+the CPU cores that access it.
+C. It allows GPUs to directly access all memory regions
+without data transfer.
+D. It simplifies the programming model by treating all
+memory as uniform.
+E. It enables automatic load balancing across different
+nodes.",It minimizes the latency by allocating memory close to the CPU cores that access it.
+"You are working on optimizing a large-scale weather simulation using the
+Weather Research and Forecasting (WRF) model. The simulation domain is
+divided among multiple MPI processes, each running on separate nodes.
+However, some regions of the simulation require more computational resources
+due to complex atmospheric phenomena, leading to uneven workloads across
+MPI processes. As a result, some MPI processes finish their tasks earlier and
+remain idle while others are still processing. Which strategy would best address
+the uneven workloads in this hybrid MPI+OpenMP weather simulation to improve
+overall performance?
+
+A. Increase the number of MPI processes to ensure each process handles fewer
+grid points.
+B. Implement dynamic scheduling in OpenMP to allow threads to take on
+additional tasks as they become available.
+C. Use static scheduling in OpenMP to assign fixed chunks of work to each thread
+within an MPI process.
+D. Assign GPUs to only the MPI processes with the highest computational load.
+E. Disable OpenMP parallelism and rely solely on MPI to manage all parallelism.",
+"You are developing a molecular dynamics simulation using
+LAMMPS on a high-performance computing (HPC) cluster. The
+simulation involves frequent communication of particle data
+between nodes, resulting in high communication latency that
+slows down the overall simulation. Which technique would most
+effectively reduce the communication latency in your
+MPI+OpenMP+GPU molecular dynamics simulation?
+
+A. Switching from CUDA to OpenCL for GPU programming.
+B. Using CUDA-aware MPI to enable direct GPU-to-GPU data
+transfers across nodes.
+C. Increasing the number of OpenMP threads per MPI process to
+handle more computations locally.
+D. Implementing blocking MPI communication to ensure data
+consistency before proceeding.
+E. Disabling GPU acceleration to rely solely on CPU computations,
+reducing communication dependencies.",Using CUDA-aware MPI to enable direct GPU-to-GPU data transfers across nodes.
+"You are training a large-scale deep learning model using TensorFlow
+and Horovod on an HPC system with multiple GPUs. To accelerate
+training and reduce memory usage, you decide to use mixed precision
+arithmetic. What is the main benefit of setting the mixed precision
+policy to 'mixed_float16' in your TensorFlow and Horovod setup?
+
+A. It ensures all computations are performed in single-precision
+(FP32) for maximum accuracy.
+B. It allows the model to use half-precision (FP16) for most operations
+while maintaining FP32 for critical accumulations, enhancing speed
+and reducing memory usage.
+C. It converts all floating-point operations to integer operations to
+increase compatibility with MPI.
+D. It disables GPU acceleration and forces all computations to run on
+the CPU for better precision.
+E. It automatically balances the workload between CPUs and GPUs
+without manual intervention.","It allows the model to use half-precision (FP16) for most operations while maintaining FP32 for critical accumulations, enhancing speed and reducing memory usage."
+"You have developed a hybrid MPI+OpenMP+GPU application for
+simulating fluid dynamics. After running the simulation, you notice
+that the GPU utilization is lower than expected, and the overall
+execution time is longer than anticipated. You decide to use
+profiling tools to identify performance bottlenecks. Which profiling
+tool would be best suited to analyze both GPU performance and
+MPI communication patterns in your hybrid application, and why?
+
+A. gprof, because it provides detailed CPU performance metrics.
+B. Valgrind, because it detects memory leaks and errors.
+C. NVIDIA Nsight Systems, because it offers comprehensive
+profiling for GPU operations and can also capture MPI
+communication timelines.
+D. Intel VTune Profiler, because it exclusively focuses on CPU
+thread performance.
+E. MPI_P, because it specializes in profiling MPI communication
+only.",
+"You are enhancing a hybrid MPI+OpenMP+GPU application that simulates 2D
+heat conduction over a large grid. The current implementation performs MPI
+communication to exchange boundary data between nodes and then
+updates the temperature grid on the GPU. However, this sequential approach
+leads to idle GPU time while waiting for communication to complete. How
+can you modify your application to overlap communication and computation,
+thereby improving GPU utilization and overall performance?
+
+A. Perform all MPI communication before any GPU computations begin.
+B. Use blocking MPI calls to ensure that all communication is complete before
+starting GPU updates.
+C. Initiate non-blocking MPI communication (e.g., MPI_Isend, MPI_Irecv) and
+start GPU computations on interior grid points while boundary data is being
+exchanged.
+D. Disable MPI communication and perform all updates locally on each
+node’s GPU.
+E. Increase the number of MPI processes to distribute the communication
+load across more GPUs.",
+"You are optimizing a hybrid MPI+OpenMP+GPU application used for fluid dynamics
+simulations. While profiling the application, you observe that the CPU threads managed
+by OpenMP are not fully utilizing all available cores, leading to suboptimal performance.
+Which profiling tool would you choose to specifically analyse the performance and
+utilization of OpenMP threads, and what feature does it offer to help improve thread
+efficiency?
+
+A. NVIDIA Nsight Systems, because it provides detailed GPU memory usage reports.
+B. Intel VTune Profiler, because it offers insights into OpenMP thread performance,
+including load imbalance and synchronization overhead.
+C. Valgrind, because it detects threading-related memory errors in OpenMP regions.
+D. gprof, because it profiles OpenMP thread execution times.
+E. MPI_P, because it specializes in profiling OpenMP threads within MPI processes.",
+"In CUDA programming, how do CUDA streams facilitate the
+overlapping of data transfers and computations in a hybrid
+MPI+OpenMP+GPU application?
+
+A. By ensuring that all GPU operations are executed sequentially.
+B. By allowing multiple kernels to execute on the GPU
+simultaneously, independent of data transfers.
+C. By queuing data transfer and computation tasks into separate
+streams that can run concurrently.
+D. By automatically managing memory allocation between CPU and
+GPU.
+E. By increasing the clock speed of the GPU to handle more tasks. ",By queuing data transfer and computation tasks into separate streams that can run concurrently.
+"What is the primary advantage of using hierarchical
+communication strategies in MPI+OpenMP hybrid models?
+
+A. They eliminate the need for OpenMP within nodes.
+B. They allow communication to be handled exclusively by the
+GPU.
+C. They first perform communication within nodes using shared
+memory, then between nodes using MPI, reducing inter-node
+communication volume.
+D. They prioritize CPU computations over communication tasks.
+E. They simplify the programming model by using a single
+communication layer.",
+"In a system with 16 CPU cores and 2 GPUs per node, what is an
+optimal configuration to avoid thread oversubscription in an
+MPI+OpenMP+GPU hybrid application?
+
+A. Launch 16 MPI processes with 1 OpenMP thread each.
+B. Launch 2 MPI processes, each with 8 OpenMP threads, and
+assign one GPU per MPI process.
+C. Launch 1 MPI process with 16 OpenMP threads and assign
+both GPUs to this process.
+D. Launch 4 MPI processes with 4 OpenMP threads each and
+assign both GPUs to each process.
+E. Launch 32 MPI processes with 1 OpenMP thread each and
+assign one GPU to every 2 MPI processes.",
+"Which of the following practices enhances data locality in hybrid
+MPI+OpenMP+GPU applications, thereby improving
+performance?
+
+A. Allocating all data in global memory accessible by all threads
+and processes.
+B. Reordering data structures to align with cache lines and using
+shared memory on the GPU.
+C. Increasing the number of MPI processes regardless of the data
+distribution.
+D. Using random memory allocation to distribute data
+unpredictably across memory regions.
+E. Frequent data transfers between CPU and GPU to ensure data
+freshness.",Reordering data structures to align with cache lines and using shared memory on the GPU.
+"You are developing a hybrid MPI+OpenMP application for a
+fluid dynamics simulation where different regions of the
+simulation domain have varying computational loads. Which
+of the following strategies would best address the load
+balancing challenge?
+
+A. Use static scheduling in OpenMP and fixed domain
+decomposition in MPI.
+B. Implement dynamic scheduling in OpenMP and use a
+graph-partitioning tool like Metis for MPI domain
+decomposition.
+C. Increase the number of MPI processes until each has only
+one OpenMP thread.
+D. Disable OpenMP and rely solely on MPI for all parallelism.
+E. Use a single MPI process with maximum OpenMP threads
+to handle all regions.",
+"In the context of hierarchical parallelism in hybrid
+computing, which layer is primarily responsible for
+managing multi-threading within each node?
+
+A. MPI
+B. OpenMP
+C. CUDA
+D. Operating System
+E. Compiler",OpenMP
+"Which practice most effectively minimizes data transfers between
+CPU and GPU in hybrid MPI+OpenMP+GPU applications?
+
+A. Frequent synchronization between CPU and GPU after each
+computation step.
+B. Keeping data on the GPU as much as possible and performing
+multiple computations before transferring results back to the CPU.
+C. Using large, unaligned memory buffers to store data.
+D. Transferring data back to the CPU after every single kernel
+execution.
+E. Allocating separate memory spaces for CPU and GPU without
+sharing data.",
+"How do profiling tools like NVIDIA Nsight Systems and
+Intel VTune Profiler contribute to the optimization of
+hybrid MPI+OpenMP+GPU applications?
+
+A. They automatically parallelize serial code without
+developer intervention.
+B. They identify performance bottlenecks in
+computation and communication, enabling targeted
+optimizations.
+C. They replace the need for MPI and OpenMP by
+providing their own parallel frameworks.
+D. They enforce thread safety and prevent race
+conditions in OpenMP regions.
+E. They convert CUDA code to OpenMP for better CPU
+utilization.","They identify performance bottlenecks in computation and communication, enabling targeted optimizations.
+"
+"Given the following MPI+CUDA code snippet, what is the purpose
+of using cudaMemcpyAsync in combination with MPI_Isend?
+// Initiate a non-blocking send from GPU to another node
+MPI_Isend(gpu_buffer, count, MPI_FLOAT, dest, tag,
+MPI_COMM_WORLD, &request);
+// Continue computation while data is being transferred
+cudaMemcpyAsync(destination, gpu_buffer, size,
+cudaMemcpyDeviceToDevice, stream);
+// Wait for MPI communication to complete
+MPI_Wait(&request, MPI_STATUS_IGNORE);
+
+A. To ensure that data is fully copied before initiating MPI communication.
+B. To overlap data transfer and computation, thereby reducing idle time
+and improving performance.
+C. To convert GPU data to CPU data before sending.
+D. To serialize data transfers to maintain data consistency.
+E. To disable GPU acceleration during communication.",
+"In the case study of LAMMPS (Large-scale
+Atomic/Molecular Massively Parallel
+Simulator), how does hybrid MPI+GPU
+acceleration improve simulation performance?
+
+A. By replacing MPI with GPU communication protocols.
+B. By using MPI to handle inter-node communication
+and GPUs to accelerate force calculations and velocity integration.
+C. By running all computations on the GPU and using
+MPI only for initial setup.
+D. By using MPI to offload data storage to GPUs, freeing CPU memory.
+E. By eliminating the need for OpenMP threading within nodes.",
+"What is the main advantage of using mixed precision
+arithmetic (e.g., FP16 and FP32) in MPI+GPU
+environments for scientific computations?
+
+A. It increases the accuracy of all calculations compared to
+using FP32 alone.
+B. It reduces memory usage and accelerates computations
+by leveraging GPU hardware optimized for lower precision
+operations.
+C. It simplifies the programming model by eliminating the
+need for data type conversions.
+D. It allows MPI to communicate data without considering
+precision.
+E. It ensures that all data remains in GPU memory, avoiding
+CPU-GPU transfers.",
+"Why is thread affinity important in hybrid
+MPI+OpenMP applications, and how can it be
+achieved?
+
+A. Thread affinity is not important; threads can run on
+any available core without impact on performance.
+B. Thread affinity ensures that OpenMP threads are
+evenly distributed across all nodes in the MPI
+environment.
+C. Thread affinity binds OpenMP threads to specific
+CPU cores, reducing cache misses and improving
+memory access patterns.
+D. Thread affinity allows MPI processes to migrate
+between GPU devices dynamically.
+E. Thread affinity is used to allocate memory
+exclusively to specific MPI processes.","Thread affinity binds OpenMP threads to specific CPU cores, reducing cache misses and improving memory access patterns."
+"In the following MPI+OpenMP+GPU code snippet, what is the
+purpose of initiating non-blocking MPI communication before
+updating the interior points?
+// Start non-blocking communication
+MPI_Isend(...);
+MPI_Irecv(...);
+// Compute interior points (excluding boundaries)
+update_interior();
+// Wait for communication to complete
+MPI_Waitall(...);
+// Compute boundary points
+update_boundaries();
+
+A. To ensure that boundary data is updated before interior points
+are processed.
+B. To allow communication of boundary data to occur
+concurrently with the computation of interior points, thereby
+overlapping communication and computation.
+C. To prevent any computation from starting until all
+communication is complete.
+D. To prioritize communication tasks over computation tasks.
+E. To serialize the communication and computation steps for
+better data consistency.","To allow communication of boundary data to occur concurrently with the computation of interior points, thereby overlapping communication and computation."
+"In a dynamic load balancing scenario within an
+MPI+OpenMP+GPU application, how does Horovod
+help in balancing the workload across multiple GPUs
+and CPU threads?
+
+A. By statically assigning fixed workloads to each GPU and
+CPU thread at the start of the application.
+B. By dynamically assigning tasks such as batch processing
+to GPUs and CPU threads based on their current load,
+ensuring no device remains underutilized.
+C. By limiting the number of MPI processes to match the
+number of GPUs available.
+D. By converting all GPU operations to CPU operations
+when a GPU is overloaded.
+E. By using OpenMP to handle all task assignments, leaving
+GPUs to perform only fixed computations.",
+"In a hierarchical communication strategy for a
+weather simulation using MPI+OpenMP, why is a
+local reduction using OpenMP performed before an
+MPI_Allreduce operation?
+
+A. To ensure that all threads within a node synchronize
+before communicating with other nodes.
+B. To aggregate results within each node first, thereby
+reducing the total amount of data that needs to be
+communicated between nodes during the MPI_Allreduce.
+C. To offload the reduction computation entirely to the
+CPU, avoiding GPU usage.
+D. To enable each thread to independently perform the
+MPI_Allreduce operation.
+E. To convert floating-point results to integer before
+communication.",
+"In optimizing a CUDA kernel for a hybrid
+MPI+OpenMP+GPU application, which of the
+following practices most effectively improves
+memory access efficiency on the GPU?
+
+A. Using global memory for all data accesses without
+utilizing shared memory.
+B. Aligning data structures to ensure coalesced memory
+accesses and utilizing shared memory for frequently
+accessed data.
+C. Increasing the number of threads per block beyond
+the GPU's maximum capability.
+D. Using separate memory spaces for each thread to
+avoid shared data.
+E. Running the kernel in a single CUDA stream to ensure
+serial execution.",
+"In a hybrid MPI+OpenMP+GPU application,
+why is it important to allocate memory close to
+the threads or cores that will access it,
+especially in NUMA architectures?
+
+A. To ensure that all threads have equal access to all
+memory regions.
+B. To prevent any thread from accessing memory,
+increasing security.
+C. To minimize memory access latency and improve
+cache performance by keeping data near the processing
+units.
+D. To allow MPI to handle memory distribution
+automatically without developer intervention.
+E. To ensure that GPU memory is used exclusively by
+MPI processes.",To minimize memory access latency and improve cache performance by keeping data near the processing units.
+"How does Amdahl's Law affect the scalability
+of hybrid MPI+OpenMP+GPU applications?
+
+A. It states that the scalability is unlimited as more
+resources are added.
+B. It highlights that the overall speedup is limited by the
+serial portion of the application, regardless of how many
+parallel resources are added.
+C. It suggests that adding more GPUs will always linearly
+increase performance.
+D. It indicates that memory bandwidth is the only
+limiting factor in scalability.
+E. It explains that hybrid applications do not suffer from
+any scalability issues.",
+"Which of the following practices reduces
+communication overhead in hybrid
+MPI+OpenMP+GPU applications?
+
+A. Using small, frequent MPI messages instead of
+larger, batched messages.
+B. Implementing non-blocking MPI calls and
+overlapping communication with computation.
+C. Increasing the frequency of boundary data
+exchanges between MPI processes.
+D. Using synchronous MPI communication to
+ensure data consistency before proceeding.
+E. Avoiding the use of CUDA streams to simplify
+data transfers.",
+"What is the benefit of using shared memory
+within a CUDA kernel in a hybrid
+MPI+OpenMP+GPU application?
+
+A. It allows all threads in the block to access the
+same data with lower latency compared to global
+memory.
+B. It increases the available memory bandwidth by
+duplicating data across multiple blocks.
+C. It enables direct communication between MPI
+processes without using GPU memory.
+D. It simplifies the CUDA kernel code by removing the
+need for memory allocations.
+E. It allows the GPU to access host memory directly
+without data transfers.",It allows all threads in the block to access the same data with lower latency compared to global memory.
+"In a hybrid MPI+OpenMP+GPU application,
+what is the primary role of OpenMP?
+
+A. To manage inter-node communication between MPI
+processes.
+B. To parallelize tasks across multiple CPU cores within
+each MPI process, leveraging shared memory.
+C. To offload compute-intensive tasks to the GPU.
+D. To allocate memory on the GPU for MPI processes.
+E. To replace MPI for handling all parallelism in the
+application.",
+"Which of the following is a best practice when
+using CUDA-aware MPI in hybrid
+MPI+OpenMP+GPU applications?
+
+A. Always copy GPU data to CPU memory before
+sending it with MPI.
+B. Ensure that CUDA-aware MPI libraries are
+supported and properly configured on the cluster.
+C. Use only blocking MPI calls to maintain data
+consistency.
+D. Avoid using multiple GPUs to prevent memory
+contention.
+E. Disable OpenMP to simplify GPU
+communication.",
+"What is a limitation of hybrid
+MPI+OpenMP+GPU applications as
+highlighted in the provided content?
+
+A. They cannot scale beyond a single node.
+B. Communication overhead can become a
+bottleneck at high process counts.
+C. They do not benefit from GPU acceleration.
+D. OpenMP cannot be used alongside MPI in
+hybrid models.
+E. MPI cannot handle inter-node
+communication in the presence of GPUs.",
+"In a hybrid MPI+OpenMP+GPU application,
+which of the following code modifications
+would best implement dynamic load balancing
+for uneven workloads?
+
+A. Using #pragma omp parallel for schedule(static) for
+all loops.
+B. Using #pragma omp parallel for schedule(dynamic)
+for loops with varying iteration times.
+C. Assigning fixed chunks of data to each OpenMP
+thread based on rank.
+D. Increasing the number of OpenMP threads to cover
+all possible workloads.
+E. Eliminating OpenMP parallelism to rely solely on MPI
+for load balancing.",Using #pragma omp parallel for schedule(dynamic) for loops with varying iteration times.
+"Which of the following best practices
+effectively overlaps communication and
+computation in hybrid MPI+OpenMP+GPU
+applications?
+
+A. Performing all data transfers before starting any
+computation.
+B. Using blocking MPI calls to ensure data consistency
+before computation.
+C. Initiating non-blocking MPI calls and launching CUDA
+kernels simultaneously.
+D. Separating communication and computation into
+distinct phases with no overlap.
+E. Increasing the frequency of synchronization points to
+manage data dependencies.",
+"You are tasked with optimizing a high-performance computing
+(HPC) system for a real-time financial trading application. The
+application must process a large volume of data streams with
+ultra-low latency to make split-second decisions. Initially, your
+system uses CPUs and GPUs, but it still struggles to meet the
+stringent timing constraints. Why might an accelerator like
+FPGAs (Field-Programmable Gate Arrays) be a better solution
+than continuing to rely solely on CPUs or GPUs, and what
+unique advantages does it offer for this specific use case?
+
+A) FPGAs allow for fine-grained, low-latency data processing and
+can be customized at the hardware level for specific algorithms.
+B) FPGAs provide higher floating-point performance than GPUs,
+making them ideal for general numerical computations.
+C) FPGAs consume more power than GPUs, making them better
+suited for long-running tasks where energy efficiency is not a
+concern.
+D) FPGAs have more general-purpose cores than CPUs, making
+them ideal for running parallel tasks like GPUs.
+E) FPGAs are optimized for deep learning tasks, which makes
+them better than CPUs for workloads requiring matrix operations.","FPGAs allow for fine-grained, low-latency
+data processing and can be customized at the hardware level for
+specific algorithms."
+"How does the reconfigurability of FPGAs provide an
+advantage over traditional CPUs and GPUs in high-
+performance computing?
+A. FPGAs have higher clock speeds than CPUs and GPUs.
+B. FPGAs can be reprogrammed post-manufacture to
+optimize hardware for specific tasks.
+C. FPGAs consume more power, enabling higher
+performance.
+D. FPGAs have a larger number of cores compared to CPUs
+and GPUs.
+E. FPGAs support higher-level programming languages
+natively.","FPGAs can be reprogrammed post-manufacture to optimize
+hardware for specific tasks."
+"What is a primary advantage of FPGAs
+over ASICs in high-performance
+computing applications?
+A. FPGAs provide higher performance
+for specific tasks.
+B. FPGAs are more energy-efficient for
+repetitive computations.
+C. FPGAs can be reprogrammed for
+different tasks post-manufacture.
+D. FPGAs have lower initial development
+costs compared to ASICs.
+E. FPGAs consume more power, leading
+to higher performance.","FPGAs can be reprogrammed for different tasks post-
+manufacture."
+"Why do NPUs typically use low-precision arithmetic (e.g., INT8) for
+neural network inference, and how does this benefit edge
+computing devices?
+A. Low-precision arithmetic increases computational accuracy,
+which is crucial for inference tasks.
+B. Low-precision arithmetic reduces the computational load and
+power consumption, enabling efficient AI processing on power-
+constrained edge devices.
+C. Low-precision arithmetic allows NPUs to support a wider range
+of neural network models.
+D. Low-precision arithmetic simplifies the programming model for
+NPUs.
+E. Low-precision arithmetic is required to interface with other
+hardware components in edge devices.","Low-precision arithmetic reduces the computational load and
+power consumption, enabling efficient AI processing on power-
+constrained edge devices."
+"How does the reconfigurability of FPGAs provide an
+advantage over traditional CPUs and GPUs in high-
+performance computing?
+A. FPGAs have higher clock speeds than CPUs and GPUs.
+B. FPGAs can be reprogrammed post-manufacture to
+optimize hardware for specific tasks.
+C. FPGAs consume more power, enabling higher
+performance.
+D. FPGAs have a larger number of cores compared to CPUs
+and GPUs.
+E. FPGAs support higher-level programming languages
+natively.",
+"FPGA Programming Models. Which of the following is
+a high-level programming approach for FPGAs that
+allows developers to use C or C++ instead of
+traditional HDLs?
+A. Verilog
+B. VHDL
+C. OpenCL
+D. High-Level Synthesis (HLS)
+E. Assembly language",High-Level Synthesis (HLS)
+"In Microsoft's Catapult Project, FPGAs were
+integrated into data centres primarily to accelerate
+which of the following applications?
+A. Cryptocurrency mining
+B. Real-time AI tasks and Bing search engine
+algorithms
+C. Video rendering for gaming
+D. Blockchain consensus mechanisms
+E. Autonomous vehicle navigation",Real-time AI tasks and Bing search engine algorithms
+"What are the primary components of an FPGA's
+Configurable Logic Blocks (CLBs)?
+A. CPU cores and caches
+B. Lookup Tables (LUTs) and flip-flops
+C. Neural processing units and tensor cores
+D. High-bandwidth memory and interconnects
+E. Application-specific integrated circuits",Lookup Tables (LUTs) and flip-flops
+"Tensor Processing Units (TPUs) are specifically optimized for which
+type of computations?
+A. Integer arithmetic operations
+B. Graphics rendering
+C. Matrix multiplications and tensor operations in deep learning
+D. Signal processing tasks
+E. General-purpose computing tasks",
+"In high-frequency trading (HFT), why are FPGAs
+preferred over GPUs?
+A. FPGAs have higher computational power than
+GPUs.
+B. FPGAs offer lower latency for real-time data
+processing and trade execution.
+C. GPUs are not capable of handling financial data.
+D. FPGAs are easier to program for trading
+algorithms.
+E. FPGAs consume more power, providing better
+performance.",FPGAs offer lower latency for real-time data processing and trade execution.
+"How do FPGAs achieve extreme parallelism at the hardware level compared to
+CPUs and GPUs?
+A. By using a higher number of general-purpose cores.
+B. Through software-based thread scheduling.
+C. By configuring multiple dedicated hardware pipelines that execute operations
+concurrently.
+D. By increasing the clock speed to execute more instructions per second.
+E. By integrating specialized AI cores.",
+"Given the following Verilog code for a 2-to-1 multiplexer, what
+is the output y when sel is 0?
+module mux2to1(
+input wire a,
+input wire b,
+input wire sel,
+output wire y
+);
+assign y = sel ? b : a;
+endmodule
+A. y = a
+B. y = b
+C. y = sel
+D. y = a + b
+E. y = 0",y = a
+"How do high-level synthesis (HLS) tools optimize the following C code for
+FPGA implementation?
+void matrix_multiply(int A[N][N], int B[N][N], int
+C[N][N]) {
+for (int i = 0; i < N; i++) {
+for (int j = 0; j < N; j++) {
+C[i][j] = 0;
+for (int k = 0; k < N; k++) {
+C[i][j] += A[i][k] * B[k][j];
+}
+}
+}
+}
+A. Converts it into sequential hardware logic with minimal parallelism.
+B. Maps the nested loops to parallel hardware pipelines to exploit FPGA's
+parallelism.
+C. Translates it directly into an equivalent HDL without optimization.
+D. Uses the FPGA's CPU cores to execute the code.
+E. It cannot be optimized by HLS tools.",Maps the nested loops to parallel hardware pipelines to exploit FPGA's parallelism.
+"What is a primary advantage of FPGAs over ASICs in
+high-performance computing applications?
+A. FPGAs provide higher performance for specific tasks.
+B. FPGAs are more energy-efficient for repetitive
+computations.
+C. FPGAs can be reprogrammed for different tasks post-
+manufacture.
+D. FPGAs have lower initial development costs
+compared to ASICs.
+E. FPGAs consume more power, leading to higher
+performance.",
+"Given the following C code for vector addition, how can High-Level Synthesis (HLS)
+tools optimize it for FPGA implementation to achieve parallelism?
+void vector_add(int *A, int *B, int *C, int N) {
+for(int i = 0; i < N; i++) {
+C[i] = A[i] + B[i];
+}
+}
+A. Convert the loop into a sequential hardware pipeline with no parallelism.
+B. Unroll the loop to perform multiple additions concurrently, increasing parallelism.
+C. Replace the addition operation with a multiplication to utilize FPGA resources.
+D. Implement the loop as a single hardware thread without any pipelining.
+E. Optimize the code to reduce the number of memory accesses without parallelism.",
+"Consider the following OpenCL kernel for matrix
+multiplication. What is the primary advantage of using
+OpenCL to program FPGAs for this task?
+__kernel void mat_mul(__global float* A, __global float*
+B, __global float* C, int N) {
+int row = get_global_id(0);
+int col = get_global_id(1);
+float sum = 0.0;
+for(int k = 0; k < N; k++) {
+sum += A[row * N + k] * B[k * N + col];
+}
+C[row * N + col] = sum;
+}
+A. OpenCL allows the kernel to run exclusively on the CPU.
+B. OpenCL automatically optimizes the kernel for lower
+power consumption without developer intervention.
+C. OpenCL provides a high-level abstraction that enables
+portability across different hardware accelerators, including
+FPGAs.
+D. OpenCL restricts the kernel to execute sequentially,
+ensuring deterministic performance.
+E. OpenCL requires no knowledge of parallel programming,
+making it easier to use.","OpenCL provides a high-level abstraction that enables portability across different hardware accelerators, including FPGAs."
+"In the context of FPGA architecture, what is
+the primary benefit of having a hierarchical
+memory structure that includes both on-chip
+and external memory?
+A. It simplifies the FPGA programming model by using
+only on-chip memory.
+B. It allows for higher memory bandwidth by separating
+data storage from processing units.
+C. It reduces the total amount of memory available to
+the FPGA.
+D. It enforces sequential data processing to improve
+data integrity.
+E. It eliminates the need for memory management in
+FPGA applications.",It allows for higher memory bandwidth by separating data storage from processing units.
+"Imagine you are developing a real-time encryption
+system for secure communications in a military
+application. Which feature of FPGAs makes them
+particularly suitable for this task?
+A. Fixed architecture that cannot be altered post-
+manufacture
+B. Ability to execute encryption algorithms sequentially
+with high latency
+C. Reconfigurability to implement custom encryption
+protocols and low latency processing
+D. High power consumption suitable for high-
+performance tasks
+E. Lack of parallel processing capabilities to ensure data
+integrity",Reconfigurability to implement custom encryption protocols and low latency processing
+"Which scenario best illustrates the advantage of using an FPGA over an ASIC?
+A. Developing a mass-produced product where the functionality will not
+change.
+B. Implementing a one-time, highly specialized cryptographic algorithm.
+C. Creating a prototype for a new communication protocol that may evolve
+over time.
+D. Mining cryptocurrency with a fixed hashing algorithm.
+E. Designing a smartphone's dedicated camera processing unit.",Creating a prototype for a new communication protocol that may evolve over time.
+"TPU Integration with TensorFlow
+Given the following TensorFlow code snippet, what is the role of the TPUStrategy in utilizing TPUs for model training?
+import tensorflow as tf
+# Initialize a TPU strategy
+resolver = tf.distribute.cluster_resolver.TPUClusterResolver()
+tf.config.experimental_connect_to_cluster(resolver)
+tf.tpu.experimental.initialize_tpu_system(resolver)
+strategy = tf.distribute.TPUStrategy(resolver)
+# Build and compile the model within the TPU strategy scope
+with strategy.scope():
+model = tf.keras.Sequential([
+tf.keras.layers.Dense(128, activation='relu'),
+tf.keras.layers.Dense(10, activation='softmax')
+])
+model.compile(optimizer='adam', loss='categorical_crossentropy')
+# Train the model on the TPU
+model.fit(x_train, y_train, epochs=10)
+•
+A. TPUStrategy automatically converts the model to run on the CPU.
+B. TPUStrategy manages the distribution of model training across multiple TPU cores, enabling
+parallel processing.
+C. TPUStrategy reduces the model's complexity to fit TPU constraints.
+D. TPUStrategy disables parallelism to ensure deterministic training results.
+E. TPUStrategy is used to initialize GPU resources for training.",
+"Consider a smartphone that uses an NPU for real-
+time facial recognition. What is a key advantage
+of using an NPU in this scenario compared to
+relying solely on a CPU?
+A. NPUs consume more power, allowing for faster
+processing.
+B. NPUs provide higher flexibility for general-purpose
+computing tasks.
+C. NPUs enable real-time AI inference with lower power
+consumption, preserving battery life.
+D. NPUs are easier to program than CPUs, requiring no
+specialized knowledge.
+E. NPUs increase the overall cost of the smartphone
+without significant performance benefits.","NPUs enable real-time AI inference with lower power consumption, preserving battery life."
+"Given the following pseudo-code for a Fast Fourier
+Transform (FFT) operation, which aspect makes DSPs
+particularly well-suited for executing this algorithm in real-
+time applications?
+void perform_fft(float* input, float* output, int N) {
+// FFT algorithm implementation
+// Includes multiple stages of complex multiplications
+and additions
+}
+A. DSPs can execute the FFT algorithm using general-purpose computing
+instructions.
+B. DSPs have specialized instruction sets and parallel processing capabilities
+optimized for repetitive mathematical operations like those in FFT.
+C. DSPs require no memory management for signal processing tasks.
+D. DSPs are designed to handle graphical computations, which FFT indirectly
+supports.
+E. DSPs have built-in support for machine learning frameworks.",DSPs have specialized instruction sets and parallel processing capabilities optimized for repetitive mathematical operations like those in FFT.
+"You are tasked with implementing an image
+processing pipeline on an FPGA that includes
+filtering, color correction, and object detection.
+How can the FPGA's parallelism be best utilized in
+this scenario?
+A. Execute filtering, color correction, and object
+detection sequentially on a single pipeline.
+B. Allocate separate processing pipelines for filtering,
+color correction, and object detection to run
+concurrently.
+C. Use the FPGA to only perform one of the three tasks
+while relying on a CPU for the others.
+D. Implement all three tasks in a single monolithic
+hardware block without separation.
+E. Run the tasks on different clock cycles within the same
+pipeline.",
+"In a data center environment where power
+efficiency is critical, why might FPGAs be chosen
+over GPUs for certain workloads?
+A. FPGAs generally offer higher computational
+throughput than GPUs.
+B. FPGAs can be reconfigured to minimize power usage
+for specific tasks, providing better energy efficiency for
+those tasks compared to GPUs.
+C. GPUs are inherently more power-efficient than FPGAs
+for all types of workloads.
+D. FPGAs require less specialized knowledge to optimize
+for power efficiency.
+E. GPUs cannot handle data-parallel workloads as
+effectively as FPGAs.","FPGAs can be reconfigured to minimize power usage for specific tasks, providing better energy efficiency for those tasks compared to GPUs."
+"Which feature of FPGAs makes them
+particularly effective for implementing
+cryptographic algorithms like RSA or ECC?
+A. Fixed-function hardware that cannot be
+altered
+B. Reconfigurable interconnects and logic
+blocks that allow parallel execution of
+mathematical operations
+C. Higher clock speeds compared to CPUs
+D. Built-in support for cryptographic libraries
+E. Limited ability to handle complex
+arithmetic operations",Reconfigurable interconnects and logic blocks that allow parallel execution of mathematical operations.
+"In a mixed acceleration environment where FPGAs handle
+data preprocessing and GPUs handle parallel computations,
+what is a critical factor to ensure optimal performance?
+A. Ensuring that both FPGAs and GPUs run at the same clock
+speed
+B. Efficient data movement and communication between
+FPGAs and GPUs
+C. Programming both accelerators using the same
+programming language
+D. Disabling parallel processing on one of the accelerators
+E. Using FPGAs only for non-critical tasks",
+"Which FPGA development tool mentioned
+below is known for supporting High-Level
+Synthesis (HLS) and facilitating the
+translation of C/C++ code into hardware
+configurations?
+A. NVIDIA CUDA Toolkit
+B. Xilinx Vivado HLS
+C. Intel Quartus Prime
+D. TensorFlow TPU Tools
+E. OpenCL Compiler",
+"How do cloud-based FPGA platforms benefit
+developers working on large-scale HPC applications?
+A. They provide fixed-function FPGA hardware that
+cannot be reprogrammed.
+B. They eliminate the need for understanding FPGA
+programming by automating all tasks.
+C. They allow developers to deploy and scale FPGA
+resources on-demand without managing physical
+hardware.
+D. They restrict access to FPGA resources, limiting
+scalability.
+E. They convert FPGA configurations into GPU-
+compatible code.",
+"In the FPGA case study for genomic data
+processing, what was the primary benefit achieved
+by using FPGAs for DNA sequence alignment
+compared to traditional CPU-based approaches?
+A. FPGAs reduced the accuracy of DNA sequence
+alignment to improve speed.
+B. FPGAs allowed for real-time visualization of DNA
+sequences during alignment.
+C. FPGAs accelerated DNA sequence alignment by
+10x to 100x, significantly reducing processing time.
+D. FPGAs enabled DNA sequence alignment without
+the need for memory resources.
+E. FPGAs automated the entire genomic research
+process without human intervention.","FPGAs accelerated DNA sequence alignment by 10x to 100x, significantly reducing processing time."
+"Given an FPGA configured with multiple dedicated
+arithmetic units, how would this configuration benefit a
+matrix multiplication task compared to a CPU
+implementation?
+A. It would sequentially execute each multiplication,
+reducing power consumption.
+B. It would allow for parallel execution of multiple
+multiplications, significantly increasing throughput.
+C. It would limit the matrix size that can be processed.
+D. It would require more clock cycles to perform the same
+task as a CPU.
+E. It would increase the latency of each multiplication
+operation.","It would allow for parallel execution of multiple multiplications, significantly increasing throughput."
+"Why do NPUs typically use low-precision arithmetic
+(e.g., INT8) for neural network inference, and how
+does this benefit edge computing devices?
+A. Low-precision arithmetic increases computational
+accuracy, which is crucial for inference tasks.
+B. Low-precision arithmetic reduces the
+computational load and power consumption,
+enabling efficient AI processing on power-constrained
+edge devices.
+C. Low-precision arithmetic allows NPUs to support a
+wider range of neural network models.
+D. Low-precision arithmetic simplifies the
+programming model for NPUs.
+E. Low-precision arithmetic is required to interface
+with other hardware components in edge devices.",
+"In a voice-over-IP (VoIP) system, how do DSPs
+ensure seamless and high-quality audio
+communication?
+A. By handling only the encryption of audio data.
+B. By performing real-time compression and
+decompression of audio streams with low latency.
+C. By routing audio data through multiple CPUs for
+processing.
+D. By storing audio data in high-capacity external
+memory.
+E. By converting audio signals into video streams for
+transmission.",
+"Which statement best describes the flexibility
+comparison between FPGAs and General-
+Purpose GPUs (GPGPUs) in HPC applications?
+A. FPGAs are more flexible than GPGPUs because they
+can handle a wider range of parallel tasks without
+customization.
+B. GPGPUs are more flexible than FPGAs as they can be
+programmed for various parallel tasks using high-level
+APIs, whereas FPGAs require hardware-specific
+configurations.
+C. Both FPGAs and GPGPUs offer the same level of
+flexibility in handling different HPC tasks.
+D. FPGAs are only suitable for fixed tasks, while GPGPUs
+can be reprogrammed for different tasks.
+E. GPGPUs are less flexible than FPGAs because they are
+optimized only for graphics processing.",
+"You are developing a high-thourghput image classification system that needs to process millions of images
+quickly. Which accelerator would be the most appropriate choice and why?
+A. FPGA, because it offers low latency for real-time processing
+B. NPU, because it is optimized for low-power AI inference
+C. GPU, because it provides massive parallelism suitable for processing large datasets efficiently
+D. DSP, because it excels in continuous signal processing
+E. ASIC, because it can be reprogrammed for different tasks easily","GPU, because it provides massive parallelism suitable for processing large datasets efficiently."
