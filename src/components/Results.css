@@ -1,6 +1,10 @@
 .results-container {
   padding: 3rem;
-  color: #1f2937;
+  color: #1f2937 !important;
+}
+
+.results-container * {
+  color: inherit;
 }
 
 .results-card {

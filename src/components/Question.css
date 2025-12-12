@@ -1,6 +1,10 @@
 .question-container {
   padding: 3rem;
-  color: #1f2937;
+  color: #1f2937 !important;
+}
+
+.question-container * {
+  color: inherit;
 }
 
 .question-header {
@@ -112,6 +116,7 @@
 
 .option-text {
   flex: 1;
+  color: #1f2937;
 }
 
 .answer-feedback {
@@ -138,20 +143,6 @@
 .feedback-message.error {
   background: #fee2e2;
   color: #ef4444;
-}
-
-.explanation {
-  color: #4b5563;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  background: white;
-  border-radius: 8px;
-  border-left: 4px solid #667eea;
-}
-
-.explanation strong {
-  color: #1f2937;
 }
 
 .next-button {

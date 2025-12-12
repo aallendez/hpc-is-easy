@@ -10,8 +10,7 @@ export const questions = [
       "To store large amounts of data",
       "To create basic websites"
     ],
-    correctAnswer: 1, // index of correct answer
-    explanation: "HPC is designed to solve complex computational problems that require significant processing power, often using parallel processing techniques."
+    correctAnswer: 1 // index of correct answer
   },
   {
     id: 2,
@@ -28,8 +27,7 @@ print(result)`,
       "34",
       "Error"
     ],
-    correctAnswer: 1,
-    explanation: "The function multiplies 3 * 4, which equals 12."
+    correctAnswer: 1
   },
   {
     id: 3,
@@ -41,8 +39,7 @@ print(result)`,
       "It reduces memory usage",
       "It simplifies sequential programming"
     ],
-    correctAnswer: 1,
-    explanation: "MPI enables processes to communicate and coordinate work across distributed memory systems, which is essential for parallel computing across multiple nodes."
+    correctAnswer: 1
   },
   {
     id: 4,
@@ -54,8 +51,7 @@ print(result)`,
       "Font size",
       "Efficiency"
     ],
-    correctAnswer: 2,
-    explanation: "Font size is not a performance metric. FLOPS, speedup, and efficiency are all standard metrics for evaluating HPC performance."
+    correctAnswer: 2
   },
   {
     id: 5,
@@ -70,8 +66,7 @@ where P = parallel portion
       "The amount of memory needed",
       "The number of bugs in code"
     ],
-    correctAnswer: 1,
-    explanation: "Amdahl's Law describes the theoretical speedup limit when parallelizing a program, showing that the sequential portion of the code limits the overall speedup."
+    correctAnswer: 1
   }
 ];
 

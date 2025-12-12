@@ -7,7 +7,6 @@ A simple and elegant React application for practicing Multiple Choice Questions 
 - ✅ Choose the number of questions for your quiz
 - ✅ Filter questions by module (1-5)
 - ✅ Get immediate feedback after each question
-- ✅ View detailed explanations for correct answers
 - ✅ See your final grade with a complete breakdown
 - ✅ Support for code snippets in questions
 - ✅ Clean and modern UI
@@ -63,8 +62,7 @@ To add your real question bank, edit `/src/data/questions.js` and follow this fo
     "Option C",
     "Option D"
   ],
-  correctAnswer: 1,        // Index of correct answer (0-based)
-  explanation: "Why this is the correct answer"
+  correctAnswer: 1         // Index of correct answer (0-based)
 }
 ```
 

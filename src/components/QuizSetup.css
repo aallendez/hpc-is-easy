@@ -9,6 +9,7 @@
 .setup-card {
   width: 100%;
   max-width: 500px;
+  color: #1f2937;
 }
 
 .setup-card h2 {
@@ -38,7 +39,7 @@
   border: 2px solid #e5e7eb;
   border-radius: 10px;
   background: white;
-  color: #1f2937;
+  color: #1f2937 !important;
   transition: border-color 0.3s ease;
 }
 

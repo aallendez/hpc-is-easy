@@ -64,9 +64,6 @@ function Question({
             <div className={`feedback-message ${userAnswer === question.correctAnswer ? 'success' : 'error'}`}>
               {userAnswer === question.correctAnswer ? '✓ Correct!' : '✗ Incorrect'}
             </div>
-            <div className="explanation">
-              <strong>Explanation:</strong> {question.explanation}
-            </div>
             <button className="next-button" onClick={onNext}>
               {questionNumber === totalQuestions ? 'View Results' : 'Next Question'}
             </button>
