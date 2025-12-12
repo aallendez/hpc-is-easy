@@ -12,11 +12,9 @@ function App() {
   const [userAnswers, setUserAnswers] = useState([]);
   const [showAnswer, setShowAnswer] = useState(false);
 
-  const startQuiz = (numQuestions, moduleFilter) => {
-    // Filter questions by module if specified
-    let filtered = moduleFilter === 'all' 
-      ? questions 
-      : questions.filter(q => q.module === parseInt(moduleFilter));
+  const startQuiz = (numQuestions, selectedModules) => {
+    // Filter questions by selected modules
+    const filtered = questions.filter(q => selectedModules.includes(q.module));
 
     // Shuffle and select the requested number of questions
     const shuffled = [...filtered].sort(() => Math.random() - 0.5);
@@ -66,7 +64,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>🎯 MCQ Quiz Practice</h1>
+        <h1>HPC Sucks! This doesn't ;)</h1>
       </header>
 
       <main>
@@ -74,6 +72,7 @@ function App() {
           <QuizSetup 
             onStart={startQuiz} 
             totalQuestions={questions.length}
+            allQuestions={questions}
           />
         )}
 
@@ -97,6 +96,10 @@ function App() {
           />
         )}
       </main>
+
+      <footer>
+        <p>Made by <a href="https://javidsegura.github.io/portfolio/">Javi</a> and <a href="https://juan.aallende.com">Juan</a> in Zamora, Spain 🇪🇸</p>
+      </footer>
     </div>
   );
 }
