@@ -60,6 +60,12 @@ function Question({
           <p className="instruction-text">Select all that apply</p>
         )}
         
+        {question.image && (
+          <div className="question-image">
+            <img src={question.image} alt="Question diagram" />
+          </div>
+        )}
+        
         {question.code && (
           <pre className="code-block">
             <code>{question.code}</code>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { questions } from './data/questions';
+import { questions as module1Questions } from './data/module-1/questions';
 import QuizSetup from './components/QuizSetup';
 import Question from './components/Question';
 import Results from './components/Results';
@@ -13,14 +14,25 @@ function App() {
   const [showAnswer, setShowAnswer] = useState(false);
 
   const startQuiz = (numQuestions, moduleFilter) => {
+    // Combine all questions (original + module-1)
+    const allQuestions = [...questions, ...module1Questions];
+    
     // Filter questions by module if specified
     let filtered = moduleFilter === 'all' 
-      ? questions 
-      : questions.filter(q => q.module === parseInt(moduleFilter));
+      ? allQuestions 
+      : allQuestions.filter(q => q.module === parseInt(moduleFilter));
 
-    // Shuffle and select the requested number of questions
-    const shuffled = [...filtered].sort(() => Math.random() - 0.5);
-    const selected = shuffled.slice(0, Math.min(numQuestions, shuffled.length));
+    // DEBUG MODE: Always put question 53 (the image question) first
+    const question53 = filtered.find(q => q.id === 53);
+    const otherQuestions = filtered.filter(q => q.id !== 53);
+    
+    // Shuffle the other questions
+    const shuffled = [...otherQuestions].sort(() => Math.random() - 0.5);
+    
+    // If question 53 exists, put it first, then add the rest
+    const selected = question53 
+      ? [question53, ...shuffled.slice(0, Math.min(numQuestions - 1, shuffled.length))]
+      : shuffled.slice(0, Math.min(numQuestions, shuffled.length));
 
     setSelectedQuestions(selected);
     setCurrentQuestionIndex(0);
@@ -73,7 +85,7 @@ function App() {
         {quizState === 'setup' && (
           <QuizSetup 
             onStart={startQuiz} 
-            totalQuestions={questions.length}
+            totalQuestions={questions.length + module1Questions.length}
           />
         )}
 

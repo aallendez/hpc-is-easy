@@ -46,6 +46,22 @@
   font-size: 0.95rem;
 }
 
+.question-image {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: #f9fafb;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.question-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
 .code-block {
   background: #1f2937;
   color: #e5e7eb;
@@ -231,6 +247,15 @@
   .code-block {
     font-size: 0.8rem;
     padding: 1rem;
+  }
+  
+  .question-image {
+    padding: 0.5rem;
+  }
+  
+  .question-image img {
+    max-width: 100%;
+    height: auto;
   }
 }
 
