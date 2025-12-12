@@ -98,7 +98,7 @@ function App() {
       </main>
 
       <footer>
-        <p>Made by <a href="https://javidsegura.github.io/portfolio/">Javi</a> and <a href="https://juan.aallende.com">Juan</a> in Zamora, Spain 🇪🇸</p>
+        <p>Made by <a target="_blank" href="https://javidsegura.github.io/portfolio/">Javi</a> and <a target="_blank" href="https://juan.aallende.com">Juan</a> in Zamora, Spain 🇪🇸</p>
       </footer>
     </div>
   );
