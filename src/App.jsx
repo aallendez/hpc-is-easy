@@ -78,6 +78,7 @@ function App() {
     <div className="App">
       <header>
         <h1>HPC Sucks! This doesn't ;)</h1>
+        <p style={{ color: 'white' }}>There's still people who care!</p>
       </header>
 
       <main>
