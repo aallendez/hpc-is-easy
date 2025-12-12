@@ -78,7 +78,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>🎯 MCQ Quiz Practice</h1>
+        <h1>HPC Sucks! This doesn't ;)</h1>
       </header>
 
       <main>
@@ -109,6 +109,10 @@ function App() {
           />
         )}
       </main>
+
+      <footer>
+        <p>Made by <a target="_blank" href="https://javidsegura.github.io/portfolio/">Javi</a> and <a target="_blank" href="https://juan.aallende.com">Juan</a> in Zamora, Spain 🇪🇸</p>
+      </footer>
     </div>
   );
 }
