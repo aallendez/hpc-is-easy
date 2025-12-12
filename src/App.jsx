@@ -29,13 +29,18 @@ function App() {
     setQuizState('quiz');
   };
 
-  const handleAnswerSelect = (answerIndex) => {
+  const handleAnswerSelect = (answerIndices) => {
     const currentQuestion = selectedQuestions[currentQuestionIndex];
-    const isCorrect = answerIndex === currentQuestion.correctAnswer;
+    
+    // Check if answers match
+    const sortedUser = [...answerIndices].sort((a, b) => a - b);
+    const sortedCorrect = [...currentQuestion.correctAnswer].sort((a, b) => a - b);
+    const isCorrect = sortedUser.length === sortedCorrect.length && 
+                     sortedUser.every((val, idx) => val === sortedCorrect[idx]);
     
     setUserAnswers([...userAnswers, { 
       questionId: currentQuestion.id, 
-      answer: answerIndex,
+      answer: answerIndices, // array of selected indices
       isCorrect 
     }]);
     setShowAnswer(true);

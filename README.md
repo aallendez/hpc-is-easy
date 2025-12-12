@@ -56,13 +56,41 @@ To add your real question bank, edit `/src/data/questions.js` and follow this fo
   module: 1,               // Module number (1-5)
   question: "Your question text here",
   code: "Optional code snippet",  // Optional
-  options: [
+  options: [               // Dynamic number of options (2 for T/F, 3, 4, 5, or more)
     "Option A",
     "Option B",
     "Option C",
     "Option D"
   ],
-  correctAnswer: 1         // Index of correct answer (0-based)
+  correctAnswer: [1],      // Array of correct answer indices (0-based)
+                          // Use [0, 2] for multiple correct answers
+  multipleCorrect: false   // Set to true if multiple answers should be selected
+}
+```
+
+### Examples:
+
+**True/False Question:**
+```javascript
+{
+  id: 1,
+  module: 1,
+  question: "Is the sky blue?",
+  options: ["True", "False"],
+  correctAnswer: [0],
+  multipleCorrect: false
+}
+```
+
+**Multiple Correct Answers:**
+```javascript
+{
+  id: 2,
+  module: 2,
+  question: "Which are primary colors? (Select all that apply)",
+  options: ["Red", "Green", "Blue", "Yellow", "Purple"],
+  correctAnswer: [0, 2, 3],  // Red, Blue, Yellow
+  multipleCorrect: true
 }
 ```
 

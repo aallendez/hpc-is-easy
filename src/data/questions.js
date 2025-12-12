@@ -10,7 +10,8 @@ export const questions = [
       "To store large amounts of data",
       "To create basic websites"
     ],
-    correctAnswer: 1 // index of correct answer
+    correctAnswer: [1], // array of correct answer indices
+    multipleCorrect: false // true if multiple answers can be selected
   },
   {
     id: 2,
@@ -27,31 +28,33 @@ print(result)`,
       "34",
       "Error"
     ],
-    correctAnswer: 1
+    correctAnswer: [1],
+    multipleCorrect: false
   },
   {
     id: 3,
     module: 3,
-    question: "In parallel computing, what is the main benefit of using MPI (Message Passing Interface)?",
+    question: "Which of the following are benefits of parallel computing? (Select all that apply)",
     options: [
-      "It automatically speeds up any code",
-      "It allows processes to communicate and coordinate in distributed memory systems",
-      "It reduces memory usage",
-      "It simplifies sequential programming"
+      "Faster execution time for large problems",
+      "Lower memory usage per node",
+      "Better resource utilization",
+      "Automatic code optimization",
+      "Reduced development time"
     ],
-    correctAnswer: 1
+    correctAnswer: [0, 1, 2], // multiple correct answers
+    multipleCorrect: true
   },
   {
     id: 4,
     module: 4,
-    question: "Which of the following is NOT a typical metric for measuring HPC performance?",
+    question: "Is HPC only used in scientific research?",
     options: [
-      "FLOPS (Floating Point Operations Per Second)",
-      "Speedup",
-      "Font size",
-      "Efficiency"
+      "True",
+      "False"
     ],
-    correctAnswer: 2
+    correctAnswer: [1],
+    multipleCorrect: false
   },
   {
     id: 5,
@@ -63,10 +66,10 @@ where P = parallel portion
     options: [
       "The cost of hardware",
       "The theoretical speedup limit when parallelizing a program",
-      "The amount of memory needed",
-      "The number of bugs in code"
+      "The amount of memory needed"
     ],
-    correctAnswer: 1
+    correctAnswer: [1],
+    multipleCorrect: false
   }
 ];
 

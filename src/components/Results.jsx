@@ -44,11 +44,19 @@ function Results({ questions, userAnswers, onReset }) {
                 <div className="result-question">{question.question}</div>
                 <div className="result-answers">
                   <div className={isCorrect ? 'answer-correct' : 'answer-incorrect'}>
-                    Your answer: {String.fromCharCode(65 + userAnswer.answer)}. {question.options[userAnswer.answer]}
+                    Your answer{userAnswer.answer.length > 1 ? 's' : ''}: {
+                      userAnswer.answer
+                        .map(idx => `${String.fromCharCode(65 + idx)}. ${question.options[idx]}`)
+                        .join(', ')
+                    }
                   </div>
                   {!isCorrect && (
                     <div className="answer-correct">
-                      Correct answer: {String.fromCharCode(65 + question.correctAnswer)}. {question.options[question.correctAnswer]}
+                      Correct answer{question.correctAnswer.length > 1 ? 's' : ''}: {
+                        question.correctAnswer
+                          .map(idx => `${String.fromCharCode(65 + idx)}. ${question.options[idx]}`)
+                          .join(', ')
+                      }
                     </div>
                   )}
                 </div>
