@@ -13,14 +13,13 @@ function App() {
   const [userAnswers, setUserAnswers] = useState([]);
   const [showAnswer, setShowAnswer] = useState(false);
 
-  const startQuiz = (numQuestions, moduleFilter) => {
-    // Combine all questions (original + module-1)
-    const allQuestions = [...questions, ...module1Questions];
+  // Combine all questions (original + module-1)
+  const allQuestions = [...questions, ...module1Questions];
+
+  const startQuiz = (numQuestions, selectedModules) => {
     
-    // Filter questions by module if specified
-    let filtered = moduleFilter === 'all' 
-      ? allQuestions 
-      : allQuestions.filter(q => q.module === parseInt(moduleFilter));
+    // Filter questions by selected modules
+    let filtered = allQuestions.filter(q => selectedModules.includes(q.module));
 
     // DEBUG MODE: Always put question 53 (the image question) first
     const question53 = filtered.find(q => q.id === 53);
@@ -85,7 +84,8 @@ function App() {
         {quizState === 'setup' && (
           <QuizSetup 
             onStart={startQuiz} 
-            totalQuestions={questions.length + module1Questions.length}
+            totalQuestions={allQuestions.length}
+            allQuestions={allQuestions}
           />
         )}
 
