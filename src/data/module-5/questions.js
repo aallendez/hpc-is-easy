@@ -964,7 +964,7 @@ export const questions = [
       "MPI is used only for GPU acceleration, while OpenMP\r\nhandles CPU computations."
     ],
     "correctAnswer": [
-      0
+      1
     ],
     "multipleCorrect": false
   },
@@ -1066,7 +1066,7 @@ export const questions = [
       "It enables automatic load balancing across different\r\nnodes."
     ],
     "correctAnswer": [
-      0
+      1
     ],
     "multipleCorrect": false
   },
@@ -1950,7 +1950,7 @@ export const questions = [
       "NPUs increase the overall cost of the smartphone\r\nwithout significant performance benefits."
     ],
     "correctAnswer": [
-      0
+      2
     ],
     "multipleCorrect": false
   },

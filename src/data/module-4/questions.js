@@ -46,7 +46,7 @@ export const questions = [
       "None of the above"
     ],
     "correctAnswer": [
-      0
+      2
     ],
     "multipleCorrect": false
   },
@@ -93,7 +93,7 @@ export const questions = [
       "adjacent"
     ],
     "correctAnswer": [
-      0
+      1
     ],
     "multipleCorrect": false
   },
@@ -588,7 +588,7 @@ export const questions = [
       "Short-Merge"
     ],
     "correctAnswer": [
-      0
+      1
     ],
     "multipleCorrect": false
   },
@@ -604,7 +604,7 @@ export const questions = [
       "Short-Merge"
     ],
     "correctAnswer": [
-      0
+      2
     ],
     "multipleCorrect": false
   },
@@ -620,7 +620,7 @@ export const questions = [
       "None of the above"
     ],
     "correctAnswer": [
-      0
+      1
     ],
     "multipleCorrect": false
   },
@@ -781,7 +781,7 @@ export const questions = [
       "None of the above"
     ],
     "correctAnswer": [
-      0
+      2
     ],
     "multipleCorrect": false
   },
@@ -898,7 +898,7 @@ export const questions = [
       "VisIt"
     ],
     "correctAnswer": [
-      0
+      3
     ],
     "multipleCorrect": false
   },
@@ -1369,7 +1369,7 @@ export const questions = [
       "SATA"
     ],
     "correctAnswer": [
-      0
+      2
     ],
     "multipleCorrect": false
   },
@@ -1658,7 +1658,7 @@ export const questions = [
       "10 days."
     ],
     "correctAnswer": [
-      0
+      2
     ],
     "multipleCorrect": false
   },
@@ -1760,7 +1760,7 @@ export const questions = [
       "Reduce the learning rate by half to avoid overfitting."
     ],
     "correctAnswer": [
-      0
+      2
     ],
     "multipleCorrect": false
   },
@@ -1778,7 +1778,7 @@ export const questions = [
       "Large batch sizes eliminate the need for data parallelism, causing synchronization overhead."
     ],
     "correctAnswer": [
-      0
+      3
     ],
     "multipleCorrect": false
   },
@@ -1812,7 +1812,7 @@ export const questions = [
       "128"
     ],
     "correctAnswer": [
-      0
+      2
     ],
     "multipleCorrect": false
   },

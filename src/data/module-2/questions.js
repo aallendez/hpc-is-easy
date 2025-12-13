@@ -566,7 +566,7 @@ export const questions = [
       "Parallel for construct"
     ],
     "correctAnswer": [
-      0
+      1
     ],
     "multipleCorrect": false
   },

@@ -860,7 +860,8 @@ export const questions = [
     "correctAnswer": [
       0,
       1,
-      2
+      2,
+      3
     ],
     "multipleCorrect": true
   },
