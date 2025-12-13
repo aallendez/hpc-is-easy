@@ -58,16 +58,16 @@ function Results({ questions, userAnswers, onReset, onRetryWrong }) {
                   <div className={isCorrect ? 'answer-correct' : 'answer-incorrect'}>
                     Your answer{userAnswer.answer.length > 1 ? 's' : ''}: {
                       userAnswer.answer
-                        .map(idx => `${String.fromCharCode(65 + idx)}. ${question.options[idx]}`)
-                        .join(', ')
+                        .map(idx => question.options[idx])
+                        .join(' | ')
                     }
                   </div>
                   {!isCorrect && (
                     <div className="answer-correct">
                       Correct answer{question.correctAnswer.length > 1 ? 's' : ''}: {
                         question.correctAnswer
-                          .map(idx => `${String.fromCharCode(65 + idx)}. ${question.options[idx]}`)
-                          .join(', ')
+                          .map(idx => question.options[idx])
+                          .join(' | ')
                       }
                     </div>
                   )}

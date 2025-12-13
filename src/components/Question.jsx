@@ -1,5 +1,15 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import './Question.css';
+
+// Fisher-Yates shuffle
+function shuffleArray(array) {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
 
 function Question({ 
   question, 
@@ -11,6 +21,22 @@ function Question({
   onNext 
 }) {
   const [selectedAnswers, setSelectedAnswers] = useState([]);
+  
+  // Create a stable shuffled order for this question's options
+  // shuffledIndices[i] = original index of the option now at position i
+  const shuffledIndices = useMemo(() => {
+    const indices = question.options.map((_, i) => i);
+    return shuffleArray(indices);
+  }, [question.id]);
+  
+  // Map from original index to shuffled position
+  const originalToShuffled = useMemo(() => {
+    const map = {};
+    shuffledIndices.forEach((originalIdx, shuffledPos) => {
+      map[originalIdx] = shuffledPos;
+    });
+    return map;
+  }, [shuffledIndices]);
 
   // Parse question text to handle inline code (text between backticks)
   const parseInlineCode = (text) => {
@@ -24,21 +50,22 @@ function Question({
     });
   };
 
-  const handleOptionClick = (index) => {
+  // handleOptionClick receives the ORIGINAL index
+  const handleOptionClick = (originalIndex) => {
     if (showAnswer) return;
 
     if (question.multipleCorrect) {
       // Toggle selection for multiple choice
       let newSelected;
-      if (selectedAnswers.includes(index)) {
-        newSelected = selectedAnswers.filter(i => i !== index);
+      if (selectedAnswers.includes(originalIndex)) {
+        newSelected = selectedAnswers.filter(i => i !== originalIndex);
       } else {
-        newSelected = [...selectedAnswers, index];
+        newSelected = [...selectedAnswers, originalIndex];
       }
       setSelectedAnswers(newSelected);
     } else {
       // Single selection
-      setSelectedAnswers([index]);
+      setSelectedAnswers([originalIndex]);
     }
   };
 
@@ -85,11 +112,12 @@ function Question({
         )}
 
         <div className="options">
-          {question.options.map((option, index) => {
+          {shuffledIndices.map((originalIndex, displayIndex) => {
+            const option = question.options[originalIndex];
             const isSelected = showAnswer 
-              ? (userAnswer || []).includes(index)
-              : selectedAnswers.includes(index);
-            const isCorrect = question.correctAnswer.includes(index);
+              ? (userAnswer || []).includes(originalIndex)
+              : selectedAnswers.includes(originalIndex);
+            const isCorrect = question.correctAnswer.includes(originalIndex);
             
             let className = 'option';
             if (showAnswer) {
@@ -104,9 +132,9 @@ function Question({
 
             return (
               <button
-                key={index}
+                key={originalIndex}
                 className={className}
-                onClick={() => handleOptionClick(index)}
+                onClick={() => handleOptionClick(originalIndex)}
                 disabled={showAnswer}
               >
                 {question.multipleCorrect && !showAnswer ? (
@@ -119,7 +147,7 @@ function Question({
                   </span>
                 ) : (
                   <span className="option-letter">
-                    {String.fromCharCode(65 + index)}.
+                    {String.fromCharCode(65 + displayIndex)}.
                   </span>
                 )}
                 <span className="option-text">{parseInlineCode(option)}</span>
@@ -143,7 +171,10 @@ function Question({
             {!isCorrectAnswer && (
               <div className="correct-answer-display">
                 <strong>Correct answer{question.correctAnswer.length > 1 ? 's' : ''}:</strong>{' '}
-                {question.correctAnswer.map(idx => String.fromCharCode(65 + idx)).join(', ')}
+                {question.correctAnswer
+                  .map(originalIdx => String.fromCharCode(65 + originalToShuffled[originalIdx]))
+                  .sort()
+                  .join(', ')}
               </div>
             )}
             <button className="next-button" onClick={onNext}>
