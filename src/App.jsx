@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { questions } from './data/questions';
 import QuizSetup from './components/QuizSetup';
 import Question from './components/Question';
@@ -22,9 +22,29 @@ function App() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState([]);
   const [showAnswer, setShowAnswer] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    // Initialize dark mode from localStorage
+    const saved = localStorage.getItem('darkMode');
+    return saved === 'true';
+  });
 
   // All questions already combined in data/questions.js
   const allQuestions = questions;
+
+  // Apply dark mode class to body
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+    // Save to localStorage
+    localStorage.setItem('darkMode', darkMode);
+  }, [darkMode]);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
 
   const startQuiz = (numQuestions, selectedModules, randomOrder = true, answerTypeFilter = 'all') => {
     
@@ -111,8 +131,15 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>HPC Sucks! This doesn't ;)</h1>
-        <p style={{ color: 'white' }}>There's still people who care!</p>
+        <div className="header-content">
+          <div>
+            <h1>HPC Sucks! This doesn't ;)</h1>
+            <p className="header-subtitle">There's still people who care!</p>
+          </div>
+          <button className="dark-mode-toggle" onClick={toggleDarkMode} aria-label="Toggle dark mode">
+            {darkMode ? '☀️' : '🌙'}
+          </button>
+        </div>
       </header>
 
       <main>

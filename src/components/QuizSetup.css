@@ -10,11 +10,11 @@
 .setup-card {
   width: 100%;
   max-width: 500px;
-  color: #1f2937;
+  color: var(--text-primary);
 }
 
 .setup-card h2 {
-  color: #1f2937;
+  color: var(--text-primary);
   font-size: 1.75rem;
   margin-bottom: 1.5rem;
   text-align: center;
@@ -26,7 +26,7 @@
 
 .setup-option > label {
   display: block;
-  color: #4b5563;
+  color: var(--text-secondary);
   font-weight: 600;
   margin-bottom: 0.5rem;
   font-size: 0.95rem;
@@ -36,16 +36,16 @@
   width: 100%;
   padding: 0.75rem;
   font-size: 1rem;
-  border: 2px solid #e5e7eb;
+  border: 2px solid var(--border-primary);
   border-radius: 10px;
-  background: white;
-  color: #1f2937 !important;
-  transition: border-color 0.3s ease;
+  background: var(--bg-primary);
+  color: var(--text-primary) !important;
+  transition: border-color 0.3s ease, background 0.3s ease;
 }
 
 .setup-option input[type="number"]:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: var(--accent-purple);
 }
 
 .module-checkboxes {
@@ -53,11 +53,12 @@
   flex-direction: column;
   gap: 0.4rem;
   padding: 0.75rem;
-  background: #f9fafb;
+  background: var(--bg-secondary);
   border-radius: 8px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--border-primary);
   max-height: 200px;
   overflow-y: auto;
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .checkbox-label {
@@ -68,31 +69,32 @@
   padding: 0.35rem 0.5rem;
   border-radius: 4px;
   transition: background-color 0.2s ease;
-  color: #1f2937;
+  color: var(--text-primary);
 }
 
 .checkbox-label:hover {
-  background: #f3f4f6;
+  background: var(--bg-tertiary);
 }
 
 .checkbox-label:first-child {
   font-weight: 600;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid #d1d5db;
+  border-bottom: 1px solid var(--border-secondary);
   margin-bottom: 0.25rem;
 }
 
-.checkbox-label input[type="checkbox"] {
+.checkbox-label input[type="checkbox"],
+.checkbox-label input[type="radio"] {
   width: 16px;
   height: 16px;
   cursor: pointer;
-  accent-color: #667eea;
+  accent-color: var(--accent-purple);
   flex-shrink: 0;
 }
 
 .checkbox-label span {
   font-size: 0.9rem;
-  color: #1f2937;
+  color: var(--text-primary);
 }
 
 .start-button {
@@ -115,12 +117,12 @@
 .info {
   margin-top: 1rem;
   text-align: center;
-  color: #6b7280;
+  color: var(--text-tertiary);
   font-size: 0.85rem;
 }
 
 .info strong {
-  color: #667eea;
+  color: var(--accent-purple);
   font-size: 1rem;
 }
 
@@ -132,6 +134,11 @@
   background: #fef3c7;
   border-radius: 4px;
   font-size: 0.8rem;
+}
+
+body.dark-mode .warning-text {
+  background: #422006;
+  color: #fbbf24;
 }
 
 @media (max-width: 768px) {
