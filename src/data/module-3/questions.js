@@ -991,7 +991,7 @@ export const questions = [
       "False"
     ],
     "correctAnswer": [
-      0
+      1
     ],
     "multipleCorrect": false
   },
