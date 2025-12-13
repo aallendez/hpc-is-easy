@@ -7,6 +7,16 @@ import Results from './components/Results';
 import './App.css';
 import { Analytics } from "@vercel/analytics/react"
 
+// Fisher-Yates shuffle algorithm for true randomness
+function shuffleArray(array) {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
 function App() {
   const [quizState, setQuizState] = useState('setup'); // setup, quiz, results
   const [selectedQuestions, setSelectedQuestions] = useState([]);
@@ -25,8 +35,8 @@ function App() {
     // Apply random order if selected
     let orderedQuestions;
     if (randomOrder) {
-      // Shuffle questions randomly
-      orderedQuestions = [...filtered].sort(() => Math.random() - 0.5);
+      // Shuffle questions using Fisher-Yates algorithm
+      orderedQuestions = shuffleArray(filtered);
     } else {
       // Keep original order
       orderedQuestions = filtered;
