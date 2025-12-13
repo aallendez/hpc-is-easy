@@ -6,6 +6,7 @@ function QuizSetup({ onStart, totalQuestions, allQuestions }) {
   const [selectedModules, setSelectedModules] = useState([1, 2, 3, 4, 5]);
   const [availableQuestions, setAvailableQuestions] = useState(totalQuestions);
   const [randomOrder, setRandomOrder] = useState(true);
+  const [answerTypeFilter, setAnswerTypeFilter] = useState('all'); // 'all', 'single', 'multiple'
 
   // Calculate questions per module
   const questionsPerModule = [1, 2, 3, 4, 5].reduce((acc, module) => {
@@ -14,10 +15,18 @@ function QuizSetup({ onStart, totalQuestions, allQuestions }) {
   }, {});
 
   useEffect(() => {
-    // Calculate available questions based on selected modules
-    const filtered = allQuestions.filter(q => selectedModules.includes(q.module));
+    // Calculate available questions based on selected modules and answer type filter
+    let filtered = allQuestions.filter(q => selectedModules.includes(q.module));
+    
+    // Apply answer type filter
+    if (answerTypeFilter === 'single') {
+      filtered = filtered.filter(q => !q.multipleCorrect);
+    } else if (answerTypeFilter === 'multiple') {
+      filtered = filtered.filter(q => q.multipleCorrect);
+    }
+    
     setAvailableQuestions(filtered.length);
-  }, [selectedModules, allQuestions]);
+  }, [selectedModules, allQuestions, answerTypeFilter]);
 
   const handleModuleToggle = (module) => {
     if (selectedModules.includes(module)) {
@@ -44,7 +53,7 @@ function QuizSetup({ onStart, totalQuestions, allQuestions }) {
       alert('Please select at least one module');
       return;
     }
-    onStart(numQuestions, selectedModules, randomOrder);
+    onStart(numQuestions, selectedModules, randomOrder, answerTypeFilter);
   };
 
   return (
@@ -107,6 +116,45 @@ function QuizSetup({ onStart, totalQuestions, allQuestions }) {
                 onChange={() => setRandomOrder(!randomOrder)}
               />
               <span>Random Order</span>
+            </label>
+          </div>
+        </div>
+
+        <div className="setup-option">
+          <label>
+            Answer Type Filter:
+          </label>
+          
+          <div className="module-checkboxes">
+            <label className="checkbox-label">
+              <input
+                type="radio"
+                name="answerType"
+                value="all"
+                checked={answerTypeFilter === 'all'}
+                onChange={(e) => setAnswerTypeFilter(e.target.value)}
+              />
+              <span>All Questions</span>
+            </label>
+            <label className="checkbox-label">
+              <input
+                type="radio"
+                name="answerType"
+                value="single"
+                checked={answerTypeFilter === 'single'}
+                onChange={(e) => setAnswerTypeFilter(e.target.value)}
+              />
+              <span>Single Answer Only</span>
+            </label>
+            <label className="checkbox-label">
+              <input
+                type="radio"
+                name="answerType"
+                value="multiple"
+                checked={answerTypeFilter === 'multiple'}
+                onChange={(e) => setAnswerTypeFilter(e.target.value)}
+              />
+              <span>Multiple Answers Only</span>
             </label>
           </div>
         </div>

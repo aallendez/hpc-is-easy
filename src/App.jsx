@@ -26,10 +26,17 @@ function App() {
   // All questions already combined in data/questions.js
   const allQuestions = questions;
 
-  const startQuiz = (numQuestions, selectedModules, randomOrder = true) => {
+  const startQuiz = (numQuestions, selectedModules, randomOrder = true, answerTypeFilter = 'all') => {
     
     // Filter questions by selected modules
     let filtered = allQuestions.filter(q => selectedModules.includes(q.module));
+
+    // Apply answer type filter
+    if (answerTypeFilter === 'single') {
+      filtered = filtered.filter(q => !q.multipleCorrect);
+    } else if (answerTypeFilter === 'multiple') {
+      filtered = filtered.filter(q => q.multipleCorrect);
+    }
 
     // Apply random order if selected
     let orderedQuestions;
