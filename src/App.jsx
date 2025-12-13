@@ -16,22 +16,23 @@ function App() {
   // Combine all questions (original + module-1)
   const allQuestions = [...questions, ...module1Questions];
 
-  const startQuiz = (numQuestions, selectedModules) => {
+  const startQuiz = (numQuestions, selectedModules, randomOrder = true) => {
     
     // Filter questions by selected modules
     let filtered = allQuestions.filter(q => selectedModules.includes(q.module));
 
-    // DEBUG MODE: Always put question 53 (the image question) first
-    const question53 = filtered.find(q => q.id === 53);
-    const otherQuestions = filtered.filter(q => q.id !== 53);
+    // Apply random order if selected
+    let orderedQuestions;
+    if (randomOrder) {
+      // Shuffle questions randomly
+      orderedQuestions = [...filtered].sort(() => Math.random() - 0.5);
+    } else {
+      // Keep original order
+      orderedQuestions = filtered;
+    }
     
-    // Shuffle the other questions
-    const shuffled = [...otherQuestions].sort(() => Math.random() - 0.5);
-    
-    // If question 53 exists, put it first, then add the rest
-    const selected = question53 
-      ? [question53, ...shuffled.slice(0, Math.min(numQuestions - 1, shuffled.length))]
-      : shuffled.slice(0, Math.min(numQuestions, shuffled.length));
+    // Select the requested number of questions
+    const selected = orderedQuestions.slice(0, Math.min(numQuestions, orderedQuestions.length));
 
     setSelectedQuestions(selected);
     setCurrentQuestionIndex(0);

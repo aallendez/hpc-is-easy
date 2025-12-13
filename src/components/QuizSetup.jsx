@@ -5,6 +5,7 @@ function QuizSetup({ onStart, totalQuestions, allQuestions }) {
   const [numQuestions, setNumQuestions] = useState(5);
   const [selectedModules, setSelectedModules] = useState([1, 2, 3, 4, 5]);
   const [availableQuestions, setAvailableQuestions] = useState(totalQuestions);
+  const [randomOrder, setRandomOrder] = useState(true);
 
   // Calculate questions per module
   const questionsPerModule = [1, 2, 3, 4, 5].reduce((acc, module) => {
@@ -43,7 +44,7 @@ function QuizSetup({ onStart, totalQuestions, allQuestions }) {
       alert('Please select at least one module');
       return;
     }
-    onStart(numQuestions, selectedModules);
+    onStart(numQuestions, selectedModules, randomOrder);
   };
 
   return (
@@ -90,6 +91,23 @@ function QuizSetup({ onStart, totalQuestions, allQuestions }) {
                 <span>Module {module} ({questionsPerModule[module]} questions)</span>
               </label>
             ))}
+          </div>
+        </div>
+
+        <div className="setup-option">
+          <label>
+            Question Order:
+          </label>
+          
+          <div className="module-checkboxes">
+            <label className="checkbox-label">
+              <input
+                type="checkbox"
+                checked={randomOrder}
+                onChange={() => setRandomOrder(!randomOrder)}
+              />
+              <span>Random Order</span>
+            </label>
           </div>
         </div>
 
