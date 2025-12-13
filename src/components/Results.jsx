@@ -26,6 +26,17 @@ function Results({ questions, userAnswers, onReset, onRetryWrong }) {
           </div>
         </div>
 
+        <div className="results-actions">
+          {incorrectCount > 0 && (
+            <button className="retry-wrong-button" onClick={onRetryWrong}>
+              Retry Wrong Questions ({incorrectCount})
+            </button>
+          )}
+          <button className="retry-button" onClick={onReset}>
+            Take Another Quiz
+          </button>
+        </div>
+
         <div className="results-breakdown">
           <h3>Question Breakdown</h3>
           {questions.map((question, index) => {
@@ -64,17 +75,6 @@ function Results({ questions, userAnswers, onReset, onRetryWrong }) {
               </div>
             );
           })}
-        </div>
-
-        <div className="results-actions">
-          {incorrectCount > 0 && (
-            <button className="retry-wrong-button" onClick={onRetryWrong}>
-              Retry Wrong Questions ({incorrectCount})
-            </button>
-          )}
-          <button className="retry-button" onClick={onReset}>
-            Take Another Quiz
-          </button>
         </div>
       </div>
     </div>
