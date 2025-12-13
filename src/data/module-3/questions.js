@@ -1424,7 +1424,7 @@ export const questions = [
       "VTK"
     ],
     "correctAnswer": [
-      0
+      2
     ],
     "multipleCorrect": false
   },
