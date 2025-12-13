@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { questions } from './data/questions';
-import { questions as module1Questions } from './data/module-1/questions';
 import QuizSetup from './components/QuizSetup';
 import Question from './components/Question';
 import Results from './components/Results';
@@ -24,8 +23,8 @@ function App() {
   const [userAnswers, setUserAnswers] = useState([]);
   const [showAnswer, setShowAnswer] = useState(false);
 
-  // Combine all questions (original + module-1)
-  const allQuestions = [...questions, ...module1Questions];
+  // All questions already combined in data/questions.js
+  const allQuestions = questions;
 
   const startQuiz = (numQuestions, selectedModules, randomOrder = true) => {
     
