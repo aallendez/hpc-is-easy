@@ -5,6 +5,7 @@ import QuizSetup from './components/QuizSetup';
 import Question from './components/Question';
 import Results from './components/Results';
 import './App.css';
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   const [quizState, setQuizState] = useState('setup'); // setup, quiz, results
@@ -111,6 +112,7 @@ function App() {
           />
         )}
       </main>
+      <Analytics />
 
       <footer>
         <p>Made by <a target="_blank" href="https://javidsegura.github.io/portfolio/">Javi</a> and <a target="_blank" href="https://juan.aallende.com">Juan</a> in Zamora, Spain 🇪🇸</p>
