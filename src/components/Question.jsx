@@ -12,6 +12,18 @@ function Question({
 }) {
   const [selectedAnswers, setSelectedAnswers] = useState([]);
 
+  // Parse question text to handle inline code (text between backticks)
+  const parseInlineCode = (text) => {
+    const parts = text.split(/(`[^`]+`)/g);
+    return parts.map((part, index) => {
+      if (part.startsWith('`') && part.endsWith('`')) {
+        // Remove backticks and render as code
+        return <code key={index} className="inline-code">{part.slice(1, -1)}</code>;
+      }
+      return part;
+    });
+  };
+
   const handleOptionClick = (index) => {
     if (showAnswer) return;
 
@@ -54,7 +66,7 @@ function Question({
       </div>
 
       <div className="question-content">
-        <h2>{question.question}</h2>
+        <h2>{parseInlineCode(question.question)}</h2>
         
         {question.multipleCorrect && !showAnswer && (
           <p className="instruction-text">Select all that apply</p>
@@ -110,7 +122,7 @@ function Question({
                     {String.fromCharCode(65 + index)}.
                   </span>
                 )}
-                <span className="option-text">{option}</span>
+                <span className="option-text">{parseInlineCode(option)}</span>
                 {showAnswer && isCorrect && <span className="check-mark">✓</span>}
               </button>
             );

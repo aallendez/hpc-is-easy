@@ -6,6 +6,12 @@ function QuizSetup({ onStart, totalQuestions, allQuestions }) {
   const [selectedModules, setSelectedModules] = useState([1, 2, 3, 4, 5]);
   const [availableQuestions, setAvailableQuestions] = useState(totalQuestions);
 
+  // Calculate questions per module
+  const questionsPerModule = [1, 2, 3, 4, 5].reduce((acc, module) => {
+    acc[module] = allQuestions.filter(q => q.module === module).length;
+    return acc;
+  }, {});
+
   useEffect(() => {
     // Calculate available questions based on selected modules
     const filtered = allQuestions.filter(q => selectedModules.includes(q.module));
@@ -81,7 +87,7 @@ function QuizSetup({ onStart, totalQuestions, allQuestions }) {
                   checked={selectedModules.includes(module)}
                   onChange={() => handleModuleToggle(module)}
                 />
-                <span>Module {module}</span>
+                <span>Module {module} ({questionsPerModule[module]} questions)</span>
               </label>
             ))}
           </div>

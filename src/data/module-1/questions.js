@@ -385,11 +385,11 @@ export const questions = [
     "session": 2,
     "question": "What are the main types of Flynn's taxonomy of parallel architectures?",
     "options": [
-      "SISD—single instruction stream, single data stream",
-      "SIMD—single instruction stream, multiple data stream",
-      "MIMD—multiple instruction stream, multiple data stream",
-      "MISD—multiple instruction stream, single data stream",
-      "SPMD \\- single program, multiple data stream"
+      "`SISD`—single instruction stream, single data stream",
+      "`SIMD`—single instruction stream, multiple data stream",
+      "`MIMD`—multiple instruction stream, multiple data stream",
+      "`MISD`—multiple instruction stream, single data stream",
+      "`SPMD` - single program, multiple data stream"
     ],
     "correctAnswer": [
       0,
@@ -489,11 +489,11 @@ export const questions = [
     "session": 2,
     "question": "In a heterogeneous computing system, which programming model is specifically designed for using NVIDIA GPUs for general-purpose processing?",
     "options": [
-      "OpenMP",
-      "MPI",
-      "CUDA",
-      "OpenCL",
-      "HIP"
+      "`OpenMP`",
+      "`MPI`",
+      "`CUDA`",
+      "`OpenCL`",
+      "`HIP`"
     ],
     "correctAnswer": [
       2
@@ -781,12 +781,12 @@ export const questions = [
     "id": 46,
     "module": 1,
     "session": 3,
-    "question": "What srun command has been sent for this execution: A srun command is submitted on a machine equipped with dual quad-core processors (each core supporting single thread of execution), two nodes will be allocated for the job. Assuming the first socket of node 0 includes cores numbered 0–3 and the second cores 4–7, task 0 will run on cores 0 and 1, task 1 on cores 4 and 5, task 2 on cores 2 and 3, and task 3 on cores 6 and 7\\. The remaining tasks will be instantiated on node 1, with task 4 using cores 0 and 1 and task 5 cores 4 and 5\\.",
+    "question": "What `srun` command has been sent for this execution: A `srun` command is submitted on a machine equipped with dual quad-core processors (each core supporting single thread of execution), two nodes will be allocated for the job. Assuming the first socket of node 0 includes cores numbered 0–3 and the second cores 4–7, task 0 will run on cores 0 and 1, task 1 on cores 4 and 5, task 2 on cores 2 and 3, and task 3 on cores 6 and 7\\. The remaining tasks will be instantiated on node 1, with task 4 using cores 0 and 1 and task 5 cores 4 and 5\\.",
     "options": [
-      "srun –n6 –c2 –m’block:cyclic’ my\\_app",
-      "srun –n6 –c2 –mplane=2:fcyclic,NoPack my\\_app",
-      "srun –n6 –c2 –m’block:block’ my\\_app",
-      "srun –wnode0\\[4-6\\],node08 –N6 my\\_app"
+      "`srun –n6 –c2 –m'block:cyclic' my_app`",
+      "`srun –n6 –c2 –mplane=2:fcyclic,NoPack my_app`",
+      "`srun –n6 –c2 –m'block:block' my_app`",
+      "`srun –wnode0[4-6],node08 –N6 my_app`"
     ],
     "correctAnswer": [
       1
@@ -797,12 +797,12 @@ export const questions = [
     "id": 47,
     "module": 1,
     "session": 3,
-    "question": "What will this command do? (multiple true) qsub –q debug –l nodes=4,walltime=30:00 job.sh",
+    "question": "What will this command do? (multiple true) `qsub –q debug –l nodes=4,walltime=30:00 job.sh`",
     "options": [
-      "Submit the job to the specific queue (“debug” in this case)",
-      "will start four instances of the job.sh program (one per host)",
+      "Submit the job to the specific queue (`debug` in this case)",
+      "will start four instances of the `job.sh` program (one per host)",
       "the maximum amount of time a job is permitted to run is 30 min",
-      "will launch a Slurm job in debug partition"
+      "will launch a Slurm job in `debug` partition"
     ],
     "correctAnswer": [
       0,
@@ -903,7 +903,7 @@ export const questions = [
     "id": 54,
     "module": 1,
     "session": 3,
-    "question": "What is Slurm primarily used for in HPC environments?",
+    "question": "What is `Slurm` primarily used for in HPC environments?",
     "options": [
       "Data storage",
       "Network security",
@@ -920,7 +920,7 @@ export const questions = [
     "id": 55,
     "module": 1,
     "session": 3,
-    "question": "If a user submits a job using the 'srun' command in Slurm without specifying any nodes, what will Slurm do?",
+    "question": "If a user submits a job using the `srun` command in Slurm without specifying any nodes, what will Slurm do?",
     "options": [
       "The job will be rejected.",
       "The job will be executed on the master node.",
@@ -939,11 +939,11 @@ export const questions = [
     "session": 3,
     "question": "Which command in Slurm provides information about current job status, node availability, and other cluster states?",
     "options": [
-      "srun",
-      "sinfo",
-      "spart",
-      "sstate",
-      "snodes"
+      "`srun`",
+      "`sinfo`",
+      "`spart`",
+      "`sstate`",
+      "`snodes`"
     ],
     "correctAnswer": [
       1
@@ -956,11 +956,11 @@ export const questions = [
     "session": 3,
     "question": "Imagine a user needs to run a job that requires 4 nodes and 32 tasks with 8 tasks on each node. Which of the following Slurm commands correctly specifies this requirement?",
     "options": [
-      "srun \\-N4 \\-n32 \\--ntasks-per-node=8 job\\_script.sh",
-      "srun \\-N4 \\-n8 \\--ntasks-per-node=32 job\\_script.sh",
-      "srun \\-N32 \\-n4 \\--ntasks-per-node=8 job\\_script.sh",
-      "srun \\-N8 \\-n4 \\--ntasks-per-node=32 job\\_script.sh",
-      "srun \\-N4 \\--ntasks-per-node=32 job\\_script.sh"
+      "`srun -N4 -n32 --ntasks-per-node=8 job_script.sh`",
+      "`srun -N4 -n8 --ntasks-per-node=32 job_script.sh`",
+      "`srun -N32 -n4 --ntasks-per-node=8 job_script.sh`",
+      "`srun -N8 -n4 --ntasks-per-node=32 job_script.sh`",
+      "`srun -N4 --ntasks-per-node=32 job_script.sh`"
     ],
     "correctAnswer": [
       0
@@ -1022,13 +1022,13 @@ export const questions = [
     "id": 61,
     "module": 1,
     "session": 3,
-    "question": "Caroline, a data scientist, has been given access to an HPC cluster for her deep learning experiments. For her initial tests, she wants to run her TensorFlow training script on a GPU node. Which of the following Slurm commands would be appropriate for her to request a GPU node? Note: In Slurm, the \\--gres=gpu option is used to request generic resources, specifically GPUs.",
+    "question": "Caroline, a data scientist, has been given access to an HPC cluster for her deep learning experiments. For her initial tests, she wants to run her TensorFlow training script on a GPU node. Which of the following Slurm commands would be appropriate for her to request a GPU node? Note: In Slurm, the `--gres=gpu` option is used to request generic resources, specifically GPUs.",
     "options": [
-      "srun \\--gres=gpu:1 tensorflow\\_script.sh",
-      "srun \\--gpus=1 tensorflow\\_script.sh",
-      "srun \\--request-gpu tensorflow\\_script.sh",
-      "sbatch \\--gpu tensorflow\\_script.sh",
-      "srun \\--resource=gpu tensorflow\\_script.sh"
+      "`srun --gres=gpu:1 tensorflow_script.sh`",
+      "`srun --gpus=1 tensorflow_script.sh`",
+      "`srun --request-gpu tensorflow_script.sh`",
+      "`sbatch --gpu tensorflow_script.sh`",
+      "`srun --resource=gpu tensorflow_script.sh`"
     ],
     "correctAnswer": [
       0
@@ -1194,11 +1194,11 @@ export const questions = [
     "session": 4,
     "question": "Which Singularity command is used to build a container image from a definition file, and what does this process encapsulate?",
     "options": [
-      "singularity exec",
-      "singularity run",
-      "singularity build",
-      "singularity pull",
-      "singularity start"
+      "`singularity exec`",
+      "`singularity run`",
+      "`singularity build`",
+      "`singularity pull`",
+      "`singularity start`"
     ],
     "correctAnswer": [
       2
