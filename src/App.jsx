@@ -85,6 +85,22 @@ function App() {
     setShowAnswer(false);
   };
 
+  const retryWrongQuestions = () => {
+    // Get the questions that were answered incorrectly
+    const wrongQuestions = selectedQuestions.filter((_, index) => 
+      !userAnswers[index]?.isCorrect
+    );
+    
+    // Shuffle them for a fresh attempt
+    const shuffledWrong = shuffleArray(wrongQuestions);
+    
+    setSelectedQuestions(shuffledWrong);
+    setCurrentQuestionIndex(0);
+    setUserAnswers([]);
+    setShowAnswer(false);
+    setQuizState('quiz');
+  };
+
   return (
     <div className="App">
       <header>
@@ -118,6 +134,7 @@ function App() {
             questions={selectedQuestions}
             userAnswers={userAnswers}
             onReset={resetQuiz}
+            onRetryWrong={retryWrongQuestions}
           />
         )}
       </main>

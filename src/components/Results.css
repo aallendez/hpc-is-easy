@@ -112,6 +112,32 @@
   font-weight: 500;
 }
 
+.results-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.retry-wrong-button {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+  transition: all 0.2s ease;
+}
+
+.retry-wrong-button:hover {
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.6);
+  transform: translateY(-2px);
+}
+
 .retry-button {
   width: 100%;
   padding: 1rem;
@@ -121,12 +147,14 @@
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border: none;
   border-radius: 10px;
-  margin-top: 2rem;
+  cursor: pointer;
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  transition: all 0.2s ease;
 }
 
 .retry-button:hover {
   box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+  transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {

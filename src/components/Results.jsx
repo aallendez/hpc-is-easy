@@ -1,7 +1,8 @@
 import './Results.css';
 
-function Results({ questions, userAnswers, onReset }) {
+function Results({ questions, userAnswers, onReset, onRetryWrong }) {
   const correctCount = userAnswers.filter(a => a.isCorrect).length;
+  const incorrectCount = userAnswers.filter(a => !a.isCorrect).length;
   const totalCount = questions.length;
   const percentage = ((correctCount / totalCount) * 100).toFixed(1);
 
@@ -65,9 +66,16 @@ function Results({ questions, userAnswers, onReset }) {
           })}
         </div>
 
-        <button className="retry-button" onClick={onReset}>
-          Take Another Quiz
-        </button>
+        <div className="results-actions">
+          {incorrectCount > 0 && (
+            <button className="retry-wrong-button" onClick={onRetryWrong}>
+              Retry Wrong Questions ({incorrectCount})
+            </button>
+          )}
+          <button className="retry-button" onClick={onReset}>
+            Take Another Quiz
+          </button>
+        </div>
       </div>
     </div>
   );
