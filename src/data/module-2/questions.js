@@ -713,7 +713,7 @@ export const questions = [
       "atomic"
     ],
     "correctAnswer": [
-      2
+      0
     ],
     "multipleCorrect": false
   },
@@ -1361,7 +1361,7 @@ export const questions = [
       "MPI_Gather()"
     ],
     "correctAnswer": [
-      0
+      1
     ],
     "multipleCorrect": false
   },
