@@ -97,7 +97,7 @@ export const questions = [
       "Cache coherence"
     ],
     "correctAnswer": [
-      0
+      2
     ],
     "multipleCorrect": false
   },
