@@ -1296,7 +1296,7 @@ export const questions = [
       "20"
     ],
     "correctAnswer": [
-      0
+      1
     ],
     "multipleCorrect": false
   },
