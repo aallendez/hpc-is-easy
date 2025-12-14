@@ -487,7 +487,7 @@ export const questions = [
       "Every 100 hours"
     ],
     "correctAnswer": [
-      2
+      1
     ],
     "multipleCorrect": false
   },
@@ -928,7 +928,7 @@ export const questions = [
       "now"
     ],
     "correctAnswer": [
-      0
+      1
     ],
     "multipleCorrect": false
   },
@@ -1076,7 +1076,7 @@ export const questions = [
       "System monitors"
     ],
     "correctAnswer": [
-      0
+      2
     ],
     "multipleCorrect": false
   },
