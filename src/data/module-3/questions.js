@@ -97,7 +97,7 @@ export const questions = [
       "Memory profiling"
     ],
     "correctAnswer": [
-      0
+      2
     ],
     "multipleCorrect": false
   },
