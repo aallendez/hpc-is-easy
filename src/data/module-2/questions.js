@@ -1463,7 +1463,7 @@ export const questions = [
       "MPI_Send()"
     ],
     "correctAnswer": [
-      0
+      1
     ],
     "multipleCorrect": false
   },
