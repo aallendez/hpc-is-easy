@@ -2032,9 +2032,10 @@ export const questions = [
       "No changes needed; the code is already optimized."
     ],
     "correctAnswer": [
-      0
+      0,
+      1
     ],
-    "multipleCorrect": false
+    "multipleCorrect": true
   },
   {
     "id": 123,
