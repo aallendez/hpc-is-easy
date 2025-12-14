@@ -1036,7 +1036,7 @@ export const questions = [
       "map(always, to: A), map(release: B)"
     ],
     "correctAnswer": [
-      0
+      1
     ],
     "multipleCorrect": false
   },
