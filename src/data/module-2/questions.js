@@ -233,7 +233,7 @@ export const questions = [
       "Persistent communication"
     ],
     "correctAnswer": [
-      0
+      1
     ],
     "multipleCorrect": false
   },
@@ -250,7 +250,7 @@ export const questions = [
       "Lustre"
     ],
     "correctAnswer": [
-      0
+      1
     ],
     "multipleCorrect": false
   },
@@ -352,7 +352,7 @@ export const questions = [
       "Static scheduling"
     ],
     "correctAnswer": [
-      0
+      1
     ],
     "multipleCorrect": false
   },
@@ -420,7 +420,7 @@ export const questions = [
       "CPUs, GPUs, and CUDA"
     ],
     "correctAnswer": [
-      2
+      4
     ],
     "multipleCorrect": false
   },
@@ -534,7 +534,7 @@ export const questions = [
       "Shared"
     ],
     "correctAnswer": [
-      0
+      3
     ],
     "multipleCorrect": false
   },
@@ -679,7 +679,7 @@ export const questions = [
       "lastprivate"
     ],
     "correctAnswer": [
-      0
+      3
     ],
     "multipleCorrect": false
   },
@@ -713,7 +713,7 @@ export const questions = [
       "atomic"
     ],
     "correctAnswer": [
-      0
+      2
     ],
     "multipleCorrect": false
   },
@@ -832,7 +832,7 @@ export const questions = [
       "Each process computes the sum of the local sums from its neighbors"
     ],
     "correctAnswer": [
-      2
+      3
     ],
     "multipleCorrect": false
   },
@@ -883,7 +883,7 @@ export const questions = [
       "Each process computes the sum of the local sums from its neighbours"
     ],
     "correctAnswer": [
-      2
+      3
     ],
     "multipleCorrect": false
   },
@@ -900,7 +900,7 @@ export const questions = [
       "15"
     ],
     "correctAnswer": [
-      0
+      4
     ],
     "multipleCorrect": false
   },
@@ -1053,7 +1053,7 @@ export const questions = [
       "mutexinoutset: t, mutexinoutset: t, mutexinoutset: t"
     ],
     "correctAnswer": [
-      0
+      3
     ],
     "multipleCorrect": false
   },
@@ -1120,7 +1120,7 @@ export const questions = [
       "Any MPI process can directly send and receive messages, to and from other processes"
     ],
     "correctAnswer": [
-      0
+      1
     ],
     "multipleCorrect": false
   },
@@ -1134,7 +1134,7 @@ export const questions = [
       "False"
     ],
     "correctAnswer": [
-      0
+      1
     ],
     "multipleCorrect": false
   },
@@ -1151,7 +1151,7 @@ export const questions = [
       "Ranks print nothing due to deadlock"
     ],
     "correctAnswer": [
-      0
+      1
     ],
     "multipleCorrect": false
   },
@@ -1185,7 +1185,7 @@ export const questions = [
       "Rank 0 prints \"gathered[0] = 0, gathered[1] = 5, gathered[2] = 10\""
     ],
     "correctAnswer": [
-      0
+      4
     ],
     "multipleCorrect": false
   },
@@ -1232,7 +1232,7 @@ export const questions = [
       "False"
     ],
     "correctAnswer": [
-      0
+      1
     ],
     "multipleCorrect": false
   },
@@ -1327,7 +1327,7 @@ export const questions = [
       "Incorrect, system will be in deadlock"
     ],
     "correctAnswer": [
-      0
+      1
     ],
     "multipleCorrect": false
   },
@@ -1412,7 +1412,7 @@ export const questions = [
       "1600"
     ],
     "correctAnswer": [
-      0
+      1
     ],
     "multipleCorrect": false
   },
@@ -1480,7 +1480,7 @@ export const questions = [
       "MPI_Bcast()"
     ],
     "correctAnswer": [
-      0
+      2
     ],
     "multipleCorrect": false
   },
@@ -1497,7 +1497,7 @@ export const questions = [
       "MPI_Barrier()"
     ],
     "correctAnswer": [
-      0
+      2
     ],
     "multipleCorrect": false
   },
@@ -1514,7 +1514,7 @@ export const questions = [
       "Rank 0 received 20 from Rank 3"
     ],
     "correctAnswer": [
-      0
+      2
     ],
     "multipleCorrect": false
   },
@@ -1531,7 +1531,7 @@ export const questions = [
       "The total sum is 9"
     ],
     "correctAnswer": [
-      0
+      1
     ],
     "multipleCorrect": false
   },
@@ -1667,7 +1667,7 @@ export const questions = [
       "Deterministic only if a barrier precedes it."
     ],
     "correctAnswer": [
-      0
+      1
     ],
     "multipleCorrect": false
   },
@@ -1799,7 +1799,7 @@ export const questions = [
       "With private the private arrays are initialized to the value of the host array. With first private they are unitialized."
     ],
     "correctAnswer": [
-      0
+      1
     ],
     "multipleCorrect": false
   },
@@ -1813,7 +1813,7 @@ export const questions = [
       "False"
     ],
     "correctAnswer": [
-      0
+      1
     ],
     "multipleCorrect": false
   },
@@ -1845,7 +1845,7 @@ export const questions = [
       "reduction clause that gets maximum of the result vector x into variable r."
     ],
     "correctAnswer": [
-      0
+      2
     ],
     "multipleCorrect": false
   },
@@ -1862,7 +1862,7 @@ export const questions = [
       "Add #pragma acc data region"
     ],
     "correctAnswer": [
-      0
+      2
     ],
     "multipleCorrect": false
   },
@@ -1913,7 +1913,7 @@ export const questions = [
       "#pragma acc parallel loop copy(sum)"
     ],
     "correctAnswer": [
-      0
+      2
     ],
     "multipleCorrect": false
   },
@@ -1964,7 +1964,7 @@ export const questions = [
       "Both #pragma acc data copyin(A,B) copyout(C) and #pragma acc kernels f) Both #pragma acc parallel loop collapse(2) and #pragma acc kernels"
     ],
     "correctAnswer": [
-      0
+      3
     ],
     "multipleCorrect": false
   },
@@ -1998,7 +1998,7 @@ export const questions = [
       "#pragma acc serial loop"
     ],
     "correctAnswer": [
-      0
+      1
     ],
     "multipleCorrect": false
   },
