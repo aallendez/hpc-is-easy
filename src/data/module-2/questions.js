@@ -1735,9 +1735,11 @@ export const questions = [
       "More compute resources F. High energy efficiency (Flop / Watt)"
     ],
     "correctAnswer": [
-      1
+      1,
+      3,
+      4
     ],
-    "multipleCorrect": false
+    "multipleCorrect": true
   },
   {
     "id": 105,
